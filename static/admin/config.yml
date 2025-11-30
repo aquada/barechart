@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: aquada/barechart # Path to your GitHub repository
+  # optional, defaults to master
+  branch: main
+
+
+media_folder: "site/static/img"
+public_folder: "img"
+
+collections:
+  - name: "trades"
+    label: "Trades"
+    folder: "site/content/trades"
+    create: true
+    slug: "{{date}}-{{slug}}"
+    fields:
+      - {label: "Trader", name: "trader", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Time", name: "time", widget: "string"}
+      - {label: "Day of Week", name: "day_of_week", widget: "string", required: false}
+      - {label: "Instrument", name: "instrument", widget: "string"}
+      - {label: "Setup", name: "setup", widget: "string"}
+      - {label: "Entry Confluence", name: "entry_confluence", widget: "string"}
+      - {label: "SL Confluence", name: "sl_confluence", widget: "string"}
+      - {label: "Target Confluence", name: "target_confluence", widget: "string"}
+      - {label: "Rules Followed", name: "rules_followed", widget: "boolean"}
+      - {label: "R Value", name: "r_value", widget: "number"}
+      - {label: "Trade Image", name: "image", widget: "image", required: false}
