@@ -5,9 +5,11 @@
     <title>CMS</title>
   </head>
   <body>
+    <sveltia-cms config-path="/admin/config.yml"></sveltia-cms>
+
     <script type="module">
-      import { createSveltiaCMS } from "https://cdn.jsdelivr.net/npm/sveltia-cms@latest/dist/sveltia-cms.js";
-      createSveltiaCMS();
+      import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/sveltia-cms@latest/dist/sveltia-cms/loader/index.es2017.mjs';
+      defineCustomElements();
     </script>
   </body>
 </html>
