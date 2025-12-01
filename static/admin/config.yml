@@ -2,28 +2,69 @@ backend:
   name: github
   repo: aquada/barechart
   branch: main
-  # auth_type: pkce
-  # app_id_env: SVELTIA_GITHUB_CLIENT_ID
-  # base_url: https://api.netlify.com
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:
+  # ---------------------
+  # BLOG POSTS
+  # ---------------------
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ---------------------
+  # TRADES
+  # ---------------------
   - name: "trades"
     label: "Trades"
     folder: "content/trades"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Trader", name: "trader", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Time", name: "time", widget: "string" }
-      - { label: "Instrument", name: "instrument", widget: "string" }
-      - { label: "Setup", name: "setup", widget: "text" }
-      - { label: "Confluence Entry/SL", name: "confluence", widget: "text" }
-      - { label: "Target", name: "target", widget: "text" }
-      - { label: "Rules Followed", name: "rules", widget: "text" }
-      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
-      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Trader", name: "trader", widget: "string", default: "Dan" }
 
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        default: "{{now}}"
+
+      - label: "Time"
+        name: "time"
+        widget: "string"
+        default: "09:00"
+
+      - label: "Instrument"
+        name: "instrument"
+        widget: "select"
+        options:
+          - { label: "DAX", value: "DAX" }
+          - { label: "DOW", value: "DOW" }
+          - { label: "NASDAQ", value: "NASDAQ" }
+          - { label: "USDJPY", value: "USDJPY" }
+          - { label: "EURUSD", value: "EURUSD" }
+          - { label: "GBPUSD", value: "GBPUSD" }
+          - { label: "GOLD", value: "GOLD" }
+
+      - { label: "Setup", name: "setup", widget: "text", required: false }
+      - { label: "Confluence Entry/SL", name: "confluence", widget: "text", required: false }
+      - { label: "Target", name: "target", widget: "text", required: false }
+
+      - label: "Rules Followed"
+        name: "rules_followed"
+        widget: "select"
+        options:
+          - { label: "Yes", value: "yes" }
+          - { label: "No", value: "no" }
+        default: "yes"
+
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
