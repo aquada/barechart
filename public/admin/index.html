@@ -8,8 +8,9 @@
     <sveltia-cms config-path="/admin/config.yml"></sveltia-cms>
 
     <script type="module">
-      import { defineCustomElements } from 'https://unpkg.com/sveltia-cms@latest/dist/loader/index.es2017.js';
-      defineCustomElements();
+      import '/admin/cms/sveltia-cms.mjs';
     </script>
+
+    <link rel="stylesheet" href="/admin/cms/sveltia-cms.css">
   </body>
 </html>
