@@ -1,83 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Admin</title>
-
-    <!-- Netlify Identity widget (must appear BEFORE decap-cms) -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-    <style>
-      /* Prevent flash-of-blank if needed */
-      html,body { height:100%; margin:0; }
-    </style>
+    <title>CMS</title>
   </head>
   <body>
-    <script>
-      // Wait for the widget script to load
-      (function() {
-        if (!window.netlifyIdentity) {
-          console.error("Netlify Identity widget not loaded");
-          return;
-        }
-
-        // Initialize the widget
-        window.netlifyIdentity.init();
-
-        // Helper: extract token whether it's in the hash (#recoveryToken=...) or query (?recoveryToken=...)
-        function getTokenFromUrl(name) {
-          // Check hash first
-          var hash = window.location.hash || "";
-          var q = window.location.search || "";
-          var re = new RegExp("[#&?]" + name + "=([^&]+)");
-          var m = hash.match(re) || q.match(re);
-          return m ? decodeURIComponent(m[1]) : null;
-        }
-
-        var inviteToken = getTokenFromUrl("invitation") || getTokenFromUrl("invitationToken") || getTokenFromUrl("inviteToken");
-        var recoveryToken = getTokenFromUrl("recoveryToken") || getTokenFromUrl("token");
-
-        // If there's an invite token (from email), accept it
-        if (inviteToken) {
-          console.log("Found invite token in URL:", inviteToken);
-          // Accept the invite and then open the admin interface
-          window.netlifyIdentity.acceptInvite(inviteToken)
-            .then(function(user) {
-              console.log("Invite accepted:", user);
-              // Clean URL and redirect into admin root so decap can load normally
-              history.replaceState(null, "", "/admin/");
-              location.href = "/admin/";
-            })
-            .catch(function(err) {
-              console.error("Error accepting invite token:", err);
-              // fallback: open widget so user can login/signup
-              window.netlifyIdentity.open();
-            });
-        } else if (recoveryToken) {
-          console.log("Found recovery token in URL:", recoveryToken);
-          // Confirm user using recovery token (confirmUser also works)
-          window.netlifyIdentity.confirmUser(recoveryToken)
-            .then(function(user) {
-              console.log("Recovery token confirmed, user:", user);
-              history.replaceState(null, "", "/admin/");
-              location.href = "/admin/";
-            })
-            .catch(function(err) {
-              console.error("Error confirming recovery token:", err);
-              // fallback: open widget
-              window.netlifyIdentity.open();
-            });
-        } else {
-          // No token — normal admin load. When someone logs in, redirect back to /admin/
-          window.netlifyIdentity.on("login", function() {
-            console.log("NetlifyIdentity login event");
-            document.location.href = "/admin/";
-          });
-        }
-      })();
+    <script type="module">
+      import { createSveltiaCMS } from "https://cdn.jsdelivr.net/npm/sveltia-cms@latest/dist/sveltia-cms.js";
+      createSveltiaCMS();
     </script>
-
-    <!-- Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
   </body>
 </html>
