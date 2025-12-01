@@ -5,9 +5,12 @@
     <title>CMS</title>
   </head>
   <body>
-    <sveltia-cms config-path="/admin/config.yml"></sveltia-cms>
+    <sveltia-cms config-path="./config.yml"></sveltia-cms>
 
-    <!-- Use the browser-ready JS -->
-    <script src="/admin/cms/sveltia-cms.js"></script>
+    <!-- Load Sveltia CMS ES module -->
+    <script type="module">
+      import { defineCustomElements } from './cms/sveltia-cms.mjs';
+      defineCustomElements();
+    </script>
   </body>
 </html>
