@@ -3,7 +3,7 @@ backend:
   repo: aquada/barechart
   branch: main
   auth_type: pkce
-  app_id: Ov23liWt0EGoUQFnNFU3
+  app_id_env: SVELTIA_GITHUB_CLIENT_ID
   base_url: https://api.netlify.com
 
 media_folder: "static/uploads"
