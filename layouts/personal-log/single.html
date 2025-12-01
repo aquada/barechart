@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+<article class="prose max-w-none">
+
+  <h1>{{ .Title }}</h1>
+  <p class="text-sm opacity-70">{{ .Date.Format "Mon, 2 Jan 2006 • 15:04" }}</p>
+
+  {{ with .Params.image }}
+  <img src="{{ . | relURL }}" class="rounded-xl my-6 shadow">
+  {{ end }}
+
+  <h2>Trade Summary</h2>
+  <table class="table-auto">
+    <tbody>
+      <tr><th>Trader</th><td>{{ .Params.trader }}</td></tr>
+      <tr><th>Instrument</th><td>{{ .Params.instrument }}</td></tr>
+      <tr><th>Time</th><td>{{ .Params.time }}</td></tr>
+
+      {{ with .Params.setup }}
+      <tr><th>Setup</th><td>{{ . }}</td></tr>
+      {{ end }}
+
+      {{ with .Params.confluence }}
+      <tr><th>Entry & SL Confluence</th><td>{{ . }}</td></tr>
+      {{ end }}
+
+      {{ with .Params.target }}
+      <tr><th>Target</th><td>{{ . }}</td></tr>
+      {{ end }}
+
+      {{ with .Params.rr_target }}
+      <tr><th>R:R Target</th><td>{{ . }}</td></tr>
+      {{ end }}
+
+      {{ with .Params.r_gain }}
+      <tr><th>R Gain</th><td>{{ . }}</td></tr>
+      {{ end }}
+
+      {{ with .Params.rules_followed }}
+      <tr><th>Rules Followed?</th><td>{{ . }}</td></tr>
+      {{ end }}
+
+      {{ with .Params.good_or_bad }}
+      <tr><th>Good or Bad</th><td>{{ . }}</td></tr>
+      {{ end }}
+    </tbody>
+  </table>
+
+  {{ with .Params.notes }}
+  <h2>Notes & Analysis</h2>
+  {{ . | markdownify }}
+  {{ end }}
+
+  {{ if .Params.tags }}
+  <h3>Tags</h3>
+  <p>
+    {{ range .Params.tags }}
+      <a class="badge" href="/tags/{{ . | urlize }}/">{{ . }}</a>
+    {{ end }}
+  </p>
+  {{ end }}
+
+</article>
+
+{{ end }}

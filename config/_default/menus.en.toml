@@ -49,3 +49,17 @@
   pageRef = "samples"
   weight = 10 
 
+[[main]]
+name = "Trading Log"
+url = "/personal-log/"
+weight = 2
+
+[[main]]
+name = "Teamwork"
+url = "/teamwork/"
+weight = 3
+
+[[main]]
+name = "Blog"
+url = "/posts/"
+weight = 4
