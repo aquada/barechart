@@ -4,6 +4,7 @@ backend:
   branch: main
   auth_type: implicit
   app_id: Ov23liWt0EGoUQFnNFU3
+  base_url: https://api.netlify.com
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
@@ -25,3 +26,4 @@ collections:
       - { label: "Rules Followed", name: "rules", widget: "text" }
       - { label: "Thumbnail", name: "thumbnail", widget: "image" }
       - { label: "Image", name: "image", widget: "image" }
+
