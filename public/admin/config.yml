@@ -2,7 +2,7 @@ backend:
   name: github
   repo: aquada/barechart
   branch: main
-  auth_type: implicit
+  auth_type: authorization_code
   app_id: Ov23liWt0EGoUQFnNFU3
   base_url: https://api.netlify.com
 
