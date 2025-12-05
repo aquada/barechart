@@ -16,7 +16,7 @@ enableStructuredBreadcrumbs = true
 
 replyByEmail = false
 
-mainSections = ["docs"]
+mainSections = ["mindset", "education", "tools", "trades"]
 # robots = ""
 
 disableImageOptimization = false
@@ -50,9 +50,9 @@ fingerprintAlgorithm = "sha512" # Valid values are "sha512" (default), "sha384",
   showScrollToTop = true
 
 [homepage]
-  layout = "card" # valid options: page, profile, hero, card, background, custom
+  layout = "page" # valid options: page, profile, hero, card, background, custom
   # homepageImage = "/img/iceland.jpg" # used in: hero, and card
-  showRecent = false
+  showRecent = true
   showRecentItems = 12
   showMoreLink = true
   showMoreLinkDest = "docs"

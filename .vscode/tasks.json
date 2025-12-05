@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Git Pull Rebase",
+      "type": "shell",
+      "command": "git pull --rebase origin main",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
+``

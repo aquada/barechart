@@ -18,21 +18,27 @@
   weight = 10
 
 [[main]]
-  name = "Blog"
+  name = "Articles"
   pageRef = "samples"
   weight = 10
 
 [[main]]
-  name = "Sub-menu 1"
-  parent = "Blog"
-  pageRef = "tags"
+  name = "Blog"
+  parent = "Articles"
+  pageRef = "/posts/"
   weight = 20 
 
 [[main]]
-  name = "Sub-menu 2"
-  parent = "Blog"
-  pageRef = "samples"
-  weight = 20       
+  name = "Personal Log"
+  parent = "Articles"
+  pageRef = "/personal-log/"
+  weight = 20      
+
+[[main]]
+  name = "Teamwork Log"
+  parent = "Articles"
+  pageRef = "/teamwork/"
+  weight = 20     
 
 [[main]]
   name = "Mindset"
@@ -49,17 +55,5 @@
   pageRef = "samples"
   weight = 10 
 
-[[main]]
-name = "Trading Log"
-url = "/personal-log/"
-weight = 2
 
-[[main]]
-name = "Teamwork"
-url = "/teamwork/"
-weight = 3
 
-[[main]]
-name = "Blog"
-url = "/posts/"
-weight = 4
