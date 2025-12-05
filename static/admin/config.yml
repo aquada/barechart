@@ -21,6 +21,57 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}" }
       - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
       - { label: "Tags", name: "tags", widget: "list", required: false }
+
+  # ============================
+  # TRADES (use Page Bundles for images)
+  # Saves uploaded media into the entry folder so Hugo Page Resources work
+  # ============================
+  - name: "trades"
+    label: "Trades"
+    folder: "content/trades"
+    create: true
+    # Create a page bundle by writing the file as `.../<bundle>/index.md`.
+    # Include date + time and instrument in the bundle directory name.
+    # Note: some CMSes cache config; if you see errors in the admin UI, clear
+    # the browser cache or hard-refresh the admin page before testing.
+    # Use `index` (no extension) — some CMSes append `.md` automatically and
+    # including `.md` in the path produced `index.md.md` files.
+    path: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}-{{fields.instrument}}-{{slug}}/index"
+    # Save uploaded media inside the entry bundle directory (explicit path).
+    # Use the full content folder so the CMS writes to the exact directory
+    # instead of relying on collection concatenation behavior.
+    media_folder: "content/trades/{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}-{{fields.instrument}}-{{slug}}"
+    # Public path for the uploaded files on the generated site
+    public_folder: "/trades/{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}-{{fields.instrument}}-{{slug}}"
+    # NOTE: Instrument token re-enabled. If your admin UI still shows errors,
+    # clear the browser cache or hard-refresh `/admin` (or restart any CDN).
+    fields:
+      - { label: "Trader", name: "trader", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", default: "{{now}}" }
+      - { label: "Time", name: "time", widget: "string" }
+
+      - label: "Instrument"
+        name: "instrument"
+        widget: "select"
+        options:
+          - DAX
+          - DOW
+          - NASDAQ
+          - USDJPY
+          - EURUSD
+          - GBPUSD
+          - GOLD
+
+      - { label: "Setup", name: "setup", widget: "text" }
+      - { label: "Confluence Entry & SL", name: "confluence", widget: "text" }
+      - { label: "Target", name: "target", widget: "text" }
+
+      - { label: "Notes", name: "notes", widget: "markdown", required: false }
+
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+
+      - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
   # ============================
