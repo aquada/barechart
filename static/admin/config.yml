@@ -3,6 +3,27 @@ backend:
   repo: aquada/barechart
   branch: main
 
+# ---------------------------------------------------------------------------
+# Netlify / Sveltia CMS config notes
+# - `media_folder`: where uploaded files are saved in the repo (can be relative
+#   to the site root or a collection folder). We prefer saving under `content/`
+#   so images become Hugo Page Resources and are versioned in git.
+# - `public_folder`: the path used in generated pages to reference uploaded
+#   media (how the site will serve them). It is typically a public-facing
+#   path like `/uploads` or `/trades/<bundle>`.
+# - Collections: `folder` is where CMS writes entries; `slug` controls filename
+#   when creating single files; `path` can contain slashes and a filename and
+#   is required to create nested page-bundle directories (e.g. `bundle/index`).
+# - Token notes: not all CMS builds support `{{fields.*}}` tokens in `path` or
+#   `media_folder`. If you see validation errors in the admin UI, remove tokens
+#   or clear the browser cache and try again.
+# - Recommended workflow for page bundles:
+#   1. Fill Title/Slug (or set the fields used in `path`) before uploading media.
+#   2. Upload images (they will be saved next to `index.md` in the bundle).
+#   3. Save the entry. If images land in unexpected folders, hard-refresh the
+#      admin UI and retry the create flow (token resolution/order matters).
+# ---------------------------------------------------------------------------
+
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
@@ -30,37 +51,20 @@ collections:
     label: "Trades"
     folder: "content/trades"
     create: true
-    # Create a page bundle by writing the file as `.../<bundle>/index.md`.
-    # Include date + time and instrument in the bundle directory name.
-    # Note: some CMSes cache config; if you see errors in the admin UI, clear
-    # the browser cache or hard-refresh the admin page before testing.
-    # Use `index` (no extension) — some CMSes append `.md` automatically and
-    # including `.md` in the path produced `index.md.md` files.
-    path: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}-{{fields.instrument}}-{{slug}}/index"
+    # Create a page bundle by writing the file as `.../<bundle>/index`.
+    # Include date + time to make bundles unique: year-month-day-hour-minute-second
+    # (instrument removed to avoid CMS/token issues).
+    # Use `index` (no extension) — some CMSes append `.md` automatically.
+    path: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}-{{slug}}/index"
     # Save uploaded media inside the entry bundle directory (explicit path).
-    # Use the full content folder so the CMS writes to the exact directory
-    # instead of relying on collection concatenation behavior.
-    media_folder: "content/trades/{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}-{{fields.instrument}}-{{slug}}"
+    media_folder: "content/trades/{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}-{{slug}}"
     # Public path for the uploaded files on the generated site
-    public_folder: "/trades/{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}-{{fields.instrument}}-{{slug}}"
-    # NOTE: Instrument token re-enabled. If your admin UI still shows errors,
-    # clear the browser cache or hard-refresh `/admin` (or restart any CDN).
+    public_folder: "/trades/{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}-{{slug}}"
+    # NOTE: Removed the `instrument` field to avoid CMS path/token issues.
     fields:
       - { label: "Trader", name: "trader", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime", default: "{{now}}" }
       - { label: "Time", name: "time", widget: "string" }
-
-      - label: "Instrument"
-        name: "instrument"
-        widget: "select"
-        options:
-          - DAX
-          - DOW
-          - NASDAQ
-          - USDJPY
-          - EURUSD
-          - GBPUSD
-          - GOLD
 
       - { label: "Setup", name: "setup", widget: "text" }
       - { label: "Confluence Entry & SL", name: "confluence", widget: "text" }

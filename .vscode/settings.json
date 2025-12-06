@@ -1,0 +1,27 @@
+{
+  // VS Code YAML schema association for trade front matter
+  "yaml.schemas": {
+    "${workspaceFolder}/.vscode/trades-frontmatter.schema.json": [
+      "content/trades/**/index.md",
+      "content/trades/**/index",
+      "content/trades/**/index.*",
+      "content/trades/**/index*",
+      "content/trades/**/*.md"
+    ]
+  },
+  // Explicit per-file mapping to help debug schema application for the sample bundle
+  "yaml.schemasPerFile": {
+    "${workspaceFolder}/content/trades/2025-12-05-15-13-16-dax-7cd3a3c59233/index.md": "${workspaceFolder}/.vscode/trades-frontmatter.schema.json"
+  },
+  // Enable validation and verbose schema tracing to help debug schema application
+  "yaml.validate": true,
+  "yaml.trace.server": "verbose",
+  // Disable schema store to avoid remote schema interference during debugging
+  "yaml.schemaStore.enable": false
+  // Optional: provide editor quick suggestions for front matter keys
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  }
+}

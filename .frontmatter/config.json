@@ -1,0 +1,431 @@
+{
+    "contentTypes": [
+        {
+            "name": "Trade (Personal)",
+            "label": "Personal Trade",
+            "file": "content/trades/{year}-{month}-{day}-{slug}/index.md",
+            "create": true,
+            "fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "label": "Date (full)",
+                    "name": "date",
+                    "type": "datetime",
+                    "required": true
+                },
+                {
+                    "label": "Time",
+                    "name": "time",
+                    "type": "string",
+                    "hint": "HH:MM (optional)"
+                },
+                {
+                    "label": "Day of week",
+                    "name": "day",
+                    "type": "string"
+                },
+                {
+                    "label": "Instrument",
+                    "name": "instrument",
+                    "type": "select",
+                    "options": [
+                        "DAX",
+                        "DOW",
+                        "NASD",
+                        "USDJPY",
+                        "EURUSD",
+                        "GBPUSD",
+                        "GOLD"
+                    ],
+                    "required": true
+                },
+                {
+                    "label": "Direction",
+                    "name": "direction",
+                    "type": "select",
+                    "options": [
+                        "Long",
+                        "Short"
+                    ]
+                },
+                {
+                    "label": "Setup",
+                    "name": "setup",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Confluence Entry / SL",
+                    "name": "confluence",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Target",
+                    "name": "target",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Notes",
+                    "name": "notes",
+                    "type": "markdown"
+                },
+                {
+                    "label": "Rules Followed?",
+                    "name": "rules_followed",
+                    "type": "select",
+                    "options": [
+                        "yes",
+                        "no"
+                    ],
+                    "default": "yes"
+                },
+                {
+                    "label": "Thumbnail (card)",
+                    "name": "thumbnail",
+                    "type": "image",
+                    "note": "Saved inside the bundle"
+                },
+                {
+                    "label": "Main image (screenshot)",
+                    "name": "image",
+                    "type": "image",
+                    "note": "Saved inside the bundle"
+                },
+                {
+                    "label": "Tags",
+                    "name": "tags",
+                    "type": "list",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Teamwork Trade",
+            "label": "Teamwork Trade",
+            "file": "content/teamwork/{year}-{month}-{day}-team-{slug}/index.md",
+            "create": true,
+            "fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "label": "Date (full)",
+                    "name": "date",
+                    "type": "datetime",
+                    "required": true
+                },
+                {
+                    "label": "Time",
+                    "name": "time",
+                    "type": "string"
+                },
+                {
+                    "label": "Day of week",
+                    "name": "day",
+                    "type": "string"
+                },
+                {
+                    "label": "Instrument",
+                    "name": "instrument",
+                    "type": "select",
+                    "options": [
+                        "DAX",
+                        "DOW",
+                        "NASD",
+                        "USDJPY",
+                        "EURUSD",
+                        "GBPUSD",
+                        "GOLD"
+                    ],
+                    "required": true
+                },
+                {
+                    "label": "Setup",
+                    "name": "setup",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Confluence for Entry & SL",
+                    "name": "confluence_entry",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Target & Confluence",
+                    "name": "confluence_target",
+                    "type": "textarea"
+                },
+                {
+                    "label": "I - Candle",
+                    "name": "i_candle",
+                    "type": "string"
+                },
+                {
+                    "label": "J - Gap",
+                    "name": "gap",
+                    "type": "string"
+                },
+                {
+                    "label": "K - Pending Order",
+                    "name": "pending",
+                    "type": "string"
+                },
+                {
+                    "label": "L - Rules followed (AAA+)",
+                    "name": "rules_followed",
+                    "type": "select",
+                    "options": [
+                        "yes",
+                        "no"
+                    ]
+                },
+                {
+                    "label": "M - Exit",
+                    "name": "exit",
+                    "type": "string"
+                },
+                {
+                    "label": "N - Result",
+                    "name": "result",
+                    "type": "string"
+                },
+                {
+                    "label": "O - Comments",
+                    "name": "comments",
+                    "type": "textarea"
+                },
+                {
+                    "label": "P - Lessons",
+                    "name": "lessons",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Q - URL",
+                    "name": "related_url",
+                    "type": "string"
+                },
+                {
+                    "label": "R - R (R:R gain)",
+                    "name": "r_gain",
+                    "type": "string"
+                },
+                {
+                    "label": "Notes",
+                    "name": "notes",
+                    "type": "markdown"
+                },
+                {
+                    "label": "Screenshot (main)",
+                    "name": "image",
+                    "type": "image",
+                    "note": "Saved inside bundle"
+                },
+                {
+                    "label": "Tags",
+                    "name": "tags",
+                    "type": "list",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Blog Post",
+            "label": "Blog Post",
+            "file": "content/posts/{slug}/index.md",
+            "create": true,
+            "fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "label": "Publish Date",
+                    "name": "date",
+                    "type": "datetime",
+                    "default": "{{date}}"
+                },
+                {
+                    "label": "Thumbnail",
+                    "name": "thumbnail",
+                    "type": "image"
+                },
+                {
+                    "label": "Summary",
+                    "name": "summary",
+                    "type": "string"
+                },
+                {
+                    "label": "Body",
+                    "name": "body",
+                    "type": "markdown"
+                },
+                {
+                    "label": "Tags",
+                    "name": "tags",
+                    "type": "list",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Education Page",
+            "label": "Education Page",
+            "file": "content/education/{slug}/index.md",
+            "create": true,
+            "page": true,
+            "fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "label": "Summary",
+                    "name": "summary",
+                    "type": "string"
+                },
+                {
+                    "label": "Body",
+                    "name": "body",
+                    "type": "markdown"
+                },
+                {
+                    "label": "Images",
+                    "name": "images",
+                    "type": "list",
+                    "items": {
+                        "type": "image"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Tools Page",
+            "label": "Tools Page",
+            "file": "content/tools/{slug}/index.md",
+            "create": true,
+            "page": true,
+            "fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "label": "Summary",
+                    "name": "summary",
+                    "type": "string"
+                },
+                {
+                    "label": "Body",
+                    "name": "body",
+                    "type": "markdown"
+                },
+                {
+                    "label": "Product Image",
+                    "name": "product_image",
+                    "type": "image"
+                },
+                {
+                    "label": "External Link",
+                    "name": "product_link",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Mindset Post",
+            "label": "Mindset Post",
+            "file": "content/mindset/{slug}/index.md",
+            "create": true,
+            "fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "label": "Date",
+                    "name": "date",
+                    "type": "datetime",
+                    "default": "{{date}}"
+                },
+                {
+                    "label": "Body",
+                    "name": "body",
+                    "type": "markdown"
+                },
+                {
+                    "label": "Tags",
+                    "name": "tags",
+                    "type": "list",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "About",
+            "label": "About Page",
+            "file": "content/about/index.md",
+            "create": true,
+            "page": true,
+            "fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "label": "Body",
+                    "name": "body",
+                    "type": "markdown"
+                }
+            ]
+        },
+        {
+            "name": "Contact",
+            "label": "Contact Page",
+            "file": "content/contact/index.md",
+            "create": true,
+            "page": true,
+            "fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "label": "Body",
+                    "name": "body",
+                    "type": "markdown"
+                }
+            ]
+        }
+    ],
+    "settings": {
+        "pageBundles": true,
+        "imageFolderRelative": true,
+        "frontMatterFormat": "yaml"
+    }
+}

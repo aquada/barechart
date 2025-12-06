@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Barechart - Trade front matter",
+  "description": "YAML front matter schema for trade pages (content/trades bundles). Provides types, descriptions and editor hints for VS Code YAML extension.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Page title."
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Publication date/time in ISO 8601. e.g. 2025-12-05T09:00:00"
+    },
+    "draft": {
+      "type": "boolean",
+      "description": "Mark draft pages."
+    },
+    "trader": {
+      "type": "string",
+      "description": "Name of the trader (e.g. Dan)."
+    },
+    "time": {
+      "type": "string",
+      "description": "Local trade time (HH:MM).",
+      "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+    },
+    "setup": {
+      "type": "string",
+      "description": "Setup / trade type."
+    },
+    "confluence": {
+      "type": "string",
+      "description": "Confluence notes for entry / stop-loss."
+    },
+    "target": {
+      "type": "string",
+      "description": "Target or R:R target."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Freeform notes. This is usually written in markdown in the content body; if present in front matter it should be a string."
+    },
+    "featured_image": {
+      "type": "string",
+      "description": "Featured image filename or URL. Prefer relative filename inside the page bundle (e.g. \"featured.jpg\")."
+    },
+    "image": {
+      "type": "string",
+      "description": "Fallback image filename or URL. Prefer relative filename inside the page bundle."
+    },
+    "tags": {
+      "type": "array",
+      "description": "List of tag strings.",
+      "items": { "type": "string" }
+    }
+  },
+  "required": [ "title", "date" ],
+  "additionalProperties": true,
+  "examples": [
+    {
+      "title": "2025-12-05 DAX short",
+      "date": "2025-12-05T09:00:00",
+      "draft": true,
+      "trader": "Dan",
+      "time": "09:00",
+      "setup": "breakout",
+      "confluence": "support + EMA",
+      "target": "1.5",
+      "featured_image": "featured.jpg",
+      "tags": ["trade","DAX"]
+    }
+  ]
+}

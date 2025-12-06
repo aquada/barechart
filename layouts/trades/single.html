@@ -1,0 +1,80 @@
+{{ define "main" }}
+
+<article class="prose max-w-none">
+
+  <h1>{{ .Title }}</h1>
+  <p class="text-sm opacity-70">{{ .Date.Format "Mon, 2 Jan 2006 • 15:04" }}</p>
+
+  {{/* Prefer Page Resources: look for a file named featured* first, then any image resource, then fall back to front-matter `image` */}}
+  {{ $featured := .Resources.GetMatch "featured*" }}
+  {{ if not $featured }}
+    {{ $imgs := .Resources.Match "*" | where "MediaType.Type" "image" }}
+    {{ if gt (len $imgs) 0 }}
+      {{ $featured = index $imgs 0 }}
+    {{ end }}
+  {{ end }}
+
+  {{ with $featured }}
+    {{ $thumb := .Fit "1200x" }}
+    <figure>
+      <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" class="rounded-xl my-6 shadow">
+    </figure>
+  {{ else }}
+    {{ with .Params.image }}
+      <img src="{{ . | relURL }}" class="rounded-xl my-6 shadow">
+    {{ end }}
+  {{ end }}
+
+  <h2>Trade Summary</h2>
+  <table class="table-auto">
+    <tbody>
+      <tr><th>Trader</th><td>{{ .Params.trader }}</td></tr>
+      <tr><th>Time</th><td>{{ .Params.time }}</td></tr>
+
+      {{ with .Params.setup }}
+      <tr><th>Setup</th><td>{{ . }}</td></tr>
+      {{ end }}
+
+      {{ with .Params.confluence }}
+      <tr><th>Entry & SL Confluence</th><td>{{ . }}</td></tr>
+      {{ end }}
+
+      {{ with .Params.target }}
+      <tr><th>Target</th><td>{{ . }}</td></tr>
+      {{ end }}
+    </tbody>
+  </table>
+
+  {{ with .Params.notes }}
+  <h2>Notes & Analysis</h2>
+  {{ . | markdownify }}
+  {{ end }}
+
+  {{ if .Resources.Match "*" }}
+    {{ $gallery := .Resources.Match "*" | where "MediaType.Type" "image" }}
+    {{ if gt (len $gallery) 1 }}
+      <h3>Images</h3>
+      <div class="grid grid-cols-2 gap-4">
+        {{ range $i, $img := $gallery }}
+          {{ if eq $i 0 }}{{ continue }}{{ end }}
+          <figure>
+            {{ $r := $img.Fit "800x" }}
+            <img src="{{ $r.RelPermalink }}" alt="{{ $.Title }} image {{ add $i 1 }}" class="rounded">
+          </figure>
+        {{ end }}
+      </div>
+    {{ end }}
+  {{ end }}
+
+  {{ if .Params.tags }}
+  <h3>Tags</h3>
+  <p>
+    {{ range .Params.tags }}
+      <a class="badge" href="/tags/{{ . | urlize }}/">{{ . }}</a>
+    {{ end }}
+  </p>
+  {{ end }}
+
+</article>
+
+{{ end }}
