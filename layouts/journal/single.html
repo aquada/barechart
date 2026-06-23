@@ -1,0 +1,54 @@
+{{- define "main" }}
+{{- $p := .Params }}
+
+<article class="post-single">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta">
+      {{- partial "post_meta.html" . -}}
+    </div>
+    {{- end }}
+  </header>
+
+  {{/* Trade summary — only rendered when trade fields present */}}
+  {{- if or $p.direction $p.setup $p.outcome }}
+  <div style="border:1px solid #e5e7eb;border-radius:6px;padding:1rem 1.25rem;margin:1.5rem 0;background:#f9fafb;font-size:0.9rem;line-height:1.8;">
+    <table style="width:100%;border-collapse:collapse;">
+      <tbody>
+        {{- if $p.instrument }}<tr><td style="padding:2px 12px 2px 0;color:#6b7280;width:120px;">Instrument</td><td style="font-weight:600;">{{ $p.instrument }}</td></tr>{{- end }}
+        {{- if $p.direction }}<tr><td style="padding:2px 12px 2px 0;color:#6b7280;">Direction</td><td style="font-weight:600;">{{ $p.direction }}</td></tr>{{- end }}
+        {{- if $p.session }}<tr><td style="padding:2px 12px 2px 0;color:#6b7280;">Session</td><td>{{ $p.session }}</td></tr>{{- end }}
+        {{- if $p.setup }}<tr><td style="padding:2px 12px 2px 0;color:#6b7280;">Setup</td><td>{{ $p.setup }}</td></tr>{{- end }}
+        {{- if $p.confluence }}<tr><td style="padding:2px 12px 2px 0;color:#6b7280;">Confluence</td><td>{{ $p.confluence }}</td></tr>{{- end }}
+        {{- if $p.entry }}<tr><td style="padding:2px 12px 2px 0;color:#6b7280;">Entry</td><td>{{ $p.entry }}</td></tr>{{- end }}
+        {{- if $p.stop_loss }}<tr><td style="padding:2px 12px 2px 0;color:#6b7280;">Stop Loss</td><td>{{ $p.stop_loss }}</td></tr>{{- end }}
+        {{- if $p.target_r }}<tr><td style="padding:2px 12px 2px 0;color:#6b7280;">Target</td><td>{{ $p.target_r }}R</td></tr>{{- end }}
+        {{- if $p.result_r }}<tr><td style="padding:2px 12px 2px 0;color:#6b7280;">Result</td><td style="font-weight:600;{{- if lt ($p.result_r | string | float) 0.0 }}color:#dc2626;{{- else }}color:#16a34a;{{- end }}">{{ $p.result_r }}R</td></tr>{{- end }}
+        {{- if $p.outcome }}<tr><td style="padding:2px 12px 2px 0;color:#6b7280;">Outcome</td><td style="font-weight:600;">{{ $p.outcome }}</td></tr>{{- end }}
+        {{- if isset $p "rules_followed" }}<tr><td style="padding:2px 12px 2px 0;color:#6b7280;">Rules followed</td><td>{{- if $p.rules_followed }}Yes{{- else }}<span style="color:#dc2626;">No</span>{{- end }}</td></tr>{{- end }}
+      </tbody>
+    </table>
+  </div>
+  {{- end }}
+
+  {{- if .Content }}
+  <div class="post-content">
+    {{- partial "anchored_headings.html" .Content -}}
+  </div>
+  {{- end }}
+
+  <footer class="post-footer">
+    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+    <ul class="post-tags">
+      {{- range ($.GetTerms $tags) }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+    {{- if (.Param "ShowPostNavLinks") }}
+    {{- partial "post_nav_links.html" . }}
+    {{- end }}
+  </footer>
+</article>
+{{- end }}

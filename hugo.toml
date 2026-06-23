@@ -1,0 +1,71 @@
+baseURL = "https://barechart.com/"
+title = "BareChart Trading"
+theme = "PaperMod"
+locale = "en-us"
+paginate = 10
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+googleAnalytics = "G-PEDMYR1V0K"
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[params]
+  author = "BareChart Trading"
+  description = "Real-world DAX trading — trade journal, education, EAs and tools for systematic traders."
+  keywords = ["DAX trading", "GER40", "EA development", "MQL5", "trading journal", "Expert Advisor"]
+  defaultTheme = "light"
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
+  ShowFullTextinRSS = false
+  hideSummary = false
+  socialIcons = []
+  assets = {}
+
+  [params.homeInfoParams]
+    Title = "BareChart Trading"
+    Content = "Real-world DAX trading, systematic EA development, and tools for traders who want an edge. No noise — just charts, code, and results."
+
+  [params.label]
+    text = "BareChart Trading"
+
+[menu]
+  [[menu.main]]
+    name = "Journal"
+    url = "/journal/"
+    weight = 10
+  [[menu.main]]
+    name = "Learn"
+    url = "/learn/"
+    weight = 20
+  [[menu.main]]
+    name = "Tools"
+    url = "/tools/"
+    weight = 30
+  [[menu.main]]
+    name = "Shop"
+    url = "/shop/"
+    weight = 40
+  [[menu.main]]
+    name = "Services"
+    url = "/services/"
+    weight = 50
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5

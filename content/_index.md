@@ -1,6 +1,6 @@
 ---
-title: "Welcome to Barechart! :tada:"
-description: "This page was built using the Blowfish theme for Hugo."
+title: "BareChart Trading"
+description: "Real-world DAX trading, systematic EA development, and tools for traders who want an edge."
 ---
 
 
