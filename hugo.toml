@@ -36,8 +36,8 @@ googleAnalytics = "G-PEDMYR1V0K"
 
   [params.label]
     text = "BareChart"
-    image = "/images/favicon_64.png"
-    imageHeight = 28
+    icon = "/images/favicon_64.png"
+    iconHeight = 28
 
 [menu]
   [[menu.main]]
