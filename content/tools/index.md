@@ -10,21 +10,36 @@ I'm an affiliate — I earn a small commission if you buy through my link, at no
 
 ---
 
-## eWaves Histogram (eWH)
+## eWavesHarmonics
 
-eWH analyses recent price action and shows you where corrections are likely to end and where the next impulsive move is likely to go — often to the exact pip, long before price gets there. It's not a buy/sell signal indicator. It tells you where the big-money buyers and sellers are probably waiting, so you can position with them rather than against them.
+eWavesHarmonics analyses recent price action and shows you where corrections are likely to end and where the next impulsive move is likely to go — often to the exact pip, long before price gets there. It's not a buy/sell signal indicator. It tells you where the big-money buyers and sellers are probably waiting, so you can position with them rather than against them.
 
 The core idea is simple: buy the dips, sell the rallies — but with a framework that tells you with a reasonable degree of probability when a corrective wave has completed and where the next impulsive move is likely to target. The accuracy with which it identifies turning points can be striking.
 
-If you've been trading off a stack of squiggly indicators all derived from the up-and-down movement of price — this is a different category of tool. The original eWaves has been running since 2012. eWH is the current version, designed and coded by real traders with decades of experience.
+<figure class="illustration">
+  <img src="/images/ewh-targets.png" alt="eWavesHarmonics showing wave targets on GER40">
+  <figcaption>eWavesHarmonics projecting the next target level on GER40 M1</figcaption>
+</figure>
 
-[Get eWH at for-exe.com →](https://for-exe.com) — use code **BARECHART** for a discount.
+If you've been trading off a stack of squiggly indicators all derived from the up-and-down movement of price — this is a different category of tool. The original eWaves has been running since 2012. eWavesHarmonics is the current version, designed and coded by real traders with decades of experience.
+
+<figure class="illustration">
+  <img src="/images/ewh-correction.png" alt="eWavesHarmonics identifying a completed correction">
+  <figcaption>A corrective wave completing at the projected level — price reverses impulsively</figcaption>
+</figure>
+
+[Get eWavesHarmonics at for-exe.com →](https://for-exe.com) — use code **BARECHART** for a discount.
 
 ---
 
 ## Advanced Trade Manager (ATM)
 
 ATM handles the mechanical side of execution so you can focus on the trade itself. Available for MT4 (MT5 version in development).
+
+<figure class="illustration">
+  <img src="/images/atm-panel.png" alt="Advanced Trade Manager button panel on MT4 chart">
+  <figcaption>The ATM button panel — one-click execution and trade management without leaving the chart</figcaption>
+</figure>
 
 **Automatic:**
 - Calculation and setting of target prices — based on points or R:R

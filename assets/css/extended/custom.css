@@ -86,3 +86,22 @@ code, pre, kbd,
 pre code {
     font-size: 1em; /* reset the double-small inside pre */
 }
+
+/* ── Illustrations ─────────────────────────────────────────────── */
+figure.illustration {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+figure.illustration img {
+    max-width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+figure.illustration figcaption {
+    margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8em;
+    color: var(--secondary);
+}

@@ -39,11 +39,16 @@ Steve Norman's [for-exe.com](https://for-exe.com) tools are the best I've found 
 
 I'm an affiliate — I earn a small commission if you buy through my link, at no extra cost to you. My promo code **BARECHART** gets you a discount.
 
-### eWaves Histogram (eWH)
+### eWavesHarmonics
 
-eWH analyses recent price action and shows you where corrections are likely to end and where the next impulsive move is likely to go — often to the exact pip, long before price gets there. It's not a buy/sell signal indicator. It tells you where the big-money buyers and sellers are probably waiting, so you can position with them rather than against them.
+eWavesHarmonics analyses recent price action and shows you where corrections are likely to end and where the next impulsive move is likely to go — often to the exact pip, long before price gets there. It's not a buy/sell signal indicator. It tells you where the big-money buyers and sellers are probably waiting, so you can position with them rather than against them.
 
-If you've been trading off a stack of squiggly indicators all derived from price — this is a different category of tool. The original eWaves has been running since 2012. eWH is the current version and the one I use daily.
+<figure class="illustration">
+  <img src="/images/ewh-targets.png" alt="eWavesHarmonics showing wave targets on GER40">
+  <figcaption>eWavesHarmonics projecting the next impulse target on GER40</figcaption>
+</figure>
+
+If you've been trading off a stack of squiggly indicators all derived from price — this is a different category of tool. The original eWaves has been running since 2012. eWavesHarmonics is the current version and the one I use daily.
 
 ### Advanced Trade Manager (ATM)
 
