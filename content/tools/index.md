@@ -6,7 +6,7 @@ url: "/tools/"
 
 Steve Norman's [for-exe.com](https://for-exe.com) tools are the best I've found for trading short timeframes. I've used a lot of indicators. These stayed on my chart.
 
-I'm an affiliate — I earn a small commission if you buy through my link, at no extra cost to you. Use code **BARECHART** at checkout for a discount.
+I'm an affiliate — I earn a small commission if you buy through my link, at no extra cost to you. Use code **BARECHART** at checkout to get a comprehensive 3-year licence for eWavesHarmonics and ATM for the price of just one year.
 
 ---
 
@@ -28,7 +28,7 @@ If you've been trading off a stack of squiggly indicators all derived from the u
   <figcaption>A corrective wave completing at the projected level — price reverses impulsively</figcaption>
 </figure>
 
-[Get eWavesHarmonics at for-exe.com →](https://for-exe.com) — use code **BARECHART** for a discount.
+[Get eWavesHarmonics at for-exe.com →](https://for-exe.com) — use code **BARECHART** for a 3-year licence at 1-year price.
 
 ---
 
@@ -66,7 +66,7 @@ Full customisation with on-the-fly changing of all parameters — not just exper
 
 FIFO compliant for US customers.
 
-[Get ATM at for-exe.com →](https://for-exe.com) — use code **BARECHART** for a discount.
+[Get ATM at for-exe.com →](https://for-exe.com) — use code **BARECHART** for a 3-year licence at 1-year price.
 
 ---
 

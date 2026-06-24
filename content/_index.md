@@ -37,7 +37,7 @@ EAs, performance dashboards, and prop firm compliance tools — built around you
 
 Steve Norman's [for-exe.com](https://for-exe.com) tools are the best I've found for trading short timeframes. I've used a lot of indicators. These stayed on my chart.
 
-I'm an affiliate — I earn a small commission if you buy through my link, at no extra cost to you. My promo code **BARECHART** gets you a discount.
+I'm an affiliate — I earn a small commission if you buy through my link, at no extra cost to you. Use code **BARECHART** at checkout to get a comprehensive 3-year licence for eWavesHarmonics and ATM for the price of just one year.
 
 ### eWavesHarmonics
 
