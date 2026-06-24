@@ -36,9 +36,9 @@ If you've been trading off a stack of squiggly indicators all derived from the u
 
 ATM handles the mechanical side of execution so you can focus on the trade itself. Available for MT4 (MT5 version in development).
 
-<figure class="illustration">
+<figure class="illustration float-right">
   <img src="/images/atm-panel.png" alt="Advanced Trade Manager button panel on MT4 chart">
-  <figcaption>The ATM button panel — one-click execution and trade management without leaving the chart</figcaption>
+  <figcaption>The ATM panel</figcaption>
 </figure>
 
 **Automatic:**

@@ -105,3 +105,18 @@ figure.illustration figcaption {
     font-size: 0.8em;
     color: var(--secondary);
 }
+
+figure.illustration.float-right {
+    float: right;
+    margin: 0 0 1.5rem 2rem;
+    text-align: center;
+    max-width: 260px;
+}
+
+@media (max-width: 600px) {
+    figure.illustration.float-right {
+        float: none;
+        margin: 1.5rem 0;
+        max-width: 100%;
+    }
+}
