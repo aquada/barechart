@@ -29,9 +29,7 @@ googleAnalytics = "G-PEDMYR1V0K"
   socialIcons = []
   assets = {}
 
-  [params.homeInfoParams]
-    Title = "BareChart Trading"
-    Content = "Real-world DAX trading, systematic EA development, and tools for traders who want an edge. No noise — just charts, code, and results."
+  mainSections = ["journal"]
 
   [params.label]
     text = "BareChart Trading"
