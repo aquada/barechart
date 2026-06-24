@@ -3,7 +3,7 @@ title: "BareChart Trading"
 description: "Real-world DAX trading — trade journal, education, EAs and tools for systematic traders."
 ---
 
-**Clear chart. Clear head. Better decisions.**
+# Clear chart. Clear head. Better decisions.
 
 Most traders have too much on their chart. Conflicting signals, indicator soup, setups that look different every time you look at them.
 
