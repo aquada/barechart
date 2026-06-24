@@ -1,0 +1,53 @@
+/* ── Claude-inspired light mode palette ───────────────────────── */
+:root {
+    --theme:          #FAF9F5;
+    --entry:          #F3EDE5;
+    --primary:        #1C1917;
+    --secondary:      #6B5E52;
+    --tertiary:       #DDD5CB;
+    --content:        #1C1917;
+    --code-block-bg:  #2C2016;
+    --code-bg:        #EDE5DB;
+    --border:         #E2D9CF;
+}
+
+/* list pages (section indexes) use --code-bg as bg — keep warm */
+.list {
+    background: #F3EDE5;
+}
+
+/* ── Accent / links ────────────────────────────────────────────── */
+a { color: #C96442; }
+a:hover { color: #A84F32; }
+
+.post-tags a,
+.post-tags a:hover {
+    border-color: #DDD5CB;
+    color: #6B5E52;
+}
+
+/* ── Fonts ─────────────────────────────────────────────────────── */
+body,
+.post-content,
+.entry-content,
+.home-info-content {
+    font-family: 'Alfios', Georgia, 'Times New Roman', serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.entry-header h2 {
+    font-family: 'Alfios', Georgia, 'Times New Roman', serif;
+}
+
+/* mono for code, pre, and the nav/meta labels */
+code, pre, kbd,
+.post-meta,
+.breadcrumbs {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.85em;
+}
+
+pre code {
+    font-size: 1em; /* reset the double-small inside pre */
+}
