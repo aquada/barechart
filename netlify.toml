@@ -6,3 +6,4 @@
   HUGO_VERSION = "0.162.1"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
+  TZ = "Africa/Johannesburg"
