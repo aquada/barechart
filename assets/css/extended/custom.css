@@ -87,6 +87,35 @@ pre code {
     font-size: 1em; /* reset the double-small inside pre */
 }
 
+/* ── Trade card (journal entries) ─────────────────────────────── */
+.trade-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    background: var(--entry);
+}
+
+.trade-card table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    line-height: 1.9;
+}
+
+.trade-card td {
+    padding: 1px 0;
+}
+
+.trade-card td:first-child {
+    color: var(--secondary);
+    width: 90px;
+}
+
+.td-bold { font-weight: 600; }
+.td-win  { color: #2d6a2d; font-weight: 600; }
+.td-loss { color: #b91c1c; font-weight: 600; }
+
 /* ── Illustrations ─────────────────────────────────────────────── */
 figure.illustration {
     margin: 2rem 0;

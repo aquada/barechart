@@ -57,6 +57,8 @@ read -rp "Notes: " notes
 # Write file
 entry_dir="$CONTENT_DIR/$slug"
 mkdir -p "$entry_dir"
+description="$direction $setup at $level → $target_level | ${result_r}R"
+
 cat > "$entry_dir/index.md" <<EOF
 ---
 title: "$today"
@@ -64,6 +66,7 @@ date: $(date +%Y-%m-%dT%H:%M:%S%z)
 trade_date: "$today"
 trade_time: "$trade_time"
 draft: true
+description: "$description"
 session: "$session"
 direction: "$direction"
 setup: "$setup"

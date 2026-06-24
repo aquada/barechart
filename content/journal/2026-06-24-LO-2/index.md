@@ -4,6 +4,7 @@ date: 2026-06-24T19:29:28+0200
 trade_date: "2026-06-24"
 trade_time: "19:28"
 draft: false
+description: "Long SDF at SD → TZ1 | 4R"
 session: "LO"
 direction: "Long"
 setup: "SDF"
