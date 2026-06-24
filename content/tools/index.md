@@ -25,7 +25,7 @@ If you've been trading off a stack of squiggly indicators all derived from the u
 
 <figure class="illustration">
   <img src="/images/ewh-correction.png" alt="eWavesHarmonics identifying a completed correction">
-  <figcaption>A corrective wave completing at the projected level — price reverses impulsively</figcaption>
+  <figcaption>GBPUSD M1 — impulsive wave 3 peaks at the eWavesHarmonics target, corrective wave 4 consolidates in a tight range, then impulsive wave 5 launches from the projected completion level</figcaption>
 </figure>
 
 [Get eWavesHarmonics at for-exe.com →](https://for-exe.com) — use code **BARECHART** for a 3-year licence at 1-year price.
