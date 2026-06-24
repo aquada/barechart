@@ -3,6 +3,9 @@ title: "BareChart Trading"
 description: "Real-world DAX trading — trade journal, education, EAs and tools for systematic traders."
 ---
 
+<div class="hero-section">
+<img src="/images/naked_candle.jpg" alt="BareChart mascot" class="hero-mascot">
+
 # Clear chart. Clear head. Better decisions.
 
 Most traders have too much on their chart. Conflicting signals, indicator soup, setups that look different every time you look at them.
@@ -10,6 +13,8 @@ Most traders have too much on their chart. Conflicting signals, indicator soup, 
 BareChart is built around the opposite idea — strip the chart back to what actually works, then execute it the same way, every session.
 
 I trade live, every day, London and New York Open. This is what I use, what I build, and what I write about.
+
+</div>
 
 ---
 
