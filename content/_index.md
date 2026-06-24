@@ -4,7 +4,7 @@ description: "Real-world DAX trading — trade journal, education, EAs and tools
 ---
 
 <div class="hero-section">
-<img src="/images/naked_candle.jpg" alt="BareChart mascot" class="hero-mascot">
+<div class="hero-text">
 
 # Clear chart. Clear head. Better decisions.
 
@@ -14,6 +14,8 @@ BareChart is built around the opposite idea — strip the chart back to what act
 
 I trade live, every day, London and New York Open. This is what I use, what I build, and what I write about.
 
+</div>
+<img src="/images/naked_candle.png" alt="BareChart mascot" class="hero-mascot">
 </div>
 
 ---

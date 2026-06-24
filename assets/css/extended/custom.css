@@ -29,26 +29,21 @@ a:hover { color: #A84F32; }
 /* ── Homepage hero ─────────────────────────────────────────────── */
 .hero-section {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 2rem;
     margin-bottom: 1.5rem;
 }
 
+.hero-text {
+    flex: 1;
+}
+
 .hero-mascot {
-    width: 160px;
+    width: 180px;
     flex-shrink: 0;
-    order: 2;
 }
 
-.hero-section > * {
-    order: 1;
-}
-
-.hero-section .hero-mascot {
-    order: 2;
-}
-
-.post-content .hero-section h1 {
+.hero-text h1 {
     font-size: 2.2em;
     line-height: 1.2;
     margin-top: 0;
@@ -58,11 +53,11 @@ a:hover { color: #A84F32; }
 
 @media (max-width: 600px) {
     .hero-section {
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
     }
     .hero-mascot {
-        width: 120px;
+        width: 130px;
     }
 }
 
