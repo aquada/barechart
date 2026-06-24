@@ -1,5 +1,5 @@
 baseURL = "https://barechart.com/"
-title = "BareChart Trading"
+title = "BareChart"
 theme = "PaperMod"
 locale = "en-us"
 paginate = 10
@@ -16,7 +16,7 @@ googleAnalytics = "G-PEDMYR1V0K"
   minifyOutput = true
 
 [params]
-  author = "BareChart Trading"
+  author = "BareChart"
   description = "Real-world DAX trading — trade journal, education, EAs and tools for systematic traders."
   keywords = ["DAX trading", "GER40", "EA development", "MQL5", "trading journal", "Expert Advisor"]
   defaultTheme = "light"
@@ -35,7 +35,7 @@ googleAnalytics = "G-PEDMYR1V0K"
   mainSections = ["journal"]
 
   [params.label]
-    text = "BareChart Trading"
+    text = "BareChart"
 
 [menu]
   [[menu.main]]

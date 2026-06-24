@@ -1,5 +1,5 @@
 ---
-title: "BareChart Trading"
+title: "BareChart"
 description: "Real-world DAX trading — trade journal, education, EAs and tools for systematic traders."
 ---
 
