@@ -77,6 +77,8 @@ FTMO, The5ers, and similar funded account compliance built into your MT5 setup. 
 
 ## Contact {#contact}
 
+[daniel@letterdrop.net](mailto:daniel@letterdrop.net) or Telegram [@danphillips](https://t.me/danphillips)
+
 For development enquiries, a brief description of what you need is helpful upfront — what you're trying to build, what instrument and timeframe, what you've already tried.
 
 ---
