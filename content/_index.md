@@ -35,30 +35,11 @@ EAs, performance dashboards, and prop firm compliance tools — built around you
 
 ## The for-exe tools
 
-Steve Norman's [for-exe.com](https://for-exe.com) tools are the best I've found for trading short timeframes. I've used a lot of indicators. These stayed on my chart.
+Steve Norman's [for-exe.com](https://for-exe.com) tools are the ones I use in live DAX trading. **eWavesHarmonics** identifies where corrections are likely to end and where the next impulsive move is likely to target — often to the exact pip, before price gets there. **Advanced Trade Manager (ATM)** handles the mechanical side: lot sizing, stop management, break-even moves, partial closes, trailing stops.
 
-I'm an affiliate — I earn a small commission if you buy through my link, at no extra cost to you. Use code **BARECHART** at checkout to get a comprehensive 3-year licence for eWavesHarmonics and ATM for the price of just one year.
+I'm an affiliate — use code **BARECHART** at checkout for a 3-year licence at 1-year price.
 
-### eWavesHarmonics
-
-eWavesHarmonics analyses recent price action and shows you where corrections are likely to end and where the next impulsive move is likely to go — often to the exact pip, long before price gets there. It's not a buy/sell signal indicator. It tells you where the big-money buyers and sellers are probably waiting, so you can position with them rather than against them.
-
-<figure class="illustration">
-  <img src="/images/ewh-targets.png" alt="eWavesHarmonics Target Zone 1 on GBPUSD">
-  <figcaption>Target Zone 1 (TZ1) projected at the 61.8% level on GBPUSD — price arrives exactly at the eWavesHarmonics target</figcaption>
-</figure>
-
-If you've been trading off a stack of squiggly indicators all derived from price — this is a different category of tool. The original eWaves has been running since 2012. eWavesHarmonics is the current version and the one I use daily.
-
-### Advanced Trade Manager (ATM)
-
-ATM handles the mechanical side of execution: automatic lot sizing, stop management, break-even moves, partial closes, trailing stops — all configurable, all one-click or fully automatic. Full customisation saved per symbol and timeframe. FIFO compliant for US customers.
-
-Currently MT4 only (MT5 version in development). [Full details and one-click features →](/tools)
-
-New to the methodology? [Steve Norman's course](https://www.for-exe.com/trader-training.html) is the right starting point.
-
-[Full tools guide →](/tools)
+[Full guide to both tools →](/tools)
 
 ---
 
