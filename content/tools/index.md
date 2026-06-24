@@ -17,8 +17,8 @@ eWavesHarmonics analyses recent price action and shows you where corrections are
 The core idea is simple: buy the dips, sell the rallies — but with a framework that tells you with a reasonable degree of probability when a corrective wave has completed and where the next impulsive move is likely to target. The accuracy with which it identifies turning points can be striking.
 
 <figure class="illustration">
-  <img src="/images/ewh-targets.png" alt="eWavesHarmonics showing wave targets on GER40">
-  <figcaption>eWavesHarmonics projecting the next target level on GER40 M1</figcaption>
+  <img src="/images/ewh-targets.png" alt="eWavesHarmonics Target Zone 1 on GBPUSD">
+  <figcaption>Target Zone 1 (TZ1) projected at the 61.8% level on GBPUSD — price arrives and stalls exactly at the eWavesHarmonics target</figcaption>
 </figure>
 
 If you've been trading off a stack of squiggly indicators all derived from the up-and-down movement of price — this is a different category of tool. The original eWaves has been running since 2012. eWavesHarmonics is the current version, designed and coded by real traders with decades of experience.

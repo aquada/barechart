@@ -44,8 +44,8 @@ I'm an affiliate — I earn a small commission if you buy through my link, at no
 eWavesHarmonics analyses recent price action and shows you where corrections are likely to end and where the next impulsive move is likely to go — often to the exact pip, long before price gets there. It's not a buy/sell signal indicator. It tells you where the big-money buyers and sellers are probably waiting, so you can position with them rather than against them.
 
 <figure class="illustration">
-  <img src="/images/ewh-targets.png" alt="eWavesHarmonics showing wave targets on GER40">
-  <figcaption>eWavesHarmonics projecting the next impulse target on GER40</figcaption>
+  <img src="/images/ewh-targets.png" alt="eWavesHarmonics Target Zone 1 on GBPUSD">
+  <figcaption>Target Zone 1 (TZ1) projected at the 61.8% level on GBPUSD — price arrives exactly at the eWavesHarmonics target</figcaption>
 </figure>
 
 If you've been trading off a stack of squiggly indicators all derived from price — this is a different category of tool. The original eWaves has been running since 2012. eWavesHarmonics is the current version and the one I use daily.
