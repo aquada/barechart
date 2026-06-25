@@ -17,8 +17,8 @@ googleAnalytics = "G-PEDMYR1V0K"
 
 [params]
   author = "BareChart"
-  description = "Real-world DAX trading — trade journal, education, EAs and tools for systematic traders."
-  keywords = ["DAX trading", "GER40", "EA development", "MQL5", "trading journal", "Expert Advisor"]
+  description = "Trading blog, tools, EAs and custom MT5 development for systematic traders."
+  keywords = ["GER40", "EA development", "MQL5", "Expert Advisor", "trading blog", "systematic trading"]
   defaultTheme = "light"
   disableThemeToggle = false
   ShowReadingTime = true

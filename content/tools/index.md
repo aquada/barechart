@@ -1,10 +1,10 @@
 ---
 title: "Tools"
-description: "The for-exe tools I use in live DAX trading — honest first-hand guides."
+description: "The for-exe tools I use in live trading — honest first-hand guides."
 url: "/tools/"
 ---
 
-Steve Norman's [for-exe.com](https://for-exe.com) tools are the best I've found for trading short timeframes. I've used a lot of indicators. These stayed on my chart.
+Steve Norman's [for-exe.com](https://for-exe.com) tools are the best I've found for trading whether on the 1 minute or 1 hour timeframe. I've used a lot of indicators. These stayed on my chart.
 
 I'm an affiliate — I earn a small commission if you buy through my link, at no extra cost to you. Use code **BARECHART** at checkout to get a comprehensive 3-year licence for eWavesHarmonics and ATM for the price of just one year.
 
@@ -12,13 +12,13 @@ I'm an affiliate — I earn a small commission if you buy through my link, at no
 
 ## eWavesHarmonics
 
-eWavesHarmonics analyses recent price action and shows you where corrections are likely to end and where the next impulsive move is likely to go — often to the exact pip, long before price gets there. It's not a buy/sell signal indicator. It tells you where the big-money buyers and sellers are probably waiting, so you can position with them rather than against them.
+eWavesHarmonics analyses recent price action and shows you where corrections are likely to end and where the next impulsive move is likely to go, long before price gets there. It's not a buy/sell signal indicator. It tells you where the big-money buyers and sellers are probably waiting, so you can position with them rather than against them.
 
 The core idea is simple: buy the dips, sell the rallies — but with a framework that tells you with a reasonable degree of probability when a corrective wave has completed and where the next impulsive move is likely to target. The accuracy with which it identifies turning points can be striking.
 
 <figure class="illustration">
   <img src="/images/ewh-targets.png" alt="eWavesHarmonics Target Zone 1 on GBPUSD">
-  <figcaption>Target Zone 1 (TZ1) projected at the 61.8% level on GBPUSD — price arrives and stalls exactly at the eWavesHarmonics target</figcaption>
+  <figcaption>Target Zone 1 (TZ1) projected at the 61.8% level on GBPUSD — price arrives and stalls at the eWavesHarmonics target</figcaption>
 </figure>
 
 If you've been trading off a stack of squiggly indicators all derived from the up-and-down movement of price — this is a different category of tool. The original eWaves has been running since 2012. eWavesHarmonics is the current version, designed and coded by real traders with decades of experience.

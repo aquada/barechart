@@ -1,6 +1,6 @@
 ---
 title: "BareChart"
-description: "Real-world DAX trading — blog, tools, EAs and custom MT5 development."
+description: "Trading blog, tools, EAs and custom MT5 development for systematic traders."
 ---
 
 <div class="hero-section">

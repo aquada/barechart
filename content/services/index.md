@@ -12,7 +12,7 @@ You have a trading system. You need it in code. I build MQL5 Expert Advisors and
 - Risk management — fixed lot, percent of equity, or equity-based sizing
 - Pending order systems, trailing stops, partial closes, break-even logic
 - Custom indicators and signal filters
-- Backtest-ready with proper tick handling for GER40 / DAX
+- Backtest-ready with proper tick handling for GER40
 
 ## How it works
 
