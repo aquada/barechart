@@ -1,0 +1,38 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "hugo",
+  "frontMatter.preview.host": "http://localhost:1313",
+  "frontMatter.content.publicFolder": "static",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "Blog",
+      "path": "[[workspace]]/content/blog",
+      "contentTypes": ["blog-post"]
+    }
+  ],
+  "frontMatter.git.enabled": true,
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "blog-post",
+      "pageBundle": true,
+      "fileTemplate": "{{year}}-{{month}}-{{day}}-{{slugify \"title\"}}",
+      "fields": [
+        { "title": "Title",       "name": "title",       "type": "string" },
+        { "title": "Date",        "name": "date",        "type": "datetime", "default": "{{now}}", "isPublishDate": true },
+        { "title": "Draft",       "name": "draft",       "type": "draft" },
+        { "title": "Description", "name": "description", "type": "string" },
+        {
+          "title": "Cover",
+          "name": "cover",
+          "type": "fields",
+          "fields": [
+            { "title": "Image",   "name": "image",   "type": "image" },
+            { "title": "Alt",     "name": "alt",     "type": "string" },
+            { "title": "Caption", "name": "caption", "type": "string" }
+          ]
+        },
+        { "title": "Tags", "name": "tags", "type": "tags" }
+      ]
+    }
+  ]
+}
