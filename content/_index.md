@@ -1,6 +1,6 @@
 ---
 title: "BareChart"
-description: "Real-world DAX trading — trade journal, education, EAs and tools for systematic traders."
+description: "Real-world DAX trading — blog, tools, EAs and custom MT5 development."
 ---
 
 <div class="hero-section">
@@ -22,49 +22,17 @@ I trade live, every day, London and New York Open. This is what I use, what I bu
 
 ## What you'll find here
 
-**The tools I actually trade with**
-Honest, first-hand guides for [for-exe](https://for-exe.com) tools — written by someone who uses them in live market conditions. If you decide to try them, use my code **BARECHART** for a discount.
+**[Blog →](/blog)**
+Trades worth writing about, articles on process and mindset, and occasional market notes. Not tips. Not calls.
 
-**Trade content that doesn't waste your time**
-Walkthroughs, process notes, and methodology pieces for serious traders. No generic "here's what price action is" content. Think more clearly about what you're doing — that's the aim.
+**[Tools →](/tools)**
+First-hand guides to the [for-exe.com](https://for-exe.com) tools I use in live trading — eWavesHarmonics and Advanced Trade Manager. Use code **BARECHART** for a 3-year licence at 1-year price.
 
-**Custom MT5 development**
-EAs, performance dashboards, and prop firm compliance tools — built around your rules, your logic. [Get in touch](#contact).
+**[Services →](/services)**
+Custom MT5 development — EAs, performance dashboards, and prop firm compliance tools built around your rules and logic. [Get in touch](#contact).
 
----
-
-## The for-exe tools
-
-Steve Norman's [for-exe.com](https://for-exe.com) tools are the ones I use in live DAX trading. **eWavesHarmonics** identifies where corrections are likely to end and where the next impulsive move is likely to target — often to the exact pip, before price gets there. **Advanced Trade Manager (ATM)** handles the mechanical side: lot sizing, stop management, break-even moves, partial closes, trailing stops.
-
-I'm an affiliate — use code **BARECHART** at checkout for a 3-year licence at 1-year price.
-
-[Full guide to both tools →](/tools)
-
----
-
-## The trading content
-
-I write about trading process — session structure, risk process, the thinking behind the decisions. Not tips. Not calls.
-
----
-
-## Custom MT5 Development
-
-You have a strategy, a process, or a problem. I build the tooling around it.
-
-No signals, no methodology imposed — your rules, your logic, built and tested properly.
-
-**Custom EAs**
-Your strategy turned into working MT5 code. Any instrument, any timeframe. I'm a trader first — I understand what you're trying to automate and I'll tell you honestly if it won't translate well before you spend money finding out.
-
-**Performance Dashboard**
-Session history, metrics, and journaling layer for MT5. See your trading clearly — not just while you're in a trade, but across sessions and over time.
-
-**Prop Firm Rules Enforcement**
-FTMO, The5ers, and similar funded account compliance built into your MT5 setup. Max daily loss, max drawdown, profit targets, trading day requirements — enforced automatically so a bad session doesn't cost you your account.
-
-[Services and pricing →](/services)
+**[Shop →](/shop)**
+EAs and indicators available to buy.
 
 ---
 

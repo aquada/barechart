@@ -2,7 +2,7 @@
 # Creates a new journal entry with prompted values
 set -e
 REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-CONTENT_DIR="$REPO_DIR/content/journal"
+CONTENT_DIR="$REPO_DIR/content/blog"
 
 today=$(date +%Y-%m-%d)
 now=$(date +%H:%M)
