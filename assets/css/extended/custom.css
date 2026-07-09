@@ -116,6 +116,31 @@ pre code {
 .td-win  { color: #2d6a2d; font-weight: 600; }
 .td-loss { color: #b91c1c; font-weight: 600; }
 
+/* ── Site-wide disclaimer (footer) ───────────────────────────────── */
+.site-disclaimer {
+    max-width: var(--main-width);
+    margin: 0 auto 1.5rem;
+    padding: 0 var(--gap);
+    font-size: 0.75em;
+    line-height: 1.5;
+    color: var(--secondary);
+    text-align: center;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.site-disclaimer a {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+/* ── "What you'll find here" icons ──────────────────────────────── */
+.find-here-icon {
+    display: inline-block;
+    vertical-align: -5px;
+    margin-right: 0.4rem;
+    color: var(--secondary);
+}
+
 /* ── Illustrations ─────────────────────────────────────────────── */
 figure.illustration {
     margin: 2rem 0;

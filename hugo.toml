@@ -53,6 +53,10 @@ googleAnalytics = "G-PEDMYR1V0K"
     url = "/tools/"
     weight = 30
   [[menu.main]]
+    name = "Prop Firms"
+    url = "/prop-firms/"
+    weight = 35
+  [[menu.main]]
     name = "Shop"
     url = "/shop/"
     weight = 40
