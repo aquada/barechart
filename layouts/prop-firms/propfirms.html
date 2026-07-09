@@ -1,0 +1,1209 @@
+{{- define "main" }}
+
+<article class="post-single propfirms-page">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">{{ .Description }}</div>
+    {{- end }}
+  </header>
+
+  <p class="pf-disclosure">I earn a commission on some of these links, at no extra cost to you — it's what funds running this site. It doesn't buy a better ranking: scores, warnings, and rebrand/complaint history below are researched the same way regardless of whether a firm pays affiliate commission, or how much.</p>
+  <p class="pf-last-updated" id="pf-last-updated"></p>
+  <p class="pf-methodology">"Our rating" measures deal quality, not trustworthiness — it weights payout %, drawdown/daily-loss leniency, profit target, and cost (converted to a common USD basis, <span id="pf-fx-note"></span>). Generous terms don't imply a firm is reliable, so <strong>Trust score</strong> is shown separately on every card — it's our own 0-10 assessment from researching complaints, lawsuits, regulatory status, and rebrand history, not derived from star ratings. Where we found evidence of paid or fake reviews, that's flagged directly. Each card also links to that firm's Trustpilot rating and, where available, a second independent source (ForexPeaceArmy) — useful, but Trustpilot in particular skews positive since traders often review right after funding, before a payout dispute has a chance to surface.</p>
+
+  <div class="pf-presets" id="pf-presets">
+    <button type="button" class="pf-preset-btn" data-preset="all">All firms</button>
+    <button type="button" class="pf-preset-btn" data-preset="algo">Algo / EA traders</button>
+    <button type="button" class="pf-preset-btn" data-preset="value">Best value</button>
+    <button type="button" class="pf-preset-btn" data-preset="lenient">Lenient drawdown</button>
+    <button type="button" class="pf-preset-btn" data-preset="payout">Highest payout</button>
+    <button type="button" class="pf-preset-btn" data-preset="indices">Indices trading</button>
+    <button type="button" class="pf-preset-btn" data-preset="fast">Fast challenge</button>
+  </div>
+
+  <div class="pf-filters" id="pf-filters">
+    <div class="pf-filter">
+      <label for="pf-sort">Sort by</label>
+      <select id="pf-sort">
+        <option value="rating">Our rating</option>
+        <option value="trustDesc">Trust score highest</option>
+        <option value="costAsc">Cost low → high</option>
+        <option value="costDesc">Cost high → low</option>
+        <option value="ddDesc">Max drawdown highest</option>
+        <option value="dailyLossDesc">Daily loss highest</option>
+        <option value="targetAsc">Profit target lowest</option>
+        <option value="payoutDesc">Payout highest</option>
+      </select>
+    </div>
+
+    <div class="pf-filter">
+      <label for="pf-account-size">Account size</label>
+      <select id="pf-account-size">
+        <option value="any">Any</option>
+        <option value="2500">$2.5k</option>
+        <option value="10000">$10k</option>
+        <option value="25000">$25k</option>
+        <option value="50000">$50k</option>
+        <option value="100000">$100k</option>
+        <option value="200000">$200k+</option>
+      </select>
+    </div>
+
+    <div class="pf-filter pf-filter-range">
+      <label for="pf-max-cost">Max challenge cost (USD-equivalent) <span id="pf-max-cost-val"></span></label>
+      <input type="range" id="pf-max-cost" min="50" max="1500" step="25" value="1500">
+    </div>
+
+    <div class="pf-filter pf-filter-range">
+      <label for="pf-min-daily-loss">Min daily loss limit <span id="pf-min-daily-loss-val"></span></label>
+      <input type="range" id="pf-min-daily-loss" min="2" max="10" step="0.5" value="2">
+    </div>
+
+    <div class="pf-filter pf-filter-range">
+      <label for="pf-min-drawdown">Min max drawdown <span id="pf-min-drawdown-val"></span></label>
+      <input type="range" id="pf-min-drawdown" min="3" max="15" step="1" value="3">
+    </div>
+
+    <div class="pf-filter pf-filter-toggle">
+      <label><input type="checkbox" id="pf-toggle-ea"> EA / Algo allowed</label>
+    </div>
+    <div class="pf-filter pf-filter-toggle">
+      <label><input type="checkbox" id="pf-toggle-indices"> Indices available</label>
+    </div>
+    <div class="pf-filter pf-filter-toggle">
+      <label><input type="checkbox" id="pf-toggle-forex"> Forex available</label>
+    </div>
+    <div class="pf-filter pf-filter-toggle">
+      <label><input type="checkbox" id="pf-toggle-news"> News trading allowed</label>
+    </div>
+    <div class="pf-filter pf-filter-toggle">
+      <label><input type="checkbox" id="pf-toggle-weekend"> Weekend holding allowed</label>
+    </div>
+    <div class="pf-filter pf-filter-clear">
+      <button type="button" id="pf-clear-filters" class="pf-clear-btn">Clear filters</button>
+    </div>
+  </div>
+
+  <div class="pf-meta-bar">
+    <span id="pf-count" class="pf-count"></span>
+    <div class="pf-view-toggle" id="pf-view-toggle">
+      <button type="button" class="pf-view-btn" data-view="cards">Cards</button>
+      <button type="button" class="pf-view-btn" data-view="table">Table</button>
+    </div>
+  </div>
+
+  <p id="pf-status" class="pf-status">Loading firm data…</p>
+
+  <div id="pf-cards" class="pf-cards" hidden></div>
+
+  <div id="pf-table-wrap" class="pf-table-wrap" hidden>
+    <table class="pf-table">
+      <thead>
+        <tr>
+          <th data-col="name">Firm</th>
+          <th data-col="cost">Cost</th>
+          <th data-col="profitTarget">Profit target</th>
+          <th data-col="maxDrawdown">Max DD</th>
+          <th data-col="dailyLoss">Daily loss</th>
+          <th data-col="payout">Payout</th>
+          <th data-col="commission">Firm commission</th>
+          <th data-col="ea">EA</th>
+          <th data-col="rating">Rating</th>
+          <th data-col="trust">Trust</th>
+        </tr>
+      </thead>
+      <tbody id="pf-table-body"></tbody>
+    </table>
+  </div>
+
+  <p id="pf-no-results" class="pf-no-results" hidden>No firms match these filters — try relaxing the cost limit or removing the EA requirement.</p>
+</article>
+
+<div id="pf-compare-bar" class="pf-compare-bar" hidden>
+  <div class="pf-compare-slots" id="pf-compare-slots"></div>
+  <div class="pf-compare-actions">
+    <button type="button" id="pf-compare-clear" class="pf-compare-clear">Clear</button>
+    <button type="button" id="pf-compare-go" class="pf-compare-go">Compare →</button>
+  </div>
+</div>
+
+<style>
+  :root {
+    --metric-good: #2d7a2d;
+    --metric-warn: #8a6000;
+    --metric-bad: #9a1f1f;
+    --metric-good-bg: #f0fdf0;
+    --metric-warn-bg: #fffbeb;
+    --metric-bad-bg: #fef2f2;
+    --pf-accent: #C96442;
+    --pf-accent-hover: #A84F32;
+  }
+
+  :root[data-theme="dark"] {
+    --metric-good: #4caf50;
+    --metric-warn: #ff8c00;
+    --metric-bad: #ff6b6b;
+    --metric-good-bg: rgba(76, 175, 80, 0.12);
+    --metric-warn-bg: rgba(255, 140, 0, 0.12);
+    --metric-bad-bg: rgba(255, 107, 107, 0.12);
+  }
+
+  /* break the standard 720px content column out to a wider working area for the tool */
+  .main:has(.propfirms-page) {
+    max-width: calc(1100px + var(--gap) * 2);
+  }
+
+  .pf-disclosure {
+    font-size: 0.85em;
+    color: var(--secondary);
+    font-style: italic;
+    margin: 0.25rem 0 0;
+  }
+
+  .pf-last-updated {
+    font-size: 0.85em;
+    color: var(--secondary);
+    margin: 0.35rem 0 0.5rem;
+  }
+
+  .pf-methodology {
+    font-size: 0.8em;
+    color: var(--secondary);
+    background: var(--code-bg);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.8rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .pf-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .pf-preset-btn,
+  .pf-view-btn {
+    border: 1px solid var(--border);
+    background: var(--entry);
+    color: var(--primary);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85em;
+    cursor: pointer;
+  }
+
+  .pf-preset-btn:hover,
+  .pf-view-btn:hover {
+    border-color: var(--pf-accent);
+  }
+
+  .pf-preset-btn.active,
+  .pf-view-btn.active {
+    background: var(--pf-accent);
+    border-color: var(--pf-accent);
+    color: #fff;
+  }
+
+  .pf-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .pf-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.85em;
+    color: var(--secondary);
+  }
+
+  .pf-filter select,
+  .pf-filter input[type="range"] {
+    accent-color: var(--pf-accent);
+  }
+
+  .pf-filter select {
+    background: var(--theme);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.35rem;
+  }
+
+  .pf-filter-toggle label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    cursor: pointer;
+  }
+
+  .pf-filter-clear {
+    justify-content: flex-end;
+  }
+
+  .pf-clear-btn {
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--secondary);
+    border-radius: var(--radius);
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85em;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+
+  .pf-clear-btn:hover {
+    border-color: var(--pf-accent);
+    color: var(--pf-accent);
+  }
+
+  .pf-meta-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .pf-count {
+    color: var(--secondary);
+    font-size: 0.9em;
+  }
+
+  .pf-view-toggle {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .pf-status,
+  .pf-no-results {
+    color: var(--secondary);
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .pf-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .pf-cards[hidden],
+  .pf-table-wrap[hidden] {
+    display: none;
+  }
+
+  .pf-card {
+    position: relative;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  }
+
+  .pf-card:hover {
+    border-color: var(--pf-accent);
+  }
+
+  .pf-card.selected {
+    border-color: var(--pf-accent);
+    background-color: color-mix(in srgb, var(--pf-accent) 10%, var(--entry));
+    box-shadow: 0 0 0 2px var(--pf-accent);
+  }
+
+  .pf-card.selected::before {
+    content: "✓ Comparing";
+    position: absolute;
+    top: -10px;
+    right: 12px;
+    background: var(--pf-accent);
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+  }
+
+  .pf-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .pf-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 0;
+  }
+
+  .pf-avatar {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--code-bg);
+    color: var(--pf-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    overflow: hidden;
+  }
+
+  .pf-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .pf-avatar-sm {
+    width: 22px;
+    height: 22px;
+    font-size: 0.65em;
+  }
+
+  .pf-card-name {
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0;
+  }
+
+  .pf-scores {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .pf-rating {
+    color: var(--pf-accent);
+    font-size: 0.85em;
+    white-space: nowrap;
+  }
+
+  .pf-trust {
+    font-size: 0.72em;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .pf-trust.good { color: var(--metric-good); }
+  .pf-trust.warn { color: var(--metric-warn); }
+  .pf-trust.bad { color: var(--metric-bad); }
+
+  .pf-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0.5rem 0;
+  }
+
+  .pf-reviews {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.35rem;
+  }
+
+  .pf-external-review {
+    display: inline-block;
+    font-size: 0.75em;
+    color: var(--secondary);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--border);
+  }
+
+  .pf-external-review:hover {
+    color: var(--pf-accent);
+  }
+
+  .pf-manipulation-warning {
+    flex-basis: 100%;
+    font-size: 0.75em;
+    color: var(--metric-bad);
+    font-weight: 600;
+  }
+
+  .pf-tag {
+    font-size: 0.72em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: var(--code-bg);
+    color: var(--secondary);
+    border: 1px solid var(--border);
+  }
+
+  .pf-tag.pf-tag-no {
+    opacity: 0.6;
+  }
+
+  .pf-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4rem;
+    margin: 0.6rem 0;
+  }
+
+  .pf-metric {
+    font-size: 0.78em;
+    border-radius: 6px;
+    padding: 0.3rem 0.45rem;
+  }
+
+  .pf-metric-label {
+    color: var(--secondary);
+    display: block;
+    font-size: 0.9em;
+  }
+
+  .pf-metric-value {
+    font-weight: 600;
+  }
+
+  .pf-metric.good { background: var(--metric-good-bg); color: var(--metric-good); }
+  .pf-metric.warn { background: var(--metric-warn-bg); color: var(--metric-warn); }
+  .pf-metric.bad  { background: var(--metric-bad-bg); color: var(--metric-bad); }
+
+  .pf-accounts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0.6rem 0 0.4rem;
+  }
+
+  .pf-account-pill {
+    font-size: 0.75em;
+    border: 1px solid var(--border);
+    background: var(--theme);
+    color: var(--primary);
+    border-radius: 999px;
+    padding: 0.2rem 0.55rem;
+    cursor: pointer;
+  }
+
+  .pf-account-pill.active {
+    background: var(--pf-accent);
+    border-color: var(--pf-accent);
+    color: #fff;
+  }
+
+  .pf-cost-display {
+    font-size: 0.95em;
+    color: var(--primary);
+    margin: 0.3rem 0 0.6rem;
+  }
+
+  .pf-cost-display strong {
+    color: var(--pf-accent);
+  }
+
+  .pf-cost-usd {
+    font-size: 0.85em;
+    color: var(--secondary);
+  }
+
+  .pf-note {
+    font-size: 0.78em;
+    background: var(--code-bg);
+    border-left: 3px solid var(--pf-accent);
+    padding: 0.4rem 0.6rem;
+    color: var(--secondary);
+    margin: 0.5rem 0;
+  }
+
+  .pf-visit-link {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.85em;
+    color: var(--pf-accent);
+    text-decoration: none;
+  }
+
+  .pf-visit-link:hover {
+    color: var(--pf-accent-hover);
+    text-decoration: underline;
+  }
+
+  .pf-table-wrap {
+    overflow-x: auto;
+  }
+
+  .pf-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+  }
+
+  .pf-table th,
+  .pf-table td {
+    padding: 0.5rem 0.7rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .pf-table-firm {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .pf-table th {
+    cursor: pointer;
+    color: var(--secondary);
+    user-select: none;
+  }
+
+  .pf-table th.active-sort {
+    color: var(--pf-accent);
+  }
+
+  .pf-table tbody tr:hover {
+    background: var(--code-bg);
+  }
+
+  .pf-compare-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--entry);
+    border-top: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    z-index: 100;
+  }
+
+  .pf-compare-slots {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pf-compare-slot {
+    font-size: 0.8em;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 0.3rem 0.7rem;
+    color: var(--secondary);
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .pf-compare-slot.filled {
+    border-style: solid;
+    border-color: var(--pf-accent);
+    color: var(--primary);
+  }
+
+  .pf-compare-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .pf-compare-clear {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--secondary);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+  }
+
+  .pf-compare-go {
+    background: var(--pf-accent);
+    border: none;
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+  }
+
+  .pf-compare-go:hover {
+    background: var(--pf-accent-hover);
+  }
+
+  @media (max-width: 600px) {
+    .pf-cards {
+      grid-template-columns: 1fr;
+    }
+    .pf-filters {
+      grid-template-columns: 1fr;
+    }
+    .pf-presets {
+      justify-content: flex-start;
+    }
+    .pf-compare-bar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .pf-compare-actions {
+      justify-content: stretch;
+    }
+    .pf-compare-actions button {
+      flex: 1;
+    }
+  }
+</style>
+
+<script>
+(function () {
+  var state = {
+    sort: 'rating',
+    accountSize: 'any',
+    maxCost: 1500,
+    minDailyLoss: 2,
+    minDrawdown: 3,
+    ea: false,
+    indices: false,
+    forex: false,
+    news: false,
+    weekend: false,
+    view: 'cards',
+    preset: 'all',
+    tableSort: { col: 'rating', dir: 'desc' }
+  };
+
+  var allFirms = [];
+  var compareIds = [];
+  var cardAccountSize = {}; // per-card selected account size, keyed by firm id
+  var exchangeRates = { USD: 1, GBP: 1, EUR: 1 };
+
+  var el = {
+    status: document.getElementById('pf-status'),
+    cards: document.getElementById('pf-cards'),
+    tableWrap: document.getElementById('pf-table-wrap'),
+    tableBody: document.getElementById('pf-table-body'),
+    noResults: document.getElementById('pf-no-results'),
+    count: document.getElementById('pf-count'),
+    lastUpdated: document.getElementById('pf-last-updated'),
+    fxNote: document.getElementById('pf-fx-note'),
+    sort: document.getElementById('pf-sort'),
+    accountSize: document.getElementById('pf-account-size'),
+    maxCost: document.getElementById('pf-max-cost'),
+    maxCostVal: document.getElementById('pf-max-cost-val'),
+    minDailyLoss: document.getElementById('pf-min-daily-loss'),
+    minDailyLossVal: document.getElementById('pf-min-daily-loss-val'),
+    minDrawdown: document.getElementById('pf-min-drawdown'),
+    minDrawdownVal: document.getElementById('pf-min-drawdown-val'),
+    toggleEa: document.getElementById('pf-toggle-ea'),
+    toggleIndices: document.getElementById('pf-toggle-indices'),
+    toggleForex: document.getElementById('pf-toggle-forex'),
+    toggleNews: document.getElementById('pf-toggle-news'),
+    toggleWeekend: document.getElementById('pf-toggle-weekend'),
+    clearFilters: document.getElementById('pf-clear-filters'),
+    presets: document.getElementById('pf-presets'),
+    viewToggle: document.getElementById('pf-view-toggle'),
+    compareBar: document.getElementById('pf-compare-bar'),
+    compareSlots: document.getElementById('pf-compare-slots'),
+    compareClear: document.getElementById('pf-compare-clear'),
+    compareGo: document.getElementById('pf-compare-go')
+  };
+
+  function currencySymbol(firm) {
+    return { USD: '$', GBP: '£', EUR: '€' }[firm.currency] || '$';
+  }
+
+  function toUSD(firm, amount) {
+    var rate = exchangeRates[firm.currency];
+    return amount * (typeof rate === 'number' ? rate : 1);
+  }
+
+  function clamp01(n) {
+    return Math.max(0, Math.min(10, n));
+  }
+
+  function computeRating(firm) {
+    var cheapestUSD = toUSD(firm, cheapestAccount(firm).cost);
+    var payoutScore = clamp01((firm.payout - 50) / 50 * 10);
+    var ddScore = clamp01((firm.maxDrawdown - 3) / 9 * 10);
+    var dailyLossScore = clamp01((firm.dailyLoss - 2) / 4 * 10);
+    var targetScore = clamp01((12 - firm.profitTarget) / 7 * 10);
+    var costScore = clamp01((800 - cheapestUSD) / 770 * 10);
+    var trustScore = clamp01(firm.trustScore);
+
+    var weighted =
+      0.25 * payoutScore +
+      0.20 * ddScore +
+      0.15 * dailyLossScore +
+      0.15 * targetScore +
+      0.10 * costScore +
+      0.15 * trustScore;
+
+    return Math.round((weighted / 2) * 10) / 10;
+  }
+
+  function cheapestAccount(firm) {
+    return firm.accounts.reduce(function (min, a) { return a.cost < min.cost ? a : min; }, firm.accounts[0]);
+  }
+
+  function accountForSize(firm, size) {
+    if (size === 'any') return cheapestAccount(firm);
+    if (size === 200000) {
+      var atLeast = firm.accounts.filter(function (a) { return a.size >= 200000; });
+      if (!atLeast.length) return null;
+      return atLeast.reduce(function (min, a) { return a.size < min.size ? a : min; }, atLeast[0]);
+    }
+    return firm.accounts.find(function (a) { return a.size === size; }) || null;
+  }
+
+  function getDisplayAccount(firm) {
+    var picked = cardAccountSize[firm.id];
+    if (picked) {
+      var found = firm.accounts.find(function (a) { return a.size === picked; });
+      if (found) return found;
+    }
+    return accountForSize(firm, state.accountSize) || cheapestAccount(firm);
+  }
+
+  function metricClass(kind, value) {
+    switch (kind) {
+      case 'profitTarget':
+        return value <= 8 ? 'good' : value <= 10 ? 'warn' : 'bad';
+      case 'maxDrawdown':
+        return value >= 10 ? 'good' : value >= 7 ? 'warn' : 'bad';
+      case 'dailyLoss':
+        return value >= 5 ? 'good' : value >= 4 ? 'warn' : 'bad';
+      case 'payout':
+        return value >= 85 ? 'good' : value >= 75 ? 'warn' : 'bad';
+      case 'commission':
+        return value <= 15 ? 'good' : value <= 25 ? 'warn' : 'bad';
+      case 'minDays':
+        return value <= 3 ? 'good' : value <= 7 ? 'warn' : 'bad';
+      case 'trust':
+        return value >= 7 ? 'good' : value >= 5 ? 'warn' : 'bad';
+      default:
+        return '';
+    }
+  }
+
+  function applyPreset(name) {
+    state.preset = name;
+    state.sort = 'rating';
+    state.accountSize = 'any';
+    state.maxCost = 1500;
+    state.minDailyLoss = 2;
+    state.minDrawdown = 3;
+    state.ea = false;
+    state.indices = false;
+    state.forex = false;
+    state.news = false;
+    state.weekend = false;
+
+    if (name === 'algo') state.ea = true;
+    if (name === 'value') { state.sort = 'costAsc'; state.maxCost = 300; }
+    if (name === 'lenient') { state.minDrawdown = 10; state.sort = 'ddDesc'; }
+    if (name === 'payout') state.sort = 'payoutDesc';
+    if (name === 'indices') state.indices = true;
+    if (name === 'fast') state.sort = 'targetAsc';
+
+    syncControlsFromState();
+    render();
+  }
+
+  function syncControlsFromState() {
+    el.sort.value = state.sort;
+    el.accountSize.value = state.accountSize;
+    el.maxCost.value = state.maxCost;
+    el.minDailyLoss.value = state.minDailyLoss;
+    el.minDrawdown.value = state.minDrawdown;
+    el.toggleEa.checked = state.ea;
+    el.toggleIndices.checked = state.indices;
+    el.toggleForex.checked = state.forex;
+    el.toggleNews.checked = state.news;
+    el.toggleWeekend.checked = state.weekend;
+    updateRangeLabels();
+    updatePresetButtons();
+  }
+
+  function updateRangeLabels() {
+    el.maxCostVal.textContent = Number(state.maxCost) >= 1500 ? 'Any' : state.maxCost;
+    el.minDailyLossVal.textContent = Number(state.minDailyLoss) <= 2 ? 'Any' : state.minDailyLoss + '%';
+    el.minDrawdownVal.textContent = Number(state.minDrawdown) <= 3 ? 'Any' : state.minDrawdown + '%';
+  }
+
+  function updatePresetButtons() {
+    var btns = el.presets.querySelectorAll('.pf-preset-btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.toggle('active', btns[i].dataset.preset === state.preset);
+    }
+  }
+
+  function clearActivePreset() {
+    state.preset = null;
+    updatePresetButtons();
+  }
+
+  function filteredFirms() {
+    var accountSizeNum = state.accountSize === 'any' ? 'any' : Number(state.accountSize);
+
+    return allFirms.filter(function (firm) {
+      if (accountSizeNum !== 'any' && !accountForSize(firm, accountSizeNum)) return false;
+      var acc = accountForSize(firm, accountSizeNum) || cheapestAccount(firm);
+      if (toUSD(firm, acc.cost) > Number(state.maxCost)) return false;
+      if (firm.dailyLoss < Number(state.minDailyLoss)) return false;
+      if (firm.maxDrawdown < Number(state.minDrawdown)) return false;
+      if (state.ea && !firm.ea) return false;
+      if (state.indices && !firm.indices) return false;
+      if (state.forex && !firm.forex) return false;
+      if (state.news && !firm.newsTrading) return false;
+      if (state.weekend && !firm.weekendHolding) return false;
+      return true;
+    });
+  }
+
+  function costOf(firm) {
+    var acc = accountForSize(firm, state.accountSize === 'any' ? 'any' : Number(state.accountSize)) || cheapestAccount(firm);
+    return toUSD(firm, acc.cost);
+  }
+
+  function sortByDropdown(firms, sortKey) {
+    var list = firms.slice();
+    var comparators = {
+      rating: function (a, b) { return computeRating(b) - computeRating(a); },
+      trustDesc: function (a, b) { return b.trustScore - a.trustScore; },
+      costAsc: function (a, b) { return costOf(a) - costOf(b); },
+      costDesc: function (a, b) { return costOf(b) - costOf(a); },
+      ddDesc: function (a, b) { return b.maxDrawdown - a.maxDrawdown; },
+      dailyLossDesc: function (a, b) { return b.dailyLoss - a.dailyLoss; },
+      targetAsc: function (a, b) { return a.profitTarget - b.profitTarget; },
+      payoutDesc: function (a, b) { return b.payout - a.payout; }
+    };
+    list.sort(comparators[sortKey] || comparators.rating);
+    return list;
+  }
+
+  function tableColumnValue(firm, col) {
+    switch (col) {
+      case 'name': return firm.name;
+      case 'cost': return costOf(firm);
+      case 'profitTarget': return firm.profitTarget;
+      case 'maxDrawdown': return firm.maxDrawdown;
+      case 'dailyLoss': return firm.dailyLoss;
+      case 'payout': return firm.payout;
+      case 'commission': return 100 - firm.payout;
+      case 'ea': return firm.ea ? 1 : 0;
+      case 'rating': return computeRating(firm);
+      case 'trust': return firm.trustScore;
+      default: return computeRating(firm);
+    }
+  }
+
+  function sortByColumn(firms, col, dir) {
+    var list = firms.slice();
+    list.sort(function (a, b) {
+      var va = tableColumnValue(a, col);
+      var vb = tableColumnValue(b, col);
+      var cmp = typeof va === 'string' ? va.localeCompare(vb) : va - vb;
+      return dir === 'desc' ? -cmp : cmp;
+    });
+    return list;
+  }
+
+  function render() {
+    var firms = filteredFirms();
+    firms = sortByDropdown(firms, state.sort);
+
+    el.count.textContent = firms.length + (firms.length === 1 ? ' firm shown' : ' firms shown');
+
+    if (!firms.length) {
+      el.noResults.hidden = false;
+      el.cards.hidden = true;
+      el.tableWrap.hidden = true;
+      el.cards.innerHTML = '';
+      renderCompareBar();
+      return;
+    }
+    el.noResults.hidden = true;
+
+    if (state.view === 'cards') {
+      el.tableWrap.hidden = true;
+      el.cards.hidden = false;
+      renderCards(firms);
+    } else {
+      el.cards.hidden = true;
+      el.tableWrap.hidden = false;
+      renderTable(firms);
+    }
+    renderCompareBar();
+  }
+
+  function renderCards(firms) {
+    el.cards.innerHTML = firms.map(cardHtml).join('');
+
+    el.cards.querySelectorAll('.pf-account-pill').forEach(function (pill) {
+      pill.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var firmId = Number(pill.closest('.pf-card').dataset.id);
+        cardAccountSize[firmId] = Number(pill.dataset.size);
+        render();
+      });
+    });
+
+    el.cards.querySelectorAll('.pf-visit-link').forEach(function (link) {
+      link.addEventListener('click', function (e) { e.stopPropagation(); });
+    });
+
+    el.cards.querySelectorAll('.pf-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        toggleCompare(Number(card.dataset.id));
+      });
+    });
+  }
+
+  function cardHtml(firm) {
+    var acc = getDisplayAccount(firm);
+    var selected = compareIds.indexOf(firm.id) !== -1;
+    var metrics = [
+      ['Profit target', firm.profitTarget + '%', metricClass('profitTarget', firm.profitTarget)],
+      ['Max drawdown', firm.maxDrawdown + '%', metricClass('maxDrawdown', firm.maxDrawdown)],
+      ['Daily loss', firm.dailyLoss + '%', metricClass('dailyLoss', firm.dailyLoss)],
+      ['Payout', firm.payout + '%', metricClass('payout', firm.payout)],
+      ['Firm commission', (100 - firm.payout) + '%', metricClass('commission', 100 - firm.payout)],
+      ['Min days', firm.minDays, metricClass('minDays', firm.minDays)],
+      ['Payout freq', firm.payoutFreq, '']
+    ];
+
+    var tags = [
+      firm.ea ? '<span class="pf-tag">EA ✓</span>' : '<span class="pf-tag pf-tag-no">No EA</span>',
+      firm.indices ? '<span class="pf-tag">Indices</span>' : '',
+      firm.forex ? '<span class="pf-tag">Forex</span>' : '',
+      firm.newsTrading ? '<span class="pf-tag">News trading</span>' : '',
+      firm.weekendHolding ? '<span class="pf-tag">Weekend holding</span>' : ''
+    ].join('');
+
+    var pills = firm.accounts.map(function (a) {
+      var active = acc.size === a.size ? ' active' : '';
+      return '<span class="pf-account-pill' + active + '" data-size="' + a.size + '">$' + (a.size / 1000) + 'k</span>';
+    }).join('');
+
+    var note = firm.notes ? '<div class="pf-note">' + escapeHtml(firm.notes) + '</div>' : '';
+    var reviewsHtml = reviewBadgeHtml(firm.externalReview) + reviewBadgeHtml(firm.secondaryReview);
+    var manipulationWarning = firm.manipulationFlag
+      ? '<div class="pf-manipulation-warning">⚠ Confirmed fake/manipulated reviews found for this firm — see the note below before trusting star ratings alone.</div>'
+      : '';
+    var review = (reviewsHtml || manipulationWarning)
+      ? '<div class="pf-reviews">' + reviewsHtml + manipulationWarning + '</div>'
+      : '';
+
+    return (
+      '<div class="pf-card' + (selected ? ' selected' : '') + '" data-id="' + firm.id + '" data-affiliate-url="' + escapeHtml(firm.affiliateUrl || '') + '">' +
+        '<div class="pf-card-header">' +
+          '<div class="pf-card-title">' + avatarHtml(firm) + '<h3 class="pf-card-name">' + escapeHtml(firm.name) + '</h3></div>' +
+          '<div class="pf-scores">' +
+            '<span class="pf-rating">★ ' + computeRating(firm).toFixed(1) + '</span>' +
+            '<span class="pf-trust ' + metricClass('trust', firm.trustScore) + '">Trust ' + firm.trustScore.toFixed(1) + '/10</span>' +
+          '</div>' +
+        '</div>' +
+        review +
+        '<div class="pf-tags">' + tags + '</div>' +
+        '<div class="pf-metrics">' +
+          metrics.map(function (m) {
+            return '<div class="pf-metric' + (m[2] ? ' ' + m[2] : '') + '"><span class="pf-metric-label">' + m[0] + '</span><span class="pf-metric-value">' + m[1] + '</span></div>';
+          }).join('') +
+        '</div>' +
+        '<div class="pf-accounts">' + pills + '</div>' +
+        '<div class="pf-cost-display">$' + (acc.size / 1000) + 'k account: <strong>' + currencySymbol(firm) + acc.cost + '</strong>' + (firm.currency !== 'USD' ? ' <span class="pf-cost-usd">(&asymp;$' + Math.round(toUSD(firm, acc.cost)) + ')</span>' : '') + '</div>' +
+        note +
+        '<a class="pf-visit-link" href="' + escapeHtml(firm.website) + '" target="_blank" rel="noopener">Visit firm →</a>' +
+      '</div>'
+    );
+  }
+
+  function renderTable(firms) {
+    el.tableBody.innerHTML = firms.map(function (firm) {
+      var acc = getDisplayAccount(firm);
+      return (
+        '<tr>' +
+          '<td><span class="pf-table-firm">' + avatarHtml(firm, 'pf-avatar-sm') + escapeHtml(firm.name) + '</span></td>' +
+          '<td>' + currencySymbol(firm) + acc.cost + (firm.currency !== 'USD' ? ' (≈$' + Math.round(toUSD(firm, acc.cost)) + ')' : '') + '</td>' +
+          '<td>' + firm.profitTarget + '%</td>' +
+          '<td>' + firm.maxDrawdown + '%</td>' +
+          '<td>' + firm.dailyLoss + '%</td>' +
+          '<td>' + firm.payout + '%</td>' +
+          '<td>' + (100 - firm.payout) + '%</td>' +
+          '<td>' + (firm.ea ? 'Yes' : 'No') + '</td>' +
+          '<td>★ ' + computeRating(firm).toFixed(1) + '</td>' +
+          '<td>' + firm.trustScore.toFixed(1) + '/10</td>' +
+        '</tr>'
+      );
+    }).join('');
+
+    var ths = el.tableWrap.querySelectorAll('th');
+    ths.forEach(function (th) {
+      th.classList.toggle('active-sort', th.dataset.col === state.tableSort.col);
+    });
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function formatReviewCount(n) {
+    return n >= 1000 ? Math.round(n / 100) / 10 + 'k' : String(n);
+  }
+
+  function initials(name) {
+    var clean = name.replace(/[()%]/g, '');
+    var words = clean.trim().split(/\s+/).filter(Boolean);
+    if (words.length >= 2) return (words[0].charAt(0) + words[1].charAt(0)).toUpperCase();
+    return clean.replace(/[^a-zA-Z0-9]/g, '').slice(0, 2).toUpperCase();
+  }
+
+  function reviewBadgeHtml(review) {
+    if (!review) return '';
+    var ratingText = (review.rating === null || review.rating === undefined) ? 'unrated' : review.rating.toFixed(1) + '★';
+    var countText = review.reviewCount ? ' (' + formatReviewCount(review.reviewCount) + ' reviews)' : '';
+    return '<a class="pf-external-review" href="' + escapeHtml(review.url) + '" target="_blank" rel="noopener">' +
+      escapeHtml(review.source) + ': ' + ratingText + countText + ' ↗' +
+    '</a>';
+  }
+
+  function avatarHtml(firm, sizeClass) {
+    var cls = 'pf-avatar' + (sizeClass ? ' ' + sizeClass : '');
+    if (firm.logo) {
+      return '<span class="' + cls + '"><img src="' + escapeHtml(firm.logo) + '" alt="' + escapeHtml(firm.name) + ' logo"></span>';
+    }
+    return '<span class="' + cls + '" aria-hidden="true">' + escapeHtml(initials(firm.name)) + '</span>';
+  }
+
+  function toggleCompare(id) {
+    var idx = compareIds.indexOf(id);
+    if (idx !== -1) {
+      compareIds.splice(idx, 1);
+    } else if (compareIds.length < 3) {
+      compareIds.push(id);
+    }
+    render();
+  }
+
+  function renderCompareBar() {
+    el.cards.querySelectorAll('.pf-card').forEach(function (card) {
+      card.classList.toggle('selected', compareIds.indexOf(Number(card.dataset.id)) !== -1);
+    });
+
+    if (!compareIds.length) {
+      el.compareBar.hidden = true;
+      return;
+    }
+    el.compareBar.hidden = false;
+
+    var slots = [0, 1, 2].map(function (i) {
+      var id = compareIds[i];
+      if (!id) return '<span class="pf-compare-slot">—</span>';
+      var firm = allFirms.find(function (f) { return f.id === id; });
+      return '<span class="pf-compare-slot filled">' + avatarHtml(firm, 'pf-avatar-sm') + escapeHtml(firm.name) + '</span>';
+    }).join('');
+    el.compareSlots.innerHTML = slots;
+  }
+
+  function init(data) {
+    allFirms = data.firms.filter(function (f) { return f.active; });
+    if (data.exchangeRates) {
+      exchangeRates = data.exchangeRates;
+      el.fxNote.textContent = 'rates as of ' + data.exchangeRates.asOf + ': £1=$' + data.exchangeRates.GBP + ', €1=$' + data.exchangeRates.EUR;
+    }
+    el.lastUpdated.textContent = 'Data last reviewed: ' + data.lastUpdated;
+    el.status.hidden = true;
+
+    syncControlsFromState();
+    render();
+
+    el.presets.addEventListener('click', function (e) {
+      var btn = e.target.closest('.pf-preset-btn');
+      if (!btn) return;
+      applyPreset(btn.dataset.preset);
+    });
+
+    el.viewToggle.addEventListener('click', function (e) {
+      var btn = e.target.closest('.pf-view-btn');
+      if (!btn) return;
+      state.view = btn.dataset.view;
+      el.viewToggle.querySelectorAll('.pf-view-btn').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.view === state.view);
+      });
+      render();
+    });
+
+    el.sort.addEventListener('change', function () { state.sort = el.sort.value; clearActivePreset(); render(); });
+    el.accountSize.addEventListener('change', function () { state.accountSize = el.accountSize.value; clearActivePreset(); render(); });
+    el.maxCost.addEventListener('input', function () { state.maxCost = el.maxCost.value; updateRangeLabels(); clearActivePreset(); render(); });
+    el.minDailyLoss.addEventListener('input', function () { state.minDailyLoss = el.minDailyLoss.value; updateRangeLabels(); clearActivePreset(); render(); });
+    el.minDrawdown.addEventListener('input', function () { state.minDrawdown = el.minDrawdown.value; updateRangeLabels(); clearActivePreset(); render(); });
+    el.toggleEa.addEventListener('change', function () { state.ea = el.toggleEa.checked; clearActivePreset(); render(); });
+    el.toggleIndices.addEventListener('change', function () { state.indices = el.toggleIndices.checked; clearActivePreset(); render(); });
+    el.toggleForex.addEventListener('change', function () { state.forex = el.toggleForex.checked; clearActivePreset(); render(); });
+    el.toggleNews.addEventListener('change', function () { state.news = el.toggleNews.checked; clearActivePreset(); render(); });
+    el.toggleWeekend.addEventListener('change', function () { state.weekend = el.toggleWeekend.checked; clearActivePreset(); render(); });
+
+    el.tableWrap.querySelectorAll('th').forEach(function (th) {
+      th.addEventListener('click', function () {
+        var col = th.dataset.col;
+        if (state.tableSort.col === col) {
+          state.tableSort.dir = state.tableSort.dir === 'asc' ? 'desc' : 'asc';
+        } else {
+          state.tableSort = { col: col, dir: 'desc' };
+        }
+        var firms = sortByColumn(filteredFirms(), state.tableSort.col, state.tableSort.dir);
+        renderTable(firms);
+      });
+    });
+
+    el.compareClear.addEventListener('click', function () {
+      compareIds = [];
+      render();
+    });
+
+    el.clearFilters.addEventListener('click', function () {
+      applyPreset('all');
+    });
+
+    el.compareGo.addEventListener('click', function () {
+      var names = compareIds.map(function (id) {
+        return allFirms.find(function (f) { return f.id === id; }).name;
+      });
+      alert('Comparing: ' + names.join(', ') + '\n\nFull comparison view coming soon.');
+    });
+  }
+
+  fetch('/data/propfirms.json')
+    .then(function (res) {
+      if (!res.ok) throw new Error('Network response was not ok');
+      return res.json();
+    })
+    .then(init)
+    .catch(function () {
+      el.status.textContent = 'Unable to load firm data — please refresh.';
+    });
+})();
+</script>
+
+{{- end }}

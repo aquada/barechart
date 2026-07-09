@@ -16,6 +16,8 @@ eWavesHarmonics analyses recent price action and shows you where corrections are
 
 The core idea is simple: buy the dips, sell the rallies — but with a framework that tells you with a reasonable degree of probability when a corrective wave has completed and where the next impulsive move is likely to target. The accuracy with which it identifies turning points can be striking.
 
+Available for MT4 and MT5.
+
 <figure class="illustration">
   <img src="/images/ewh-targets.png" alt="eWavesHarmonics Target Zone 1 on GBPUSD">
   <figcaption>Target Zone 1 (TZ1) projected at the 61.8% level on GBPUSD — price arrives and stalls at the eWavesHarmonics target</figcaption>
@@ -34,7 +36,7 @@ If you've been trading off a stack of squiggly indicators all derived from the u
 
 ## Advanced Trade Manager (ATM)
 
-ATM handles the mechanical side of execution so you can focus on the trade itself. Available for MT4 (MT5 version in development).
+ATM handles the mechanical side of execution so you can focus on the trade itself. Available for MT4.
 
 <figure class="illustration float-right">
   <img src="/images/atm-panel.png" alt="Advanced Trade Manager button panel on MT4 chart">
