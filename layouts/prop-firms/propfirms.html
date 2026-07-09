@@ -129,6 +129,18 @@
   </div>
 </div>
 
+<div id="pf-compare-modal" class="pf-compare-modal" hidden>
+  <div class="pf-compare-modal-backdrop" id="pf-compare-modal-backdrop"></div>
+  <div class="pf-compare-modal-panel" role="dialog" aria-modal="true" aria-label="Compare firms">
+    <div class="pf-compare-modal-header">
+      <h2>Compare firms</h2>
+      <button type="button" id="pf-compare-modal-close" class="pf-compare-modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="pf-compare-size-bar" id="pf-compare-size-bar"></div>
+    <div class="pf-compare-modal-body" id="pf-compare-modal-body"></div>
+  </div>
+</div>
+
 <style>
   :root {
     --metric-good: #2d7a2d;
@@ -649,6 +661,162 @@
     background: var(--pf-accent-hover);
   }
 
+  .pf-compare-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .pf-compare-modal[hidden] {
+    display: none;
+  }
+
+  .pf-compare-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .pf-compare-modal-panel {
+    position: relative;
+    background: var(--theme);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    width: 900px;
+    max-width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .pf-compare-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .pf-compare-size-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--code-bg);
+    font-size: 0.85em;
+    color: var(--secondary);
+    flex-shrink: 0;
+  }
+
+  .pf-compare-size-bar select {
+    background: var(--theme);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.3rem 0.5rem;
+  }
+
+  .pf-compare-cost-missing {
+    color: var(--metric-warn);
+    font-size: 0.85em;
+  }
+
+  .pf-compare-modal-header h2 {
+    margin: 0;
+    font-size: 1.1em;
+    color: var(--primary);
+  }
+
+  .pf-compare-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.6em;
+    line-height: 1;
+    color: var(--secondary);
+    cursor: pointer;
+    padding: 0.1rem 0.4rem;
+  }
+
+  .pf-compare-modal-close:hover {
+    color: var(--pf-accent);
+  }
+
+  .pf-compare-modal-body {
+    overflow: auto;
+  }
+
+  .pf-compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+  }
+
+  .pf-compare-table th,
+  .pf-compare-table td {
+    padding: 0.55rem 0.9rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .pf-compare-row-label {
+    color: var(--secondary);
+    font-weight: 600;
+    position: sticky;
+    left: 0;
+    background: var(--theme);
+  }
+
+  .pf-compare-col-head {
+    position: relative;
+    vertical-align: top;
+  }
+
+  .pf-compare-col-firm {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 0.5rem;
+  }
+
+  .pf-compare-remove {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+    background: none;
+    border: none;
+    color: var(--secondary);
+    cursor: pointer;
+    font-size: 1.1em;
+    line-height: 1;
+    padding: 0.1rem 0.3rem;
+  }
+
+  .pf-compare-remove:hover {
+    color: var(--metric-bad);
+  }
+
+  .pf-compare-table td.pf-compare-notes-cell {
+    white-space: normal;
+    max-width: 220px;
+    vertical-align: top;
+  }
+
+  .pf-compare-note-text {
+    font-size: 0.9em;
+    color: var(--secondary);
+  }
+
   @media (max-width: 600px) {
     .pf-cards {
       grid-template-columns: 1fr;
@@ -668,6 +836,12 @@
     }
     .pf-compare-actions button {
       flex: 1;
+    }
+    .pf-compare-modal {
+      padding: 0.5rem;
+    }
+    .pf-compare-modal-panel {
+      max-height: 95vh;
     }
   }
 </style>
@@ -693,6 +867,7 @@
   var allFirms = [];
   var compareIds = [];
   var cardAccountSize = {}; // per-card selected account size, keyed by firm id
+  var compareAccountSize = null; // shared account size for the compare modal — null means "not yet chosen"
   var exchangeRates = { USD: 1, GBP: 1, EUR: 1 };
 
   var el = {
@@ -723,7 +898,12 @@
     compareBar: document.getElementById('pf-compare-bar'),
     compareSlots: document.getElementById('pf-compare-slots'),
     compareClear: document.getElementById('pf-compare-clear'),
-    compareGo: document.getElementById('pf-compare-go')
+    compareGo: document.getElementById('pf-compare-go'),
+    compareModal: document.getElementById('pf-compare-modal'),
+    compareModalBody: document.getElementById('pf-compare-modal-body'),
+    compareModalClose: document.getElementById('pf-compare-modal-close'),
+    compareModalBackdrop: document.getElementById('pf-compare-modal-backdrop'),
+    compareSizeBar: document.getElementById('pf-compare-size-bar')
   };
 
   function currencySymbol(firm) {
@@ -1112,6 +1292,7 @@
 
     if (!compareIds.length) {
       el.compareBar.hidden = true;
+      if (!el.compareModal.hidden) closeCompareModal();
       return;
     }
     el.compareBar.hidden = false;
@@ -1123,6 +1304,139 @@
       return '<span class="pf-compare-slot filled">' + avatarHtml(firm, 'pf-avatar-sm') + escapeHtml(firm.name) + '</span>';
     }).join('');
     el.compareSlots.innerHTML = slots;
+
+    if (!el.compareModal.hidden) renderCompareModalBody();
+  }
+
+  function openCompareModal() {
+    renderCompareModalBody();
+    el.compareModal.hidden = false;
+  }
+
+  function closeCompareModal() {
+    el.compareModal.hidden = true;
+  }
+
+  function compareRowValue(kind, firm) {
+    switch (kind) {
+      case 'rating': return '★ ' + computeRating(firm).toFixed(1);
+      case 'trust': return firm.trustScore.toFixed(1) + '/10';
+      case 'cost': {
+        var exact = firm.accounts.find(function (a) { return a.size === compareAccountSize; });
+        if (!exact) {
+          var cheapest = cheapestAccount(firm);
+          var cheapUsd = firm.currency !== 'USD' ? ' (≈$' + Math.round(toUSD(firm, cheapest.cost)) + ')' : '';
+          return '<span class="pf-compare-cost-missing">No $' + (compareAccountSize / 1000) + 'k tier — cheapest is $' +
+            (cheapest.size / 1000) + 'k: ' + currencySymbol(firm) + cheapest.cost + cheapUsd + '</span>';
+        }
+        var usd = firm.currency !== 'USD' ? ' (≈$' + Math.round(toUSD(firm, exact.cost)) + ')' : '';
+        return currencySymbol(firm) + exact.cost + usd;
+      }
+      case 'profitTarget': return firm.profitTarget + '%';
+      case 'maxDrawdown': return firm.maxDrawdown + '%';
+      case 'dailyLoss': return firm.dailyLoss + '%';
+      case 'payout': return firm.payout + '%';
+      case 'commission': return (100 - firm.payout) + '%';
+      case 'minDays': return firm.minDays;
+      case 'payoutFreq': return firm.payoutFreq;
+      case 'resetFee': return firm.resetFee ? 'Yes' : 'No';
+      case 'consistencyRule': return firm.consistencyRule ? 'Yes' : 'No';
+      case 'ea': return firm.ea ? 'Yes' : 'No';
+      case 'indices': return firm.indices ? 'Yes' : 'No';
+      case 'forex': return firm.forex ? 'Yes' : 'No';
+      case 'newsTrading': return firm.newsTrading ? 'Yes' : 'No';
+      case 'weekendHolding': return firm.weekendHolding ? 'Yes' : 'No';
+      default: return '';
+    }
+  }
+
+  var COMPARE_ROWS = [
+    { label: 'Our rating', kind: 'rating' },
+    { label: 'Trust score', kind: 'trust', metricKind: 'trust', value: function (f) { return f.trustScore; } },
+    { label: 'Cost', kind: 'cost' },
+    { label: 'Profit target', kind: 'profitTarget', metricKind: 'profitTarget', value: function (f) { return f.profitTarget; } },
+    { label: 'Max drawdown', kind: 'maxDrawdown', metricKind: 'maxDrawdown', value: function (f) { return f.maxDrawdown; } },
+    { label: 'Daily loss', kind: 'dailyLoss', metricKind: 'dailyLoss', value: function (f) { return f.dailyLoss; } },
+    { label: 'Payout', kind: 'payout', metricKind: 'payout', value: function (f) { return f.payout; } },
+    { label: 'Firm commission', kind: 'commission', metricKind: 'commission', value: function (f) { return 100 - f.payout; } },
+    { label: 'Min days', kind: 'minDays', metricKind: 'minDays', value: function (f) { return f.minDays; } },
+    { label: 'Payout frequency', kind: 'payoutFreq' },
+    { label: 'Reset fee', kind: 'resetFee' },
+    { label: 'Consistency rule', kind: 'consistencyRule' },
+    { label: 'EA / Algo', kind: 'ea' },
+    { label: 'Indices', kind: 'indices' },
+    { label: 'Forex', kind: 'forex' },
+    { label: 'News trading', kind: 'newsTrading' },
+    { label: 'Weekend holding', kind: 'weekendHolding' }
+  ];
+
+  function renderCompareModalBody() {
+    var firms = compareIds
+      .map(function (id) { return allFirms.find(function (f) { return f.id === id; }); })
+      .filter(Boolean);
+
+    if (!firms.length) {
+      closeCompareModal();
+      return;
+    }
+
+    var sizeSet = {};
+    firms.forEach(function (f) {
+      f.accounts.forEach(function (a) { sizeSet[a.size] = true; });
+    });
+    var sizes = Object.keys(sizeSet).map(Number).sort(function (a, b) { return a - b; });
+
+    if (compareAccountSize === null || sizes.indexOf(compareAccountSize) === -1) {
+      var commonSize = sizes.find(function (size) {
+        return firms.every(function (f) { return f.accounts.some(function (a) { return a.size === size; }); });
+      });
+      compareAccountSize = commonSize !== undefined ? commonSize : sizes[0];
+    }
+
+    el.compareSizeBar.innerHTML = 'Compare at account size: <select id="pf-compare-size-select">' +
+      sizes.map(function (size) {
+        return '<option value="' + size + '"' + (size === compareAccountSize ? ' selected' : '') + '>$' + (size / 1000) + 'k</option>';
+      }).join('') + '</select>';
+
+    document.getElementById('pf-compare-size-select').addEventListener('change', function (e) {
+      compareAccountSize = Number(e.target.value);
+      renderCompareModalBody();
+    });
+
+    var header = '<tr><th class="pf-compare-row-label"></th>' + firms.map(function (f) {
+      return '<th class="pf-compare-col-head">' +
+        '<button type="button" class="pf-compare-remove" data-id="' + f.id + '" aria-label="Remove ' + escapeHtml(f.name) + '">&times;</button>' +
+        '<div class="pf-compare-col-firm">' + avatarHtml(f) + '<span>' + escapeHtml(f.name) + '</span></div>' +
+      '</th>';
+    }).join('') + '</tr>';
+
+    var body = COMPARE_ROWS.map(function (row) {
+      return '<tr><th class="pf-compare-row-label">' + row.label + '</th>' + firms.map(function (f) {
+        var cls = row.metricKind ? metricClass(row.metricKind, row.value(f)) : '';
+        return '<td class="' + (cls ? 'pf-metric ' + cls : '') + '">' + compareRowValue(row.kind, f) + '</td>';
+      }).join('') + '</tr>';
+    }).join('');
+
+    var anyNotes = firms.some(function (f) { return f.notes || f.manipulationFlag; });
+    var notesRow = anyNotes ? (
+      '<tr><th class="pf-compare-row-label">Notes</th>' + firms.map(function (f) {
+        var warn = f.manipulationFlag ? '<div class="pf-manipulation-warning">⚠ Confirmed fake/manipulated reviews found</div>' : '';
+        var noteText = f.notes ? '<div class="pf-compare-note-text">' + escapeHtml(f.notes) + '</div>' : '';
+        return '<td class="pf-compare-notes-cell">' + warn + noteText + '</td>';
+      }).join('') + '</tr>'
+    ) : '';
+
+    var visitRow = '<tr><th class="pf-compare-row-label"></th>' + firms.map(function (f) {
+      return '<td><a class="pf-visit-link" href="' + escapeHtml(f.website) + '" target="_blank" rel="noopener">Visit firm →</a></td>';
+    }).join('') + '</tr>';
+
+    el.compareModalBody.innerHTML = '<table class="pf-compare-table"><thead>' + header + '</thead><tbody>' + body + notesRow + visitRow + '</tbody></table>';
+
+    el.compareModalBody.querySelectorAll('.pf-compare-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        toggleCompare(Number(btn.dataset.id));
+      });
+    });
   }
 
   function init(data) {
@@ -1179,6 +1493,7 @@
 
     el.compareClear.addEventListener('click', function () {
       compareIds = [];
+      compareAccountSize = null;
       render();
     });
 
@@ -1187,10 +1502,13 @@
     });
 
     el.compareGo.addEventListener('click', function () {
-      var names = compareIds.map(function (id) {
-        return allFirms.find(function (f) { return f.id === id; }).name;
-      });
-      alert('Comparing: ' + names.join(', ') + '\n\nFull comparison view coming soon.');
+      openCompareModal();
+    });
+
+    el.compareModalClose.addEventListener('click', closeCompareModal);
+    el.compareModalBackdrop.addEventListener('click', closeCompareModal);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !el.compareModal.hidden) closeCompareModal();
     });
   }
 
