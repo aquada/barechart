@@ -12,7 +12,7 @@
       "name": "FTMO",
       "lastVerified": "2026-07-09",
       "website": "https://ftmo.com",
-      "affiliateUrl": "",
+      "affiliateUrl": "/go/ftmo",
       "active": true,
       "notes": "Figures reflect the standard 2-Step Challenge (confirmed at ftmo.com/en/trading-objectives/, Jul 2026). Account/challenge fees are denominated in EUR by default — confirmed via ftmo.com pricing (fee is fully refundable after your first payout); traders can separately choose a USD/GBP/other trading-account currency, but the challenge cost itself is EUR. Well-established (Czech, founded 2015) and generally considered legitimate, but has a documented pattern of sudden 'non-genuine trading' account bans shortly after payouts, plus reported timezone and stop-loss execution disputes. Not a regulated broker (standard across this industry).",
       "ea": true,

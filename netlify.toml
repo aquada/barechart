@@ -7,3 +7,11 @@
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
   TZ = "Africa/Johannesburg"
+
+# Affiliate redirects — add one entry per link only once the affiliate URL
+# is actually obtained. Do not add placeholder/unapproved links.
+[[redirects]]
+  from = "/go/ftmo"
+  to = "https://trader.ftmo.com/?affiliates=qgNoQuXELWNhkNtWSCCM"
+  status = 302
+  force = true
