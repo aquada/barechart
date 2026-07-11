@@ -14,7 +14,7 @@
       "website": "https://ftmo.com",
       "affiliateUrl": "/go/ftmo",
       "active": true,
-      "notes": "Figures reflect the standard 2-Step Challenge (confirmed at ftmo.com/en/trading-objectives/, Jul 2026). Account/challenge fees are denominated in EUR by default — confirmed via ftmo.com pricing (fee is fully refundable after your first payout); traders can separately choose a USD/GBP/other trading-account currency, but the challenge cost itself is EUR. Well-established (Czech, founded 2015) and generally considered legitimate, but has a documented pattern of sudden 'non-genuine trading' account bans shortly after payouts, plus reported timezone and stop-loss execution disputes. Not a regulated broker (standard across this industry).",
+      "notes": "Figures reflect the standard 2-Step Challenge (confirmed at ftmo.com/en/trading-objectives/, Jul 2026). Account/challenge fees are denominated in EUR by default \u2014 confirmed via ftmo.com pricing (fee is fully refundable after your first payout); traders can separately choose a USD/GBP/other trading-account currency, but the challenge cost itself is EUR. Well-established (Czech, founded 2015) and generally considered legitimate, but has a documented pattern of sudden 'non-genuine trading' account bans shortly after payouts, plus reported timezone and stop-loss execution disputes. Not a regulated broker (standard across this industry).",
       "ea": true,
       "indices": true,
       "forex": true,
@@ -23,8 +23,21 @@
       "weekendHolding": false,
       "consistencyRule": false,
       "trustScore": 7,
-      "externalReview": { "source": "Trustpilot", "rating": 4.8, "reviewCount": 45000, "url": "https://www.trustpilot.com/review/ftmo.com", "asOf": "2026-07-09" },
-      "secondaryReview": { "source": "ForexPeaceArmy", "rating": 4.4, "reviewCount": 723, "url": "https://www.forexpeacearmy.com/forex-reviews/15019/ftmo-forex-training", "asOf": "2026-07-09", "note": "FPA is known for being tougher on prop firms than Trustpilot — a consistent 4.4 there corroborates the Trustpilot number rather than contradicting it." },
+      "externalReview": {
+        "source": "Trustpilot",
+        "rating": 4.8,
+        "reviewCount": 45000,
+        "url": "https://www.trustpilot.com/review/ftmo.com",
+        "asOf": "2026-07-09"
+      },
+      "secondaryReview": {
+        "source": "ForexPeaceArmy",
+        "rating": 4.4,
+        "reviewCount": 723,
+        "url": "https://www.forexpeacearmy.com/forex-reviews/15019/ftmo-forex-training",
+        "asOf": "2026-07-09",
+        "note": "FPA is known for being tougher on prop firms than Trustpilot \u2014 a consistent 4.4 there corroborates the Trustpilot number rather than contradicting it."
+      },
       "profitTarget": 10,
       "maxDrawdown": 10,
       "dailyLoss": 5,
@@ -35,11 +48,26 @@
       "country": "Czech Republic",
       "currency": "EUR",
       "accounts": [
-        { "size": 10000, "cost": 155 },
-        { "size": 25000, "cost": 250 },
-        { "size": 50000, "cost": 345 },
-        { "size": 100000, "cost": 540 },
-        { "size": 200000, "cost": 1080 }
+        {
+          "size": 10000,
+          "cost": 155
+        },
+        {
+          "size": 25000,
+          "cost": 250
+        },
+        {
+          "size": 50000,
+          "cost": 345
+        },
+        {
+          "size": 100000,
+          "cost": 540
+        },
+        {
+          "size": 200000,
+          "cost": 1080
+        }
       ]
     },
     {
@@ -49,7 +77,7 @@
       "website": "https://the5ers.com",
       "affiliateUrl": "",
       "active": true,
-      "notes": "Rebuilt from live pricing (Jul 2026) — a flat $74 fee across all account sizes, scaling to $100k-$125k on performance. No rebrand found. Documented complaints of payout denials and account terminations citing vague 'integrity concerns' shortly after profitable trades, with unresponsive support in several reported cases. IMPORTANT: ForexPeaceArmy confirmed a paid/fake review campaign for this firm (traders were offered compensation to post positive reviews) and zeroed its FPA rating as a result — treat its very high Trustpilot score with real caution. Also flagged unregulated by WikiFX with a Central Bank of Russia warning note.",
+      "notes": "Rebuilt from live pricing (Jul 2026) \u2014 a flat $74 fee across all account sizes, scaling to $100k-$125k on performance. No rebrand found. Documented complaints of payout denials and account terminations citing vague 'integrity concerns' shortly after profitable trades, with unresponsive support in several reported cases. IMPORTANT: ForexPeaceArmy confirmed a paid/fake review campaign for this firm (traders were offered compensation to post positive reviews) and zeroed its FPA rating as a result \u2014 treat its very high Trustpilot score with real caution. Also flagged unregulated by WikiFX with a Central Bank of Russia warning note.",
       "ea": true,
       "indices": true,
       "forex": true,
@@ -58,8 +86,22 @@
       "weekendHolding": false,
       "consistencyRule": true,
       "trustScore": 4.5,
-      "externalReview": { "source": "Trustpilot", "rating": 4.9, "reviewCount": 20000, "url": "https://www.trustpilot.com/review/the5ers.com", "asOf": "2026-07-09", "note": "Review-count figures vary widely by source (17k-27k); treated as approximate. See manipulation warning below — this score should not be taken at face value." },
-      "secondaryReview": { "source": "ForexPeaceArmy", "rating": 0, "reviewCount": null, "url": "https://www.forexpeacearmy.com/forex-reviews/14121/the5ers-review", "asOf": "2026-07-09", "note": "FPA set this firm's rating to zero stars after finding a paid campaign encouraging fake positive reviews — a direct contradiction of its high Trustpilot score." },
+      "externalReview": {
+        "source": "Trustpilot",
+        "rating": 4.9,
+        "reviewCount": 20000,
+        "url": "https://www.trustpilot.com/review/the5ers.com",
+        "asOf": "2026-07-09",
+        "note": "Review-count figures vary widely by source (17k-27k); treated as approximate. See manipulation warning below \u2014 this score should not be taken at face value."
+      },
+      "secondaryReview": {
+        "source": "ForexPeaceArmy",
+        "rating": 0,
+        "reviewCount": null,
+        "url": "https://www.forexpeacearmy.com/forex-reviews/14121/the5ers-review",
+        "asOf": "2026-07-09",
+        "note": "FPA set this firm's rating to zero stars after finding a paid campaign encouraging fake positive reviews \u2014 a direct contradiction of its high Trustpilot score."
+      },
       "manipulationFlag": true,
       "profitTarget": 10,
       "maxDrawdown": 6,
@@ -71,10 +113,22 @@
       "country": "Israel",
       "currency": "USD",
       "accounts": [
-        { "size": 5000, "cost": 74 },
-        { "size": 10000, "cost": 74 },
-        { "size": 20000, "cost": 74 },
-        { "size": 50000, "cost": 74 }
+        {
+          "size": 5000,
+          "cost": 74
+        },
+        {
+          "size": 10000,
+          "cost": 74
+        },
+        {
+          "size": 20000,
+          "cost": 74
+        },
+        {
+          "size": 50000,
+          "cost": 74
+        }
       ]
     },
     {
@@ -84,7 +138,7 @@
       "website": "https://fundednext.com",
       "affiliateUrl": "",
       "active": true,
-      "notes": "Runs several challenge types (Stellar, Rapid, Legacy, Bolt) with different rules — figures shown are the Stellar 1-Step (confirmed via help.fundednext.com, Jul 2026). EA/algo trading IS allowed on Stellar forex/CFD accounts (corrects an earlier conservative false) — but with a separate EA usage fee, a requirement to customize/de-duplicate strategy settings (identical copy-trading across accounts is banned), a $300k max allocation per single EA/strategy, and no EA support on cTrader. Base (non-promo) Stellar pricing shown — promo codes offering ~30% off the challenge fee are commonly available at checkout. Futures-challenge terms remain separately prohibitive of bots. No rebrand found. Documented complaints include retroactively rejected refunds, a formal Dubai consumer-authority complaint, and an under-disclosed 3.5% payout processing fee. IMPORTANT: ForexPeaceArmy identified multiple fraudulent 5-star reviews traced to the same IP address as FundedNext's own Bangladesh Partner Manager — a confirmed instance of review manipulation, not just a suspicion.",
+      "notes": "Runs several challenge types (Stellar, Rapid, Legacy, Bolt) with different rules \u2014 figures shown are the Stellar 1-Step (confirmed via help.fundednext.com, Jul 2026). EA/algo trading is allowed on Stellar forex/CFD accounts, with a separate EA usage fee, a requirement to customize/de-duplicate strategy settings (identical copy-trading across accounts is banned), a $300k max allocation per single EA/strategy, and no EA support on cTrader. Base (non-promo) Stellar pricing shown \u2014 promo codes offering ~30% off the challenge fee are commonly available at checkout. Futures-challenge terms remain separately prohibitive of bots. No rebrand found. Documented complaints include retroactively rejected refunds, a formal Dubai consumer-authority complaint, and an under-disclosed 3.5% payout processing fee. IMPORTANT: ForexPeaceArmy identified multiple fraudulent 5-star reviews traced to the same IP address as FundedNext's own Bangladesh Partner Manager \u2014 a confirmed instance of review manipulation, not just a suspicion.",
       "ea": true,
       "indices": true,
       "forex": true,
@@ -93,8 +147,22 @@
       "weekendHolding": true,
       "consistencyRule": false,
       "trustScore": 4.5,
-      "externalReview": { "source": "Trustpilot", "rating": 4.6, "reviewCount": 72500, "url": "https://www.trustpilot.com/review/fundednext.com", "asOf": "2026-07-09", "note": "See manipulation warning below — some of this firm's positive review volume has been directly traced to fake accounts." },
-      "secondaryReview": { "source": "ForexPeaceArmy", "rating": null, "reviewCount": null, "url": "https://www.forexpeacearmy.com/forex-reviews/19902/funded-next-review", "asOf": "2026-07-09", "note": "No clean aggregate score — FPA's review thread documents fake 5-star reviews traced to FundedNext's own Partner Manager IP address." },
+      "externalReview": {
+        "source": "Trustpilot",
+        "rating": 4.6,
+        "reviewCount": 72500,
+        "url": "https://www.trustpilot.com/review/fundednext.com",
+        "asOf": "2026-07-09",
+        "note": "See manipulation warning below \u2014 some of this firm's positive review volume has been directly traced to fake accounts."
+      },
+      "secondaryReview": {
+        "source": "ForexPeaceArmy",
+        "rating": null,
+        "reviewCount": null,
+        "url": "https://www.forexpeacearmy.com/forex-reviews/19902/funded-next-review",
+        "asOf": "2026-07-09",
+        "note": "No clean aggregate score \u2014 FPA's review thread documents fake 5-star reviews traced to FundedNext's own Partner Manager IP address."
+      },
       "manipulationFlag": true,
       "profitTarget": 10,
       "maxDrawdown": 6,
@@ -106,11 +174,26 @@
       "country": "Bangladesh",
       "currency": "USD",
       "accounts": [
-        { "size": 15000, "cost": 120 },
-        { "size": 25000, "cost": 200 },
-        { "size": 50000, "cost": 299 },
-        { "size": 100000, "cost": 550 },
-        { "size": 200000, "cost": 1100 }
+        {
+          "size": 15000,
+          "cost": 120
+        },
+        {
+          "size": 25000,
+          "cost": 200
+        },
+        {
+          "size": 50000,
+          "cost": 299
+        },
+        {
+          "size": 100000,
+          "cost": 550
+        },
+        {
+          "size": 200000,
+          "cost": 1100
+        }
       ]
     },
     {
@@ -120,7 +203,7 @@
       "website": "https://apextraderfunding.com",
       "affiliateUrl": "",
       "active": true,
-      "notes": "Futures focused — indices only. IMPORTANT: evaluation is a recurring MONTHLY subscription, not a one-time fee — figures below are approximate monthly rates (confirmed range $147-$517/mo on Rithmic, ~$20-30 less on Tradovate; heavy 50-80% promo discounts are typical). No rebrand, but the highest documented complaint volume in this set: denies payouts more than any other top firm despite also paying out the most overall, an $800k dispute between two traders, AG complaints filed in Michigan and Texas, and an active gag-order lawsuit against a YouTuber over claims of retroactive rule changes and bait-and-switch practices. A 2026 program overhaul was marketed around 'no more payout denials.'",
+      "notes": "Futures focused \u2014 indices only. IMPORTANT: evaluation is a recurring MONTHLY subscription, not a one-time fee \u2014 figures below are approximate monthly rates (confirmed range $147-$517/mo on Rithmic, ~$20-30 less on Tradovate; heavy 50-80% promo discounts are typical). No rebrand, but the highest documented complaint volume in this set: denies payouts more than any other top firm despite also paying out the most overall, an $800k dispute between two traders, AG complaints filed in Michigan and Texas, and an active gag-order lawsuit against a YouTuber over claims of retroactive rule changes and bait-and-switch practices. A 2026 program overhaul was marketed around 'no more payout denials.'",
       "ea": true,
       "indices": true,
       "forex": false,
@@ -129,8 +212,22 @@
       "weekendHolding": false,
       "consistencyRule": false,
       "trustScore": 4,
-      "externalReview": { "source": "Trustpilot", "rating": 4.4, "reviewCount": 19500, "url": "https://www.trustpilot.com/review/apextraderfunding.com", "asOf": "2026-07-09", "note": "Trustpilot skews positive because reviews are often left right after funding, before payout disputes surface — see our complaint research in the notes above. About 8.7% of Trustpilot reviews are 1-star, describing slow payouts, account closures after becoming profitable, and support going silent." },
-      "secondaryReview": { "source": "ForexPeaceArmy", "rating": null, "reviewCount": null, "url": "https://www.forexpeacearmy.com/forex-reviews/21206/apex-trader-funding-review", "asOf": "2026-07-09", "note": "FPA's review thread contains detailed trader complaints about payout restrictions and rule enforcement — consistent with our own lawsuit/complaint findings above despite the decent aggregate Trustpilot number." },
+      "externalReview": {
+        "source": "Trustpilot",
+        "rating": 4.4,
+        "reviewCount": 19500,
+        "url": "https://www.trustpilot.com/review/apextraderfunding.com",
+        "asOf": "2026-07-09",
+        "note": "Trustpilot skews positive because reviews are often left right after funding, before payout disputes surface \u2014 see our complaint research in the notes above. About 8.7% of Trustpilot reviews are 1-star, describing slow payouts, account closures after becoming profitable, and support going silent."
+      },
+      "secondaryReview": {
+        "source": "ForexPeaceArmy",
+        "rating": null,
+        "reviewCount": null,
+        "url": "https://www.forexpeacearmy.com/forex-reviews/21206/apex-trader-funding-review",
+        "asOf": "2026-07-09",
+        "note": "FPA's review thread contains detailed trader complaints about payout restrictions and rule enforcement \u2014 consistent with our own lawsuit/complaint findings above despite the decent aggregate Trustpilot number."
+      },
       "profitTarget": 6,
       "maxDrawdown": 6,
       "dailyLoss": 3,
@@ -141,11 +238,26 @@
       "country": "USA",
       "currency": "USD",
       "accounts": [
-        { "size": 25000, "cost": 167 },
-        { "size": 50000, "cost": 167 },
-        { "size": 100000, "cost": 207 },
-        { "size": 150000, "cost": 237 },
-        { "size": 300000, "cost": 257 }
+        {
+          "size": 25000,
+          "cost": 167
+        },
+        {
+          "size": 50000,
+          "cost": 167
+        },
+        {
+          "size": 100000,
+          "cost": 207
+        },
+        {
+          "size": 150000,
+          "cost": 237
+        },
+        {
+          "size": 300000,
+          "cost": 257
+        }
       ]
     },
     {
@@ -164,8 +276,21 @@
       "weekendHolding": true,
       "consistencyRule": true,
       "trustScore": 6,
-      "externalReview": { "source": "Trustpilot", "rating": 4.3, "reviewCount": 3300, "url": "https://www.trustpilot.com/review/e8markets.com", "asOf": "2026-07-09" },
-      "secondaryReview": { "source": "ForexPeaceArmy", "rating": null, "reviewCount": null, "url": "https://www.forexpeacearmy.com/forex-reviews/19402/e8-markets-review", "asOf": "2026-07-09", "note": "Generally positive on FPA too — fast payouts and responsive support are recurring themes, though some traders report rules (like leverage) changing immediately after passing a challenge." },
+      "externalReview": {
+        "source": "Trustpilot",
+        "rating": 4.3,
+        "reviewCount": 3300,
+        "url": "https://www.trustpilot.com/review/e8markets.com",
+        "asOf": "2026-07-09"
+      },
+      "secondaryReview": {
+        "source": "ForexPeaceArmy",
+        "rating": null,
+        "reviewCount": null,
+        "url": "https://www.forexpeacearmy.com/forex-reviews/19402/e8-markets-review",
+        "asOf": "2026-07-09",
+        "note": "Generally positive on FPA too \u2014 fast payouts and responsive support are recurring themes, though some traders report rules (like leverage) changing immediately after passing a challenge."
+      },
       "profitTarget": 6,
       "maxDrawdown": 6,
       "dailyLoss": 3,
@@ -176,10 +301,22 @@
       "country": "USA",
       "currency": "USD",
       "accounts": [
-        { "size": 25000, "cost": 228 },
-        { "size": 50000, "cost": 358 },
-        { "size": 100000, "cost": 588 },
-        { "size": 250000, "cost": 1088 }
+        {
+          "size": 25000,
+          "cost": 228
+        },
+        {
+          "size": 50000,
+          "cost": 358
+        },
+        {
+          "size": 100000,
+          "cost": 588
+        },
+        {
+          "size": 250000,
+          "cost": 1088
+        }
       ]
     },
     {
@@ -189,7 +326,7 @@
       "website": "https://topstep.com",
       "affiliateUrl": "",
       "active": true,
-      "notes": "Futures focused — indices only. IMPORTANT: the Trading Combine is a recurring MONTHLY subscription, not a one-time fee — figures below are the confirmed current monthly rates. Confirmed a real 50%-best-day consistency rule exists (corrects an earlier false) — a single day's profit above 50% of the profit target blocks passing until diluted by more trading days; a day only counts toward progress at all if net profit clears $150. There's no separate hard minimum-day count — minDays=10 is an approximation of how many winning days most passes actually need to satisfy the consistency rule, not a stated rule itself. No rebrand, but currently named in an active April 2026 federal lawsuit alleging a 'systematic and deceptive scheme' of shifting rules and inaccessible profit reserves, plus a history of BBB complaints over account terminations near payout eligibility and a prior 2022 lawsuit. Topstep has also pursued legal action against at least one public critic, resulting in a speaking ban.",
+      "notes": "Futures focused \u2014 indices only. IMPORTANT: the Trading Combine is a recurring MONTHLY subscription, not a one-time fee \u2014 figures below are the confirmed current monthly rates. A real 50%-best-day consistency rule exists \u2014 a single day's profit above 50% of the profit target blocks passing until diluted by more trading days; a day only counts toward progress at all if net profit clears $150. There's no separate hard minimum-day count \u2014 minDays=10 is an approximation of how many winning days most passes actually need to satisfy the consistency rule, not a stated rule itself. No rebrand, but currently named in an active April 2026 federal lawsuit alleging a 'systematic and deceptive scheme' of shifting rules and inaccessible profit reserves, plus a history of BBB complaints over account terminations near payout eligibility and a prior 2022 lawsuit. Topstep has also pursued legal action against at least one public critic, resulting in a speaking ban.",
       "ea": true,
       "indices": true,
       "forex": false,
@@ -198,7 +335,14 @@
       "weekendHolding": false,
       "consistencyRule": true,
       "trustScore": 4,
-      "externalReview": { "source": "Trustpilot", "rating": 3.5, "reviewCount": 14000, "url": "https://www.trustpilot.com/review/topstep.com", "asOf": "2026-07-09", "note": "Confirmed \"Average\" 3.5/5 — the lowest Trustpilot score of any active firm in this comparison, consistent with its BBB complaint history and active lawsuit." },
+      "externalReview": {
+        "source": "Trustpilot",
+        "rating": 3.5,
+        "reviewCount": 14000,
+        "url": "https://www.trustpilot.com/review/topstep.com",
+        "asOf": "2026-07-09",
+        "note": "Confirmed \"Average\" 3.5/5 \u2014 the lowest Trustpilot score of any active firm in this comparison, consistent with its BBB complaint history and active lawsuit."
+      },
       "profitTarget": 6,
       "maxDrawdown": 4,
       "dailyLoss": 2,
@@ -209,9 +353,18 @@
       "country": "USA",
       "currency": "USD",
       "accounts": [
-        { "size": 50000, "cost": 49 },
-        { "size": 100000, "cost": 99 },
-        { "size": 150000, "cost": 199 }
+        {
+          "size": 50000,
+          "cost": 49
+        },
+        {
+          "size": 100000,
+          "cost": 99
+        },
+        {
+          "size": 150000,
+          "cost": 199
+        }
       ]
     },
     {
@@ -221,7 +374,7 @@
       "website": "https://trueforexfunds.com",
       "affiliateUrl": "",
       "active": false,
-      "notes": "CONFIRMED PERMANENTLY SHUT DOWN — ceased all operations 13 May 2026 after MetaQuotes terminated its MT4/MT5 license, citing financial insolvency (site domain no longer resolves). Do not set active:true; remove this entry entirely once confirmed there is no successor/relaunch.",
+      "notes": "CONFIRMED PERMANENTLY SHUT DOWN \u2014 ceased all operations 13 May 2026 after MetaQuotes terminated its MT4/MT5 license, citing financial insolvency (site domain no longer resolves). Do not set active:true; remove this entry entirely once confirmed there is no successor/relaunch.",
       "ea": false,
       "indices": true,
       "forex": true,
@@ -240,11 +393,26 @@
       "country": "UK",
       "currency": "USD",
       "accounts": [
-        { "size": 10000, "cost": 129 },
-        { "size": 25000, "cost": 199 },
-        { "size": 50000, "cost": 299 },
-        { "size": 100000, "cost": 499 },
-        { "size": 200000, "cost": 949 }
+        {
+          "size": 10000,
+          "cost": 129
+        },
+        {
+          "size": 25000,
+          "cost": 199
+        },
+        {
+          "size": 50000,
+          "cost": 299
+        },
+        {
+          "size": 100000,
+          "cost": 499
+        },
+        {
+          "size": 200000,
+          "cost": 949
+        }
       ]
     },
     {
@@ -254,7 +422,7 @@
       "website": "https://blueguardian.com",
       "affiliateUrl": "",
       "active": true,
-      "notes": "Base (non-promo) pricing shown — the site frequently runs 30-60% off launch codes at checkout. Profit target is 8% (Phase 1) / 4% (Phase 2). News trading is confirmed NOT permitted. Owned by Iconic Exchange FZCO (Dubai), founded 2021, no rebrand found. Documented complaints include silently changing daily-loss enforcement from a soft to a hard breach rule without notifying traders, vague 'shared device'/'ban evasion' account terminations, and blocking traders who requested evidence of alleged breaches.",
+      "notes": "Base (non-promo) pricing shown \u2014 the site frequently runs 30-60% off launch codes at checkout. Profit target is 8% (Phase 1) / 4% (Phase 2). News trading is confirmed NOT permitted. Owned by Iconic Exchange FZCO (Dubai), founded 2021, no rebrand found. Documented complaints include silently changing daily-loss enforcement from a soft to a hard breach rule without notifying traders, vague 'shared device'/'ban evasion' account terminations, and blocking traders who requested evidence of alleged breaches.",
       "ea": true,
       "indices": true,
       "forex": true,
@@ -263,8 +431,22 @@
       "weekendHolding": true,
       "consistencyRule": false,
       "trustScore": 5,
-      "externalReview": { "source": "Trustpilot", "rating": 3.6, "reviewCount": 2166, "url": "https://www.trustpilot.com/review/blueguardian.com", "asOf": "2026-07-09", "note": "Ratings vary unusually widely by platform (3.6 here vs 4.1-4.8 reported elsewhere) — treat any single number with caution." },
-      "secondaryReview": { "source": "ForexPeaceArmy", "rating": null, "reviewCount": null, "url": "https://www.forexpeacearmy.com/forex-reviews/22301/blue-guardian-review", "asOf": "2026-07-09", "note": "Contains a detailed complaint from a profitable trader whose account was breached and access refused even after support acknowledged unauthorized activity — worth reading before purchasing." },
+      "externalReview": {
+        "source": "Trustpilot",
+        "rating": 3.6,
+        "reviewCount": 2166,
+        "url": "https://www.trustpilot.com/review/blueguardian.com",
+        "asOf": "2026-07-09",
+        "note": "Ratings vary unusually widely by platform (3.6 here vs 4.1-4.8 reported elsewhere) \u2014 treat any single number with caution."
+      },
+      "secondaryReview": {
+        "source": "ForexPeaceArmy",
+        "rating": null,
+        "reviewCount": null,
+        "url": "https://www.forexpeacearmy.com/forex-reviews/22301/blue-guardian-review",
+        "asOf": "2026-07-09",
+        "note": "Contains a detailed complaint from a profitable trader whose account was breached and access refused even after support acknowledged unauthorized activity \u2014 worth reading before purchasing."
+      },
       "profitTarget": 8,
       "maxDrawdown": 8,
       "dailyLoss": 4,
@@ -275,11 +457,26 @@
       "country": "UK",
       "currency": "USD",
       "accounts": [
-        { "size": 10000, "cost": 125 },
-        { "size": 25000, "cost": 260 },
-        { "size": 50000, "cost": 405 },
-        { "size": 100000, "cost": 778 },
-        { "size": 200000, "cost": 1194 }
+        {
+          "size": 10000,
+          "cost": 125
+        },
+        {
+          "size": 25000,
+          "cost": 260
+        },
+        {
+          "size": 50000,
+          "cost": 405
+        },
+        {
+          "size": 100000,
+          "cost": 778
+        },
+        {
+          "size": 200000,
+          "cost": 1194
+        }
       ]
     },
     {
@@ -289,7 +486,7 @@
       "website": "https://fidelcrest.com",
       "affiliateUrl": "",
       "active": false,
-      "notes": "CONFIRMED SHUT DOWN as an apparent exit scam in March 2024 — the firm continued accepting challenge payments while unable to deliver service, refused refunds to traders in good standing, then ceased all communication. The domain now appears to display unrelated third-party content. Some SEO 'review 2026' pages still describe it as active — treat those as stale/unverified, not evidence. Do not republish as active or recommend under any circumstances.",
+      "notes": "CONFIRMED SHUT DOWN as an apparent exit scam in March 2024 \u2014 the firm continued accepting challenge payments while unable to deliver service, refused refunds to traders in good standing, then ceased all communication. The domain now appears to display unrelated third-party content. Some SEO 'review 2026' pages still describe it as active \u2014 treat those as stale/unverified, not evidence. Do not republish as active or recommend under any circumstances.",
       "ea": true,
       "indices": true,
       "forex": true,
@@ -308,11 +505,26 @@
       "country": "Cyprus",
       "currency": "EUR",
       "accounts": [
-        { "size": 10000, "cost": 99 },
-        { "size": 25000, "cost": 229 },
-        { "size": 50000, "cost": 399 },
-        { "size": 100000, "cost": 699 },
-        { "size": 500000, "cost": 1999 }
+        {
+          "size": 10000,
+          "cost": 99
+        },
+        {
+          "size": 25000,
+          "cost": 229
+        },
+        {
+          "size": 50000,
+          "cost": 399
+        },
+        {
+          "size": 100000,
+          "cost": 699
+        },
+        {
+          "size": 500000,
+          "cost": 1999
+        }
       ]
     },
     {
@@ -322,7 +534,7 @@
       "website": "https://citytradersimperium.com",
       "affiliateUrl": "",
       "active": true,
-      "notes": "EA/algo is allowed only with proof of source-code ownership — third-party/black-box bots and automated news-scalping are prohibited. Payouts: first payout on-demand after 7 profitable days + 2% profit, then monthly for 1-Step/2-Step (bi-weekly for Instant Funding). No rebrand found. Operating since 2018 with a solid track record — 21,000+ funded traders and $367M+ paid out (Trustpilot 4.3/5, ~1,700 reviews). Some standard-pattern complaints about payout denials tied to copy-trading/high-risk rule enforcement, but no indication of scam behavior.",
+      "notes": "EA/algo is allowed only with proof of source-code ownership \u2014 third-party/black-box bots and automated news-scalping are prohibited. Payouts: first payout on-demand after 7 profitable days + 2% profit, then monthly for 1-Step/2-Step (bi-weekly for Instant Funding). No rebrand found. Operating since 2018 with a solid track record \u2014 21,000+ funded traders and $367M+ paid out (Trustpilot 4.3/5, ~1,700 reviews). Some standard-pattern complaints about payout denials tied to copy-trading/high-risk rule enforcement, but no indication of scam behavior.",
       "ea": true,
       "indices": true,
       "forex": true,
@@ -331,8 +543,21 @@
       "weekendHolding": false,
       "consistencyRule": true,
       "trustScore": 7.5,
-      "externalReview": { "source": "Trustpilot", "rating": 4.3, "reviewCount": 1697, "url": "https://www.trustpilot.com/review/citytradersimperium.com", "asOf": "2026-07-09" },
-      "secondaryReview": { "source": "ForexPeaceArmy", "rating": 5, "reviewCount": 2, "url": "https://www.forexpeacearmy.com/forex-reviews/15454/citytradersimperium-forex-training", "asOf": "2026-07-09", "note": "Only 2 reviews on FPA — too small a sample to mean much on its own, shown mainly because it doesn't contradict the Trustpilot picture." },
+      "externalReview": {
+        "source": "Trustpilot",
+        "rating": 4.3,
+        "reviewCount": 1697,
+        "url": "https://www.trustpilot.com/review/citytradersimperium.com",
+        "asOf": "2026-07-09"
+      },
+      "secondaryReview": {
+        "source": "ForexPeaceArmy",
+        "rating": 5,
+        "reviewCount": 2,
+        "url": "https://www.forexpeacearmy.com/forex-reviews/15454/citytradersimperium-forex-training",
+        "asOf": "2026-07-09",
+        "note": "Only 2 reviews on FPA \u2014 too small a sample to mean much on its own, shown mainly because it doesn't contradict the Trustpilot picture."
+      },
       "profitTarget": 8,
       "maxDrawdown": 10,
       "dailyLoss": 5,
@@ -343,11 +568,26 @@
       "country": "UK",
       "currency": "USD",
       "accounts": [
-        { "size": 2500, "cost": 39 },
-        { "size": 10000, "cost": 99 },
-        { "size": 25000, "cost": 199 },
-        { "size": 50000, "cost": 329 },
-        { "size": 100000, "cost": 549 }
+        {
+          "size": 2500,
+          "cost": 39
+        },
+        {
+          "size": 10000,
+          "cost": 99
+        },
+        {
+          "size": 25000,
+          "cost": 199
+        },
+        {
+          "size": 50000,
+          "cost": 329
+        },
+        {
+          "size": 100000,
+          "cost": 549
+        }
       ]
     },
     {
@@ -357,7 +597,7 @@
       "website": "https://luxtradingfirm.com",
       "affiliateUrl": "",
       "active": true,
-      "notes": "GBP-priced, not EUR/USD as previously listed — account tiers below are the real 1-Step Evaluation sizes (£199/£449/£999). No enforced daily loss limit currently (dailyLoss shown as the slider max as a placeholder); max drawdown is a fixed (non-trailing) 6%. Confirmed NOT the same company as 'Lucid Trading' or 'Luxemarkets' — distinct, unrelated firms that sometimes get confused with it in reviews, no rebrand. Operates without an FCA/ASIC or other financial regulator license; independent reviews report very few confirmed trader payout stories and disputes where the firm attributes errors to 'database/server failures' with no compensation offered.",
+      "notes": "GBP-priced, not EUR/USD as previously listed \u2014 account tiers below are the real 1-Step Evaluation sizes (\u00a3199/\u00a3449/\u00a3999). No enforced daily loss limit currently (dailyLoss shown as the slider max as a placeholder); max drawdown is a fixed (non-trailing) 6%. Confirmed NOT the same company as 'Lucid Trading' or 'Luxemarkets' \u2014 distinct, unrelated firms that sometimes get confused with it in reviews, no rebrand. Operates without an FCA/ASIC or other financial regulator license; independent reviews report very few confirmed trader payout stories and disputes where the firm attributes errors to 'database/server failures' with no compensation offered.",
       "ea": true,
       "indices": true,
       "forex": true,
@@ -366,8 +606,22 @@
       "weekendHolding": true,
       "consistencyRule": false,
       "trustScore": 3.5,
-      "externalReview": { "source": "Trustpilot", "rating": 4.1, "reviewCount": 626, "url": "https://www.trustpilot.com/review/luxtradingfirm.com", "asOf": "2026-07-09", "note": "Review counts reported elsewhere range from ~400 to ~630 — low enough volume that this figure moves a lot per new review, unlike the larger firms in this list." },
-      "secondaryReview": { "source": "ForexPeaceArmy", "rating": 2, "reviewCount": 1, "url": "https://www.forexpeacearmy.com/forex-reviews/19408/luxtradingfirm-prop-firm", "asOf": "2026-07-09", "note": "Only 1 review on FPA (2 stars) — not enough data to draw a conclusion from, but it doesn't support the Trustpilot picture either." },
+      "externalReview": {
+        "source": "Trustpilot",
+        "rating": 4.1,
+        "reviewCount": 626,
+        "url": "https://www.trustpilot.com/review/luxtradingfirm.com",
+        "asOf": "2026-07-09",
+        "note": "Review counts reported elsewhere range from ~400 to ~630 \u2014 low enough volume that this figure moves a lot per new review, unlike the larger firms in this list."
+      },
+      "secondaryReview": {
+        "source": "ForexPeaceArmy",
+        "rating": 2,
+        "reviewCount": 1,
+        "url": "https://www.forexpeacearmy.com/forex-reviews/19408/luxtradingfirm-prop-firm",
+        "asOf": "2026-07-09",
+        "note": "Only 1 review on FPA (2 stars) \u2014 not enough data to draw a conclusion from, but it doesn't support the Trustpilot picture either."
+      },
       "profitTarget": 10,
       "maxDrawdown": 6,
       "dailyLoss": 10,
@@ -378,9 +632,18 @@
       "country": "UK",
       "currency": "GBP",
       "accounts": [
-        { "size": 100000, "cost": 199 },
-        { "size": 400000, "cost": 449 },
-        { "size": 1000000, "cost": 999 }
+        {
+          "size": 100000,
+          "cost": 199
+        },
+        {
+          "size": 400000,
+          "cost": 449
+        },
+        {
+          "size": 1000000,
+          "cost": 999
+        }
       ]
     },
     {
@@ -390,7 +653,7 @@
       "website": "https://myforexfunds.com",
       "affiliateUrl": "",
       "active": false,
-      "notes": "Confirmed still in legal recovery/relaunch phase as of Mar 2026 (Canadian receivership unwinding directed Aug 2025, final asset-return order Dec 2025, support channels only reopening Mar 2026) — not normal operations, not accepting new challenge purchases as a going concern. Re-verify before ever setting active:true.",
+      "notes": "Confirmed still in legal recovery/relaunch phase as of Mar 2026 (Canadian receivership unwinding directed Aug 2025, final asset-return order Dec 2025, support channels only reopening Mar 2026) \u2014 not normal operations, not accepting new challenge purchases as a going concern. Re-verify before ever setting active:true.",
       "ea": true,
       "indices": false,
       "forex": true,
@@ -409,10 +672,22 @@
       "country": "Canada",
       "currency": "USD",
       "accounts": [
-        { "size": 10000, "cost": 84 },
-        { "size": 25000, "cost": 199 },
-        { "size": 50000, "cost": 359 },
-        { "size": 100000, "cost": 599 }
+        {
+          "size": 10000,
+          "cost": 84
+        },
+        {
+          "size": 25000,
+          "cost": 199
+        },
+        {
+          "size": 50000,
+          "cost": 359
+        },
+        {
+          "size": 100000,
+          "cost": 599
+        }
       ]
     }
   ]
