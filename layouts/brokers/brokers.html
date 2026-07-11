@@ -150,6 +150,12 @@
     max-width: calc(1100px + var(--gap) * 2);
   }
 
+  /* the fixed compare bar overlays whatever is scrolled to the bottom of the
+     page (including the footer) — reserve space so nothing sits underneath it */
+  body:has(.brokers-page) {
+    padding-bottom: 90px;
+  }
+
   .bk-disclosure {
     font-size: 0.85em;
     color: var(--secondary);
@@ -798,6 +804,9 @@
     }
     .bk-compare-modal-panel {
       max-height: 95vh;
+    }
+    body:has(.brokers-page) {
+      padding-bottom: 180px;
     }
   }
 </style>
