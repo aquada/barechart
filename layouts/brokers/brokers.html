@@ -1,0 +1,1340 @@
+{{- define "main" }}
+
+<article class="post-single brokers-page">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">{{ .Description }}</div>
+    {{- end }}
+  </header>
+
+  <p class="bk-disclosure">I earn a commission on some of these links, at no extra cost to you — it's what funds running this site. It doesn't buy a better ranking: scores and regulation/complaint history below are researched the same way regardless of whether a broker pays affiliate commission, or how much.</p>
+  <p class="bk-last-updated" id="bk-last-updated"></p>
+  <p class="bk-methodology">"Our rating" measures cost and value, not trustworthiness — it weights typical spread + commission, minimum deposit, platform/instrument breadth, and how permissive the broker's trading policy is (EA, scalping, news, weekend holding), plus a smaller trust component. <strong>Trust score</strong> is shown separately on every card — our own 0-10 assessment from regulation tier, independent reviews, and complaint history, not derived from the rating. Each card links to that broker's Trustpilot rating and, where available, a second independent source (ForexPeaceArmy). Spread/commission figures are a cost proxy from a single account type per broker (typically the lowest-cost tier) — always confirm current pricing directly with the broker.</p>
+
+  <div class="bk-presets" id="bk-presets">
+    <button type="button" class="bk-preset-btn" data-preset="all">All brokers</button>
+    <button type="button" class="bk-preset-btn" data-preset="algo">Best for EA/algo</button>
+    <button type="button" class="bk-preset-btn" data-preset="cost">Lowest cost</button>
+    <button type="button" class="bk-preset-btn" data-preset="indices">Best for indices</button>
+    <button type="button" class="bk-preset-btn" data-preset="regulated">Best regulated</button>
+  </div>
+
+  <div class="bk-filters" id="bk-filters">
+    <div class="bk-filter">
+      <label for="bk-sort">Sort by</label>
+      <select id="bk-sort">
+        <option value="rating">Our rating</option>
+        <option value="trustDesc">Trust score highest</option>
+        <option value="costAsc">Spread + commission low → high</option>
+        <option value="depositAsc">Min deposit low → high</option>
+      </select>
+    </div>
+
+    <div class="bk-filter">
+      <label for="bk-execution">Execution type</label>
+      <select id="bk-execution">
+        <option value="any">All</option>
+        <option value="ECN">ECN</option>
+        <option value="STP">STP</option>
+      </select>
+    </div>
+
+    <div class="bk-filter bk-filter-toggle">
+      <label><input type="checkbox" id="bk-toggle-mt5"> MT5 available</label>
+    </div>
+    <div class="bk-filter bk-filter-toggle">
+      <label><input type="checkbox" id="bk-toggle-ea"> EA / Algo allowed</label>
+    </div>
+    <div class="bk-filter bk-filter-toggle">
+      <label><input type="checkbox" id="bk-toggle-news"> News trading allowed</label>
+    </div>
+    <div class="bk-filter bk-filter-toggle">
+      <label><input type="checkbox" id="bk-toggle-weekend"> Weekend holding allowed</label>
+    </div>
+    <div class="bk-filter bk-filter-toggle">
+      <label><input type="checkbox" id="bk-toggle-indices"> Indices available</label>
+    </div>
+    <div class="bk-filter bk-filter-toggle">
+      <label><input type="checkbox" id="bk-toggle-forex"> Forex available</label>
+    </div>
+    <div class="bk-filter bk-filter-toggle">
+      <label><input type="checkbox" id="bk-toggle-commodities"> Commodities available</label>
+    </div>
+    <div class="bk-filter bk-filter-clear">
+      <button type="button" id="bk-clear-filters" class="bk-clear-btn">Clear filters</button>
+    </div>
+  </div>
+
+  <div class="bk-meta-bar">
+    <span id="bk-count" class="bk-count"></span>
+    <div class="bk-view-toggle" id="bk-view-toggle">
+      <button type="button" class="bk-view-btn" data-view="cards">Cards</button>
+      <button type="button" class="bk-view-btn" data-view="table">Table</button>
+    </div>
+  </div>
+
+  <p id="bk-status" class="bk-status">Loading broker data…</p>
+
+  <div id="bk-cards" class="bk-cards" hidden></div>
+
+  <div id="bk-table-wrap" class="bk-table-wrap" hidden>
+    <table class="bk-table">
+      <thead>
+        <tr>
+          <th data-col="name">Broker</th>
+          <th data-col="cost">Spread + commission</th>
+          <th data-col="minDeposit">Min deposit</th>
+          <th data-col="execution">Execution</th>
+          <th data-col="ea">EA</th>
+          <th data-col="rating">Rating</th>
+          <th data-col="trust">Trust</th>
+        </tr>
+      </thead>
+      <tbody id="bk-table-body"></tbody>
+    </table>
+  </div>
+
+  <p id="bk-no-results" class="bk-no-results" hidden>No brokers match these filters — try relaxing them.</p>
+</article>
+
+<div id="bk-compare-bar" class="bk-compare-bar" hidden>
+  <div class="bk-compare-slots" id="bk-compare-slots"></div>
+  <div class="bk-compare-actions">
+    <button type="button" id="bk-compare-clear" class="bk-compare-clear">Clear</button>
+    <button type="button" id="bk-compare-go" class="bk-compare-go">Compare →</button>
+  </div>
+</div>
+
+<div id="bk-compare-modal" class="bk-compare-modal" hidden>
+  <div class="bk-compare-modal-backdrop" id="bk-compare-modal-backdrop"></div>
+  <div class="bk-compare-modal-panel" role="dialog" aria-modal="true" aria-label="Compare brokers">
+    <div class="bk-compare-modal-header">
+      <h2>Compare brokers</h2>
+      <button type="button" id="bk-compare-modal-close" class="bk-compare-modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="bk-compare-modal-body" id="bk-compare-modal-body"></div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --metric-good: #2d7a2d;
+    --metric-warn: #8a6000;
+    --metric-bad: #9a1f1f;
+    --metric-good-bg: #f0fdf0;
+    --metric-warn-bg: #fffbeb;
+    --metric-bad-bg: #fef2f2;
+    --bk-accent: #C96442;
+    --bk-accent-hover: #A84F32;
+  }
+
+  :root[data-theme="dark"] {
+    --metric-good: #4caf50;
+    --metric-warn: #ff8c00;
+    --metric-bad: #ff6b6b;
+    --metric-good-bg: rgba(76, 175, 80, 0.12);
+    --metric-warn-bg: rgba(255, 140, 0, 0.12);
+    --metric-bad-bg: rgba(255, 107, 107, 0.12);
+  }
+
+  .main:has(.brokers-page) {
+    max-width: calc(1100px + var(--gap) * 2);
+  }
+
+  .bk-disclosure {
+    font-size: 0.85em;
+    color: var(--secondary);
+    font-style: italic;
+    margin: 0.25rem 0 0;
+  }
+
+  .bk-last-updated {
+    font-size: 0.85em;
+    color: var(--secondary);
+    margin: 0.35rem 0 0.5rem;
+  }
+
+  .bk-methodology {
+    font-size: 0.8em;
+    color: var(--secondary);
+    background: var(--code-bg);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.8rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .bk-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .bk-preset-btn,
+  .bk-view-btn {
+    border: 1px solid var(--border);
+    background: var(--entry);
+    color: var(--primary);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85em;
+    cursor: pointer;
+  }
+
+  .bk-preset-btn:hover,
+  .bk-view-btn:hover {
+    border-color: var(--bk-accent);
+  }
+
+  .bk-preset-btn.active,
+  .bk-view-btn.active {
+    background: var(--bk-accent);
+    border-color: var(--bk-accent);
+    color: #fff;
+  }
+
+  .bk-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .bk-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.85em;
+    color: var(--secondary);
+  }
+
+  .bk-filter select {
+    background: var(--theme);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.35rem;
+    accent-color: var(--bk-accent);
+  }
+
+  .bk-filter-toggle label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    cursor: pointer;
+  }
+
+  .bk-filter-toggle input {
+    accent-color: var(--bk-accent);
+  }
+
+  .bk-filter-clear {
+    justify-content: flex-end;
+  }
+
+  .bk-clear-btn {
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--secondary);
+    border-radius: var(--radius);
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85em;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+
+  .bk-clear-btn:hover {
+    border-color: var(--bk-accent);
+    color: var(--bk-accent);
+  }
+
+  .bk-meta-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .bk-count {
+    color: var(--secondary);
+    font-size: 0.9em;
+  }
+
+  .bk-view-toggle {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .bk-status,
+  .bk-no-results {
+    color: var(--secondary);
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .bk-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .bk-cards[hidden],
+  .bk-table-wrap[hidden] {
+    display: none;
+  }
+
+  .bk-card {
+    position: relative;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  }
+
+  .bk-card:hover {
+    border-color: var(--bk-accent);
+  }
+
+  .bk-card.selected {
+    border-color: var(--bk-accent);
+    background-color: color-mix(in srgb, var(--bk-accent) 10%, var(--entry));
+    box-shadow: 0 0 0 2px var(--bk-accent);
+  }
+
+  .bk-card.selected::before {
+    content: "✓ Comparing";
+    position: absolute;
+    top: -10px;
+    right: 12px;
+    background: var(--bk-accent);
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+  }
+
+  .bk-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .bk-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 0;
+  }
+
+  .bk-avatar {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--code-bg);
+    color: var(--bk-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    overflow: hidden;
+  }
+
+  .bk-avatar-sm {
+    width: 22px;
+    height: 22px;
+    font-size: 0.65em;
+  }
+
+  .bk-card-name {
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0;
+  }
+
+  .bk-personal-badge {
+    display: inline-block;
+    font-size: 0.68em;
+    font-weight: 700;
+    background: var(--bk-accent);
+    color: #fff;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    letter-spacing: 0.01em;
+  }
+
+  .bk-scores {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .bk-rating {
+    color: var(--bk-accent);
+    font-size: 0.85em;
+    white-space: nowrap;
+  }
+
+  .bk-trust {
+    font-size: 0.72em;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .bk-trust.good { color: var(--metric-good); }
+  .bk-trust.warn { color: var(--metric-warn); }
+  .bk-trust.bad { color: var(--metric-bad); }
+
+  .bk-reg-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin: 0.5rem 0 0.35rem;
+  }
+
+  .bk-reg-badge {
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    background: var(--code-bg);
+    color: var(--primary);
+    border: 1px solid var(--border);
+  }
+
+  .bk-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0.5rem 0;
+  }
+
+  .bk-reviews {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.35rem;
+  }
+
+  .bk-external-review {
+    display: inline-block;
+    font-size: 0.75em;
+    color: var(--secondary);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--border);
+  }
+
+  .bk-external-review:hover {
+    color: var(--bk-accent);
+  }
+
+  .bk-tag {
+    font-size: 0.72em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: var(--code-bg);
+    color: var(--secondary);
+    border: 1px solid var(--border);
+  }
+
+  .bk-tag.bk-tag-no {
+    opacity: 0.6;
+  }
+
+  .bk-accounts {
+    margin: 0.6rem 0 0.4rem;
+    font-size: 0.85em;
+  }
+
+  .bk-account-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    border-bottom: 1px dashed var(--border);
+    color: var(--primary);
+  }
+
+  .bk-account-row:last-child {
+    border-bottom: none;
+  }
+
+  .bk-account-type {
+    color: var(--secondary);
+  }
+
+  .bk-deposit-display {
+    font-size: 0.85em;
+    color: var(--secondary);
+    margin: 0.4rem 0;
+  }
+
+  .bk-note {
+    font-size: 0.78em;
+    background: var(--code-bg);
+    border-left: 3px solid var(--bk-accent);
+    padding: 0.4rem 0.6rem;
+    color: var(--secondary);
+    margin: 0.5rem 0;
+  }
+
+  .bk-visit-link {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.85em;
+    color: var(--bk-accent);
+    text-decoration: none;
+  }
+
+  .bk-visit-link:hover {
+    color: var(--bk-accent-hover);
+    text-decoration: underline;
+  }
+
+  .bk-table-wrap {
+    overflow-x: auto;
+  }
+
+  .bk-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+  }
+
+  .bk-table th,
+  .bk-table td {
+    padding: 0.5rem 0.7rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .bk-table-firm {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .bk-table th {
+    cursor: pointer;
+    color: var(--secondary);
+    user-select: none;
+  }
+
+  .bk-table th.active-sort {
+    color: var(--bk-accent);
+  }
+
+  .bk-table tbody tr:hover {
+    background: var(--code-bg);
+  }
+
+  .bk-compare-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--entry);
+    border-top: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    z-index: 100;
+  }
+
+  .bk-compare-slots {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .bk-compare-slot {
+    font-size: 0.8em;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 0.3rem 0.7rem;
+    color: var(--secondary);
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .bk-compare-slot.filled {
+    border-style: solid;
+    border-color: var(--bk-accent);
+    color: var(--primary);
+  }
+
+  .bk-compare-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .bk-compare-clear {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--secondary);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+  }
+
+  .bk-compare-go {
+    background: var(--bk-accent);
+    border: none;
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+  }
+
+  .bk-compare-go:hover {
+    background: var(--bk-accent-hover);
+  }
+
+  .bk-compare-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .bk-compare-modal[hidden] {
+    display: none;
+  }
+
+  .bk-compare-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .bk-compare-modal-panel {
+    position: relative;
+    background: var(--theme);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    width: 900px;
+    max-width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .bk-compare-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .bk-compare-modal-header h2 {
+    margin: 0;
+    font-size: 1.1em;
+    color: var(--primary);
+  }
+
+  .bk-compare-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.6em;
+    line-height: 1;
+    color: var(--secondary);
+    cursor: pointer;
+    padding: 0.1rem 0.4rem;
+  }
+
+  .bk-compare-modal-close:hover {
+    color: var(--bk-accent);
+  }
+
+  .bk-compare-modal-body {
+    overflow: auto;
+  }
+
+  .bk-compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+  }
+
+  .bk-compare-table th,
+  .bk-compare-table td {
+    padding: 0.55rem 0.9rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .bk-compare-row-label {
+    color: var(--secondary);
+    font-weight: 600;
+    position: sticky;
+    left: 0;
+    background: var(--theme);
+  }
+
+  .bk-compare-col-head {
+    position: relative;
+    vertical-align: top;
+  }
+
+  .bk-compare-col-firm {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 0.5rem;
+  }
+
+  .bk-compare-remove {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+    background: none;
+    border: none;
+    color: var(--secondary);
+    cursor: pointer;
+    font-size: 1.1em;
+    line-height: 1;
+    padding: 0.1rem 0.3rem;
+  }
+
+  .bk-compare-remove:hover {
+    color: var(--metric-bad);
+  }
+
+  .bk-compare-table td.bk-compare-notes-cell {
+    white-space: normal;
+    max-width: 220px;
+    vertical-align: top;
+  }
+
+  .bk-compare-note-text {
+    font-size: 0.9em;
+    color: var(--secondary);
+  }
+
+  .bk-metric-cell.good { background: var(--metric-good-bg); color: var(--metric-good); }
+  .bk-metric-cell.warn { background: var(--metric-warn-bg); color: var(--metric-warn); }
+  .bk-metric-cell.bad  { background: var(--metric-bad-bg); color: var(--metric-bad); }
+
+  @media (max-width: 600px) {
+    .bk-cards {
+      grid-template-columns: 1fr;
+    }
+    .bk-filters {
+      grid-template-columns: 1fr;
+    }
+    .bk-presets {
+      justify-content: flex-start;
+    }
+    .bk-compare-bar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .bk-compare-actions {
+      justify-content: stretch;
+    }
+    .bk-compare-actions button {
+      flex: 1;
+    }
+    .bk-compare-modal {
+      padding: 0.5rem;
+    }
+    .bk-compare-modal-panel {
+      max-height: 95vh;
+    }
+  }
+</style>
+
+<script>
+(function () {
+  var state = {
+    sort: 'rating',
+    execution: 'any',
+    mt5: false,
+    ea: false,
+    news: false,
+    weekend: false,
+    indices: false,
+    forex: false,
+    commodities: false,
+    view: 'cards',
+    preset: 'all',
+    tableSort: { col: 'rating', dir: 'desc' }
+  };
+
+  var allBrokers = [];
+  var compareIds = [];
+
+  var el = {
+    status: document.getElementById('bk-status'),
+    cards: document.getElementById('bk-cards'),
+    tableWrap: document.getElementById('bk-table-wrap'),
+    tableBody: document.getElementById('bk-table-body'),
+    noResults: document.getElementById('bk-no-results'),
+    count: document.getElementById('bk-count'),
+    lastUpdated: document.getElementById('bk-last-updated'),
+    sort: document.getElementById('bk-sort'),
+    execution: document.getElementById('bk-execution'),
+    toggleMt5: document.getElementById('bk-toggle-mt5'),
+    toggleEa: document.getElementById('bk-toggle-ea'),
+    toggleNews: document.getElementById('bk-toggle-news'),
+    toggleWeekend: document.getElementById('bk-toggle-weekend'),
+    toggleIndices: document.getElementById('bk-toggle-indices'),
+    toggleForex: document.getElementById('bk-toggle-forex'),
+    toggleCommodities: document.getElementById('bk-toggle-commodities'),
+    clearFilters: document.getElementById('bk-clear-filters'),
+    presets: document.getElementById('bk-presets'),
+    viewToggle: document.getElementById('bk-view-toggle'),
+    compareBar: document.getElementById('bk-compare-bar'),
+    compareSlots: document.getElementById('bk-compare-slots'),
+    compareClear: document.getElementById('bk-compare-clear'),
+    compareGo: document.getElementById('bk-compare-go'),
+    compareModal: document.getElementById('bk-compare-modal'),
+    compareModalBody: document.getElementById('bk-compare-modal-body'),
+    compareModalClose: document.getElementById('bk-compare-modal-close'),
+    compareModalBackdrop: document.getElementById('bk-compare-modal-backdrop')
+  };
+
+  function clamp01(n) {
+    return Math.max(0, Math.min(10, n));
+  }
+
+  function bestAccount(broker) {
+    return broker.accounts.reduce(function (min, a) {
+      var cost = a.spreadGER40 + a.commission;
+      var minCost = min.spreadGER40 + min.commission;
+      return cost < minCost ? a : min;
+    }, broker.accounts[0]);
+  }
+
+  function costOf(broker) {
+    var a = bestAccount(broker);
+    return a.spreadGER40 + a.commission;
+  }
+
+  function computeRating(broker) {
+    var totalCost = costOf(broker);
+    var costScore = clamp01((9 - totalCost) / 9 * 10);
+    var depositScore = clamp01((300 - broker.minDeposit) / 300 * 10);
+    var platformCount = (broker.mt4 ? 1 : 0) + (broker.mt5 ? 1 : 0);
+    var instrumentCount = (broker.instruments || []).length;
+    var breadthScore = clamp01((platformCount / 2 * 5) + (instrumentCount / 5 * 5));
+    var permissiveScore = clamp01(
+      (broker.eaAllowed ? 2.5 : 0) +
+      (broker.scalping ? 2.5 : 0) +
+      (broker.newsTrading ? 2.5 : 0) +
+      (broker.weekendHolding ? 2.5 : 0)
+    );
+    var trustComponent = clamp01(broker.trustScore);
+
+    var weighted =
+      0.30 * costScore +
+      0.15 * depositScore +
+      0.15 * breadthScore +
+      0.20 * permissiveScore +
+      0.20 * trustComponent;
+
+    return Math.round((weighted / 2) * 10) / 10;
+  }
+
+  function metricClass(kind, value) {
+    switch (kind) {
+      case 'spread':
+        return value <= 0.5 ? 'good' : value <= 1.2 ? 'warn' : 'bad';
+      case 'commission':
+        return value <= 3.5 ? 'good' : value <= 6 ? 'warn' : 'bad';
+      case 'minDeposit':
+        return value <= 100 ? 'good' : value <= 250 ? 'warn' : 'bad';
+      case 'trust':
+        return value >= 7 ? 'good' : value >= 5 ? 'warn' : 'bad';
+      default:
+        return '';
+    }
+  }
+
+  function applyPreset(name) {
+    state.preset = name;
+    state.sort = 'rating';
+    state.execution = 'any';
+    state.mt5 = false;
+    state.ea = false;
+    state.news = false;
+    state.weekend = false;
+    state.indices = false;
+    state.forex = false;
+    state.commodities = false;
+
+    if (name === 'algo') state.ea = true;
+    if (name === 'cost') state.sort = 'costAsc';
+    if (name === 'indices') state.indices = true;
+    if (name === 'regulated') state.sort = 'trustDesc';
+
+    syncControlsFromState();
+    render();
+  }
+
+  function syncControlsFromState() {
+    el.sort.value = state.sort;
+    el.execution.value = state.execution;
+    el.toggleMt5.checked = state.mt5;
+    el.toggleEa.checked = state.ea;
+    el.toggleNews.checked = state.news;
+    el.toggleWeekend.checked = state.weekend;
+    el.toggleIndices.checked = state.indices;
+    el.toggleForex.checked = state.forex;
+    el.toggleCommodities.checked = state.commodities;
+    updatePresetButtons();
+  }
+
+  function updatePresetButtons() {
+    var btns = el.presets.querySelectorAll('.bk-preset-btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.toggle('active', btns[i].dataset.preset === state.preset);
+    }
+  }
+
+  function clearActivePreset() {
+    state.preset = null;
+    updatePresetButtons();
+  }
+
+  function filteredBrokers() {
+    return allBrokers.filter(function (broker) {
+      if (state.execution !== 'any' && broker.executionType.indexOf(state.execution) === -1) return false;
+      if (state.mt5 && !broker.mt5) return false;
+      if (state.ea && !broker.eaAllowed) return false;
+      if (state.news && !broker.newsTrading) return false;
+      if (state.weekend && !broker.weekendHolding) return false;
+      if (state.indices && broker.instruments.indexOf('indices') === -1) return false;
+      if (state.forex && broker.instruments.indexOf('forex') === -1) return false;
+      if (state.commodities && broker.instruments.indexOf('commodities') === -1) return false;
+      return true;
+    });
+  }
+
+  function sortByDropdown(brokers, sortKey) {
+    var list = brokers.slice();
+    var comparators = {
+      rating: function (a, b) { return computeRating(b) - computeRating(a); },
+      trustDesc: function (a, b) { return b.trustScore - a.trustScore; },
+      costAsc: function (a, b) { return costOf(a) - costOf(b); },
+      depositAsc: function (a, b) { return a.minDeposit - b.minDeposit; }
+    };
+    list.sort(comparators[sortKey] || comparators.rating);
+    return list;
+  }
+
+  function tableColumnValue(broker, col) {
+    switch (col) {
+      case 'name': return broker.name;
+      case 'cost': return costOf(broker);
+      case 'minDeposit': return broker.minDeposit;
+      case 'execution': return broker.executionType;
+      case 'ea': return broker.eaAllowed ? 1 : 0;
+      case 'rating': return computeRating(broker);
+      case 'trust': return broker.trustScore;
+      default: return computeRating(broker);
+    }
+  }
+
+  function sortByColumn(brokers, col, dir) {
+    var list = brokers.slice();
+    list.sort(function (a, b) {
+      var va = tableColumnValue(a, col);
+      var vb = tableColumnValue(b, col);
+      var cmp = typeof va === 'string' ? va.localeCompare(vb) : va - vb;
+      return dir === 'desc' ? -cmp : cmp;
+    });
+    return list;
+  }
+
+  function render() {
+    var brokers = filteredBrokers();
+    brokers = sortByDropdown(brokers, state.sort);
+
+    el.count.textContent = brokers.length + (brokers.length === 1 ? ' broker shown' : ' brokers shown');
+
+    if (!brokers.length) {
+      el.noResults.hidden = false;
+      el.cards.hidden = true;
+      el.tableWrap.hidden = true;
+      el.cards.innerHTML = '';
+      renderCompareBar();
+      return;
+    }
+    el.noResults.hidden = true;
+
+    if (state.view === 'cards') {
+      el.tableWrap.hidden = true;
+      el.cards.hidden = false;
+      renderCards(brokers);
+    } else {
+      el.cards.hidden = true;
+      el.tableWrap.hidden = false;
+      renderTable(brokers);
+    }
+    renderCompareBar();
+  }
+
+  function renderCards(brokers) {
+    el.cards.innerHTML = brokers.map(cardHtml).join('');
+
+    el.cards.querySelectorAll('.bk-visit-link').forEach(function (link) {
+      link.addEventListener('click', function (e) { e.stopPropagation(); });
+    });
+
+    el.cards.querySelectorAll('.bk-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        toggleCompare(Number(card.dataset.id));
+      });
+    });
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function visitLinkHtml(broker) {
+    var hasAffiliate = !!broker.affiliateUrl;
+    var href = hasAffiliate ? broker.affiliateUrl : broker.website;
+    var rel = hasAffiliate ? 'sponsored noopener' : 'noopener';
+    return '<a class="bk-visit-link" href="' + escapeHtml(href) + '" target="_blank" rel="' + rel + '">Visit broker →</a>';
+  }
+
+  function formatReviewCount(n) {
+    return n >= 1000 ? Math.round(n / 100) / 10 + 'k' : String(n);
+  }
+
+  function initials(name) {
+    var clean = name.replace(/[()%]/g, '');
+    var words = clean.trim().split(/\s+/).filter(Boolean);
+    if (words.length >= 2) return (words[0].charAt(0) + words[1].charAt(0)).toUpperCase();
+    return clean.replace(/[^a-zA-Z0-9]/g, '').slice(0, 2).toUpperCase();
+  }
+
+  function reviewBadgeHtml(review) {
+    if (!review) return '';
+    var ratingText = (review.rating === null || review.rating === undefined) ? 'unrated' : review.rating.toFixed(1) + '★';
+    var countText = review.reviewCount ? ' (' + formatReviewCount(review.reviewCount) + ' reviews)' : '';
+    return '<a class="bk-external-review" href="' + escapeHtml(review.url) + '" target="_blank" rel="noopener">' +
+      escapeHtml(review.source) + ': ' + ratingText + countText + ' ↗' +
+    '</a>';
+  }
+
+  function avatarHtml(broker, sizeClass) {
+    var cls = 'bk-avatar' + (sizeClass ? ' ' + sizeClass : '');
+    return '<span class="' + cls + '" aria-hidden="true">' + escapeHtml(initials(broker.name)) + '</span>';
+  }
+
+  function accountRowsHtml(broker) {
+    return '<div class="bk-accounts">' + broker.accounts.map(function (a) {
+      var commissionText = a.commission ? '$' + a.commission.toFixed(2) + '/lot' : 'No commission';
+      return '<div class="bk-account-row"><span class="bk-account-type">' + escapeHtml(a.type) + '</span>' +
+        '<span>' + a.spreadGER40 + ' pts &middot; ' + commissionText + '</span></div>';
+    }).join('') + '</div>';
+  }
+
+  function cardHtml(broker) {
+    var selected = compareIds.indexOf(broker.id) !== -1;
+    var regBadges = (broker.regulation || []).map(function (r) {
+      return '<span class="bk-reg-badge">' + escapeHtml(r) + '</span>';
+    }).join('');
+
+    var tags = [
+      broker.eaAllowed ? '<span class="bk-tag">EA ✓</span>' : '<span class="bk-tag bk-tag-no">No EA</span>',
+      broker.mt5 ? '<span class="bk-tag">MT5</span>' : '',
+      broker.mt4 ? '<span class="bk-tag">MT4</span>' : '',
+      broker.scalping ? '<span class="bk-tag">Scalping</span>' : '',
+      broker.newsTrading ? '<span class="bk-tag">News trading</span>' : '',
+      broker.weekendHolding ? '<span class="bk-tag">Weekend holding</span>' : ''
+    ].join('');
+
+    var note = broker.notes ? '<div class="bk-note">' + escapeHtml(broker.notes) + '</div>' : '';
+    var reviewsHtml = reviewBadgeHtml(broker.externalReview) + reviewBadgeHtml(broker.secondaryReview);
+    var review = reviewsHtml ? '<div class="bk-reviews">' + reviewsHtml + '</div>' : '';
+    var personalBadge = broker.personal ? '<span class="bk-personal-badge">Dan trades with this broker</span>' : '';
+
+    return (
+      '<div class="bk-card' + (selected ? ' selected' : '') + '" data-id="' + broker.id + '" data-affiliate-url="' + escapeHtml(broker.affiliateUrl || '') + '">' +
+        '<div class="bk-card-header">' +
+          '<div class="bk-card-title">' + avatarHtml(broker) + '<h3 class="bk-card-name">' + escapeHtml(broker.name) + personalBadge + '</h3></div>' +
+          '<div class="bk-scores">' +
+            '<span class="bk-rating">★ ' + computeRating(broker).toFixed(1) + '</span>' +
+            '<span class="bk-trust ' + metricClass('trust', broker.trustScore) + '">Trust ' + broker.trustScore.toFixed(1) + '/10</span>' +
+          '</div>' +
+        '</div>' +
+        review +
+        '<div class="bk-reg-badges">' + regBadges + '</div>' +
+        '<div class="bk-tags">' + tags + '</div>' +
+        accountRowsHtml(broker) +
+        '<div class="bk-deposit-display">Min deposit: <strong>$' + broker.minDeposit + '</strong> &middot; ' + escapeHtml(broker.executionType) + '</div>' +
+        note +
+        visitLinkHtml(broker) +
+      '</div>'
+    );
+  }
+
+  function renderTable(brokers) {
+    el.tableBody.innerHTML = brokers.map(function (broker) {
+      var a = bestAccount(broker);
+      return (
+        '<tr>' +
+          '<td><span class="bk-table-firm">' + avatarHtml(broker, 'bk-avatar-sm') + escapeHtml(broker.name) + (broker.personal ? ' <span class="bk-personal-badge">Personal</span>' : '') + '</span></td>' +
+          '<td>' + a.spreadGER40 + ' pts + $' + a.commission.toFixed(2) + '</td>' +
+          '<td>$' + broker.minDeposit + '</td>' +
+          '<td>' + escapeHtml(broker.executionType) + '</td>' +
+          '<td>' + (broker.eaAllowed ? 'Yes' : 'No') + '</td>' +
+          '<td>★ ' + computeRating(broker).toFixed(1) + '</td>' +
+          '<td>' + broker.trustScore.toFixed(1) + '/10</td>' +
+        '</tr>'
+      );
+    }).join('');
+
+    var ths = el.tableWrap.querySelectorAll('th');
+    ths.forEach(function (th) {
+      th.classList.toggle('active-sort', th.dataset.col === state.tableSort.col);
+    });
+  }
+
+  function toggleCompare(id) {
+    var idx = compareIds.indexOf(id);
+    if (idx !== -1) {
+      compareIds.splice(idx, 1);
+    } else if (compareIds.length < 3) {
+      compareIds.push(id);
+    }
+    render();
+  }
+
+  function renderCompareBar() {
+    el.cards.querySelectorAll('.bk-card').forEach(function (card) {
+      card.classList.toggle('selected', compareIds.indexOf(Number(card.dataset.id)) !== -1);
+    });
+
+    if (!compareIds.length) {
+      el.compareBar.hidden = true;
+      if (!el.compareModal.hidden) closeCompareModal();
+      return;
+    }
+    el.compareBar.hidden = false;
+
+    var slots = [0, 1, 2].map(function (i) {
+      var id = compareIds[i];
+      if (!id) return '<span class="bk-compare-slot">—</span>';
+      var broker = allBrokers.find(function (b) { return b.id === id; });
+      return '<span class="bk-compare-slot filled">' + avatarHtml(broker, 'bk-avatar-sm') + escapeHtml(broker.name) + '</span>';
+    }).join('');
+    el.compareSlots.innerHTML = slots;
+
+    if (!el.compareModal.hidden) renderCompareModalBody();
+  }
+
+  function openCompareModal() {
+    renderCompareModalBody();
+    el.compareModal.hidden = false;
+  }
+
+  function closeCompareModal() {
+    el.compareModal.hidden = true;
+  }
+
+  function compareRowValue(kind, broker) {
+    switch (kind) {
+      case 'rating': return '★ ' + computeRating(broker).toFixed(1);
+      case 'trust': return broker.trustScore.toFixed(1) + '/10';
+      case 'regulation': return (broker.regulation || []).join(', ') || '—';
+      case 'accounts': return accountRowsHtml(broker);
+      case 'minDeposit': return '$' + broker.minDeposit;
+      case 'executionType': return broker.executionType;
+      case 'leverage': return broker.leverage || '—';
+      case 'mt4': return broker.mt4 ? 'Yes' : 'No';
+      case 'mt5': return broker.mt5 ? 'Yes' : 'No';
+      case 'eaAllowed': return broker.eaAllowed ? 'Yes' : 'No';
+      case 'scalping': return broker.scalping ? 'Yes' : 'No';
+      case 'newsTrading': return broker.newsTrading ? 'Yes' : 'No';
+      case 'weekendHolding': return broker.weekendHolding ? 'Yes' : 'No';
+      case 'segregatedFunds': return broker.segregatedFunds ? 'Yes' : 'No';
+      default: return '';
+    }
+  }
+
+  var COMPARE_ROWS = [
+    { label: 'Our rating', kind: 'rating' },
+    { label: 'Trust score', kind: 'trust', metricKind: 'trust', value: function (b) { return b.trustScore; } },
+    { label: 'Regulation', kind: 'regulation' },
+    { label: 'Accounts', kind: 'accounts' },
+    { label: 'Min deposit', kind: 'minDeposit' },
+    { label: 'Execution type', kind: 'executionType' },
+    { label: 'Leverage', kind: 'leverage' },
+    { label: 'MT4', kind: 'mt4' },
+    { label: 'MT5', kind: 'mt5' },
+    { label: 'EA / Algo', kind: 'eaAllowed' },
+    { label: 'Scalping', kind: 'scalping' },
+    { label: 'News trading', kind: 'newsTrading' },
+    { label: 'Weekend holding', kind: 'weekendHolding' },
+    { label: 'Segregated funds', kind: 'segregatedFunds' }
+  ];
+
+  function renderCompareModalBody() {
+    var brokers = compareIds
+      .map(function (id) { return allBrokers.find(function (b) { return b.id === id; }); })
+      .filter(Boolean);
+
+    if (!brokers.length) {
+      closeCompareModal();
+      return;
+    }
+
+    var header = '<tr><th class="bk-compare-row-label"></th>' + brokers.map(function (b) {
+      return '<th class="bk-compare-col-head">' +
+        '<button type="button" class="bk-compare-remove" data-id="' + b.id + '" aria-label="Remove ' + escapeHtml(b.name) + '">&times;</button>' +
+        '<div class="bk-compare-col-firm">' + avatarHtml(b) + '<span>' + escapeHtml(b.name) + '</span></div>' +
+      '</th>';
+    }).join('') + '</tr>';
+
+    var body = COMPARE_ROWS.map(function (row) {
+      return '<tr><th class="bk-compare-row-label">' + row.label + '</th>' + brokers.map(function (b) {
+        var cls = row.metricKind ? metricClass(row.metricKind, row.value(b)) : '';
+        return '<td class="' + (cls ? 'bk-metric-cell ' + cls : '') + '">' + compareRowValue(row.kind, b) + '</td>';
+      }).join('') + '</tr>';
+    }).join('');
+
+    var anyNotes = brokers.some(function (b) { return b.notes; });
+    var notesRow = anyNotes ? (
+      '<tr><th class="bk-compare-row-label">Notes</th>' + brokers.map(function (b) {
+        var noteText = b.notes ? '<div class="bk-compare-note-text">' + escapeHtml(b.notes) + '</div>' : '';
+        return '<td class="bk-compare-notes-cell">' + noteText + '</td>';
+      }).join('') + '</tr>'
+    ) : '';
+
+    var visitRow = '<tr><th class="bk-compare-row-label"></th>' + brokers.map(function (b) {
+      return '<td>' + visitLinkHtml(b) + '</td>';
+    }).join('') + '</tr>';
+
+    el.compareModalBody.innerHTML = '<table class="bk-compare-table"><thead>' + header + '</thead><tbody>' + body + notesRow + visitRow + '</tbody></table>';
+
+    el.compareModalBody.querySelectorAll('.bk-compare-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        toggleCompare(Number(btn.dataset.id));
+      });
+    });
+  }
+
+  function init(data) {
+    allBrokers = data.brokers.filter(function (b) { return b.active; });
+    el.lastUpdated.textContent = 'Data last reviewed: ' + data.lastUpdated;
+    el.status.hidden = true;
+
+    syncControlsFromState();
+    render();
+
+    el.presets.addEventListener('click', function (e) {
+      var btn = e.target.closest('.bk-preset-btn');
+      if (!btn) return;
+      applyPreset(btn.dataset.preset);
+    });
+
+    el.viewToggle.addEventListener('click', function (e) {
+      var btn = e.target.closest('.bk-view-btn');
+      if (!btn) return;
+      state.view = btn.dataset.view;
+      el.viewToggle.querySelectorAll('.bk-view-btn').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.view === state.view);
+      });
+      render();
+    });
+
+    el.sort.addEventListener('change', function () { state.sort = el.sort.value; clearActivePreset(); render(); });
+    el.execution.addEventListener('change', function () { state.execution = el.execution.value; clearActivePreset(); render(); });
+    el.toggleMt5.addEventListener('change', function () { state.mt5 = el.toggleMt5.checked; clearActivePreset(); render(); });
+    el.toggleEa.addEventListener('change', function () { state.ea = el.toggleEa.checked; clearActivePreset(); render(); });
+    el.toggleNews.addEventListener('change', function () { state.news = el.toggleNews.checked; clearActivePreset(); render(); });
+    el.toggleWeekend.addEventListener('change', function () { state.weekend = el.toggleWeekend.checked; clearActivePreset(); render(); });
+    el.toggleIndices.addEventListener('change', function () { state.indices = el.toggleIndices.checked; clearActivePreset(); render(); });
+    el.toggleForex.addEventListener('change', function () { state.forex = el.toggleForex.checked; clearActivePreset(); render(); });
+    el.toggleCommodities.addEventListener('change', function () { state.commodities = el.toggleCommodities.checked; clearActivePreset(); render(); });
+
+    el.tableWrap.querySelectorAll('th').forEach(function (th) {
+      th.addEventListener('click', function () {
+        var col = th.dataset.col;
+        if (state.tableSort.col === col) {
+          state.tableSort.dir = state.tableSort.dir === 'asc' ? 'desc' : 'asc';
+        } else {
+          state.tableSort = { col: col, dir: 'desc' };
+        }
+        var brokers = sortByColumn(filteredBrokers(), state.tableSort.col, state.tableSort.dir);
+        renderTable(brokers);
+      });
+    });
+
+    el.compareClear.addEventListener('click', function () {
+      compareIds = [];
+      render();
+    });
+
+    el.clearFilters.addEventListener('click', function () {
+      applyPreset('all');
+    });
+
+    el.compareGo.addEventListener('click', function () {
+      openCompareModal();
+    });
+
+    el.compareModalClose.addEventListener('click', closeCompareModal);
+    el.compareModalBackdrop.addEventListener('click', closeCompareModal);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !el.compareModal.hidden) closeCompareModal();
+    });
+  }
+
+  fetch('/data/brokers.json')
+    .then(function (res) {
+      if (!res.ok) throw new Error('Network response was not ok');
+      return res.json();
+    })
+    .then(init)
+    .catch(function () {
+      el.status.textContent = 'Unable to load broker data — please refresh.';
+    });
+})();
+</script>
+
+{{- end }}

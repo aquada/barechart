@@ -116,6 +116,20 @@ pre code {
 .td-win  { color: #2d6a2d; font-weight: 600; }
 .td-loss { color: #b91c1c; font-weight: 600; }
 
+/* ── Site-wide contact (footer) ──────────────────────────────────── */
+.site-contact {
+    max-width: var(--main-width);
+    margin: 0 auto;
+    padding: 0 var(--gap);
+    font-size: 0.85em;
+    text-align: center;
+}
+
+.site-contact a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
 /* ── Site-wide disclaimer (footer) ───────────────────────────────── */
 .site-disclaimer {
     max-width: var(--main-width);

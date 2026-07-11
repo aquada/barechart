@@ -57,9 +57,14 @@ googleAnalytics = "G-PEDMYR1V0K"
     url = "/prop-firms/"
     weight = 35
   [[menu.main]]
-    name = "Shop"
-    url = "/shop/"
-    weight = 40
+    name = "Brokers"
+    url = "/brokers/"
+    weight = 37
+  # TODO: re-enable Shop nav item once there are products to sell — uncomment below
+  # [[menu.main]]
+  #   name = "Shop"
+  #   url = "/shop/"
+  #   weight = 40
   [[menu.main]]
     name = "Services"
     url = "/services/"

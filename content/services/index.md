@@ -22,5 +22,5 @@ You have a trading system. You need it in code. I build MQL5 Expert Advisors and
 
 ## Get started
 
-Email [daniel@letterdrop.net](mailto:daniel@letterdrop.net) or Telegram [@danphillips](https://t.me/danphillips) with a brief description of what you need — what you're trying to build, what instrument and timeframe, what you've already tried.
+[Get in touch](/#contact) with a brief description of what you need — what you're trying to build, what instrument and timeframe, what you've already tried.
 
