@@ -11,7 +11,7 @@
 
   <p class="bk-disclosure">I earn a commission on some of these links, at no extra cost to you — it's what funds running this site. It doesn't buy a better ranking: scores and regulation/complaint history below are researched the same way regardless of whether a broker pays affiliate commission, or how much.</p>
   <p class="bk-last-updated" id="bk-last-updated"></p>
-  <p class="bk-methodology">"Our rating" measures cost and value, not trustworthiness — it weights typical spread + commission, minimum deposit, platform/instrument breadth, and how permissive the broker's trading policy is (EA, scalping, news, weekend holding), plus a smaller trust component. <strong>Trust score</strong> is shown separately on every card — our own 0-10 assessment from regulation tier, independent reviews, and complaint history, not derived from the rating. Each card links to that broker's Trustpilot rating and, where available, a second independent source (ForexPeaceArmy). Spread/commission figures are a cost proxy from a single account type per broker (typically the lowest-cost tier) — always confirm current pricing directly with the broker.</p>
+  <p class="bk-methodology">"Our rating" measures deposit accessibility, platform/instrument breadth, and how permissive the broker's trading policy is (EA, scalping, news, weekend holding), plus a smaller trust component — it does not include cost. <strong>Cost</strong> and <strong>Trust score</strong> are both shown separately from the rating, on every card. Cost is an average of spread + commission across three benchmark markets — a major index, a major forex pair, and gold — rather than a single instrument, since brokers price different asset classes very differently (commission commonly applies to forex and often to metals, but rarely to indices, and that pattern itself varies by broker). Trust is our own 0-10 assessment from regulation tier, independent reviews, and complaint history. Each card links to that broker's Trustpilot rating and, where available, a second independent source (ForexPeaceArmy). Always confirm current pricing directly with the broker — spreads move with market conditions and this is a snapshot, not a live feed.</p>
 
   <div class="bk-presets" id="bk-presets">
     <button type="button" class="bk-preset-btn" data-preset="all">All brokers</button>
@@ -27,7 +27,7 @@
       <select id="bk-sort">
         <option value="rating">Our rating</option>
         <option value="trustDesc">Trust score highest</option>
-        <option value="costAsc">Spread + commission low → high</option>
+        <option value="costAsc">Cost (avg) low → high</option>
         <option value="depositAsc">Min deposit low → high</option>
       </select>
     </div>
@@ -91,7 +91,7 @@
       <thead>
         <tr>
           <th data-col="name">Broker</th>
-          <th data-col="cost">Spread + commission</th>
+          <th data-col="cost">Cost (avg)</th>
           <th data-col="minDeposit">Min deposit</th>
           <th data-col="execution">Execution</th>
           <th data-col="ea">EA</th>
@@ -476,11 +476,15 @@
 
   .bk-account-row {
     display: flex;
-    justify-content: space-between;
-    gap: 0.5rem;
-    padding: 0.25rem 0;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.35rem 0;
     border-bottom: 1px dashed var(--border);
     color: var(--primary);
+  }
+
+  .bk-account-row .bk-account-type {
+    font-weight: 600;
   }
 
   .bk-account-row:last-child {
@@ -852,22 +856,30 @@
     return Math.max(0, Math.min(10, n));
   }
 
+  // Cost basket: US500 (index), EURUSD (forex), Gold — averaged rather than a
+  // single instrument, so no one market dominates the comparison.
+  var COST_INSTRUMENTS = ['index', 'forex', 'gold'];
+
+  function accountCost(a) {
+    var total = 0;
+    for (var i = 0; i < COST_INSTRUMENTS.length; i++) {
+      var m = a[COST_INSTRUMENTS[i]];
+      total += m.spread + m.commission;
+    }
+    return total / COST_INSTRUMENTS.length;
+  }
+
   function bestAccount(broker) {
     return broker.accounts.reduce(function (min, a) {
-      var cost = a.spreadGER40 + a.commission;
-      var minCost = min.spreadGER40 + min.commission;
-      return cost < minCost ? a : min;
+      return accountCost(a) < accountCost(min) ? a : min;
     }, broker.accounts[0]);
   }
 
   function costOf(broker) {
-    var a = bestAccount(broker);
-    return a.spreadGER40 + a.commission;
+    return accountCost(bestAccount(broker));
   }
 
   function computeRating(broker) {
-    var totalCost = costOf(broker);
-    var costScore = clamp01((9 - totalCost) / 9 * 10);
     var depositScore = clamp01((300 - broker.minDeposit) / 300 * 10);
     var platformCount = (broker.mt4 ? 1 : 0) + (broker.mt5 ? 1 : 0) + (broker.ctrader ? 1 : 0) + (broker.tradingview ? 1 : 0);
     var instrumentCount = (broker.instruments || []).length;
@@ -880,12 +892,14 @@
     );
     var trustComponent = clamp01(broker.trustScore);
 
+    // Cost is deliberately NOT part of this blend — it's a single-instrument
+    // proxy (see costOf) and shown as its own badge instead, same reasoning
+    // as keeping trust score separate from a blended number.
     var weighted =
-      0.30 * costScore +
-      0.15 * depositScore +
-      0.15 * breadthScore +
-      0.20 * permissiveScore +
-      0.20 * trustComponent;
+      0.20 * depositScore +
+      0.20 * breadthScore +
+      0.30 * permissiveScore +
+      0.30 * trustComponent;
 
     return Math.round((weighted / 2) * 10) / 10;
   }
@@ -896,6 +910,8 @@
         return value <= 0.5 ? 'good' : value <= 1.2 ? 'warn' : 'bad';
       case 'commission':
         return value <= 3.5 ? 'good' : value <= 6 ? 'warn' : 'bad';
+      case 'cost':
+        return value <= 1.0 ? 'good' : value <= 3.0 ? 'warn' : 'bad';
       case 'minDeposit':
         return value <= 100 ? 'good' : value <= 250 ? 'warn' : 'bad';
       case 'trust':
@@ -1081,11 +1097,17 @@
     return '<span class="' + cls + '" aria-hidden="true">' + escapeHtml(initials(broker.name)) + '</span>';
   }
 
+  var COST_LABELS = { index: 'Index', forex: 'FX', gold: 'Gold' };
+
   function accountRowsHtml(broker) {
     return '<div class="bk-accounts">' + broker.accounts.map(function (a) {
-      var commissionText = a.commission ? '$' + a.commission.toFixed(2) + '/lot' : 'No commission';
+      var lines = COST_INSTRUMENTS.map(function (kind) {
+        var m = a[kind];
+        var commissionText = m.commission ? '+$' + m.commission.toFixed(2) : 'no comm.';
+        return COST_LABELS[kind] + ' ' + m.spread + ' ' + commissionText;
+      }).join(' &middot; ');
       return '<div class="bk-account-row"><span class="bk-account-type">' + escapeHtml(a.type) + '</span>' +
-        '<span>' + a.spreadGER40 + ' pts &middot; ' + commissionText + '</span></div>';
+        '<span>' + lines + '</span></div>';
     }).join('') + '</div>';
   }
 
@@ -1118,6 +1140,7 @@
           '<div class="bk-scores">' +
             '<span class="bk-rating">★ ' + computeRating(broker).toFixed(1) + '</span>' +
             '<span class="bk-trust ' + metricClass('trust', broker.trustScore) + '">Trust ' + broker.trustScore.toFixed(1) + '/10</span>' +
+            '<span class="bk-trust ' + metricClass('cost', costOf(broker)) + '">Cost ' + costOf(broker).toFixed(2) + '</span>' +
           '</div>' +
         '</div>' +
         review +
@@ -1137,7 +1160,7 @@
       return (
         '<tr>' +
           '<td><span class="bk-table-firm">' + avatarHtml(broker, 'bk-avatar-sm') + escapeHtml(broker.name) + (broker.personal ? ' <span class="bk-personal-badge">Personal</span>' : '') + '</span></td>' +
-          '<td>' + a.spreadGER40 + ' pts + $' + a.commission.toFixed(2) + '</td>' +
+          '<td>' + accountCost(a).toFixed(2) + ' avg</td>' +
           '<td>$' + broker.minDeposit + '</td>' +
           '<td>' + escapeHtml(broker.executionType) + '</td>' +
           '<td>' + (broker.eaAllowed ? 'Yes' : 'No') + '</td>' +
@@ -1199,6 +1222,7 @@
     switch (kind) {
       case 'rating': return '★ ' + computeRating(broker).toFixed(1);
       case 'trust': return broker.trustScore.toFixed(1) + '/10';
+      case 'cost': return costOf(broker).toFixed(2);
       case 'regulation': return (broker.regulation || []).join(', ') || '—';
       case 'accounts': return accountRowsHtml(broker);
       case 'minDeposit': return '$' + broker.minDeposit;
@@ -1220,6 +1244,7 @@
   var COMPARE_ROWS = [
     { label: 'Our rating', kind: 'rating' },
     { label: 'Trust score', kind: 'trust', metricKind: 'trust', value: function (b) { return b.trustScore; } },
+    { label: 'Cost', kind: 'cost', metricKind: 'cost', value: function (b) { return costOf(b); } },
     { label: 'Regulation', kind: 'regulation' },
     { label: 'Accounts', kind: 'accounts' },
     { label: 'Min deposit', kind: 'minDeposit' },
