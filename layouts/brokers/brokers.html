@@ -11,7 +11,7 @@
 
   <p class="bk-disclosure">I earn a commission on some of these links, at no extra cost to you — it's what funds running this site. It doesn't buy a better ranking: scores and regulation/complaint history below are researched the same way regardless of whether a broker pays affiliate commission, or how much.</p>
   <p class="bk-last-updated" id="bk-last-updated"></p>
-  <p class="bk-methodology">"Our rating" measures deposit accessibility, platform/instrument breadth, and how permissive the broker's trading policy is (EA, scalping, news, weekend holding), plus a smaller trust component — it does not include cost. <strong>Cost</strong> and <strong>Trust score</strong> are both shown separately from the rating, on every card. Cost is an average of spread + commission across three benchmark markets — a major index, a major forex pair, and gold — rather than a single instrument, since brokers price different asset classes very differently (commission commonly applies to forex and often to metals, but rarely to indices, and that pattern itself varies by broker). Trust is our own 0-10 assessment from regulation tier, independent reviews, and complaint history. Each card links to that broker's Trustpilot rating and, where available, a second independent source (ForexPeaceArmy). Always confirm current pricing directly with the broker — spreads move with market conditions and this is a snapshot, not a live feed.</p>
+  <p class="bk-methodology">"Our rating" measures deposit accessibility, platform/instrument breadth, and how permissive the broker's trading policy is (EA, scalping, news, weekend holding), plus a smaller trust component — it does not include cost. <strong>Cost</strong> and <strong>Trust score</strong> are both shown separately from the rating, on every card. Cost is an average of spread + commission across three benchmark markets — the S&amp;P 500 (US500), EURUSD, and Gold — rather than a single instrument, since brokers price different asset classes very differently (commission commonly applies to forex and often to metals, but rarely to indices, and that pattern itself varies by broker). Trust is our own 0-10 assessment from regulation tier, independent reviews, and complaint history. Each card links to that broker's Trustpilot rating and, where available, a second independent source (ForexPeaceArmy). Always confirm current pricing directly with the broker — spreads move with market conditions and this is a snapshot, not a live feed.</p>
 
   <div class="bk-presets" id="bk-presets">
     <button type="button" class="bk-preset-btn" data-preset="all">All brokers</button>
@@ -1097,7 +1097,7 @@
     return '<span class="' + cls + '" aria-hidden="true">' + escapeHtml(initials(broker.name)) + '</span>';
   }
 
-  var COST_LABELS = { index: 'Index', forex: 'FX', gold: 'Gold' };
+  var COST_LABELS = { index: 'US500', forex: 'EURUSD', gold: 'Gold' };
 
   function accountRowsHtml(broker) {
     return '<div class="bk-accounts">' + broker.accounts.map(function (a) {
