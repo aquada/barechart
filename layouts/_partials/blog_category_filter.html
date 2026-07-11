@@ -1,0 +1,9 @@
+{{- $cats := site.Taxonomies.categories }}
+{{- if gt (len $cats) 0 }}
+<div class="blog-cat-filter">
+  <a href="{{ "blog/" | absURL }}" class="blog-cat-btn{{ if and (eq $.Kind "section") (eq $.Section "blog") }} active{{ end }}">All posts</a>
+  {{- range $cats.Alphabetical }}
+  <a href="{{ .Page.Permalink }}" class="blog-cat-btn{{ if eq $.Title .Page.Title }} active{{ end }}">{{ .Page.Title }}</a>
+  {{- end }}
+</div>
+{{- end }}

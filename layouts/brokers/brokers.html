@@ -41,8 +41,15 @@
       </select>
     </div>
 
-    <div class="bk-filter bk-filter-toggle">
-      <label><input type="checkbox" id="bk-toggle-mt5"> MT5 available</label>
+    <div class="bk-filter">
+      <label for="bk-platform">Platform</label>
+      <select id="bk-platform">
+        <option value="any">All</option>
+        <option value="mt4">MT4</option>
+        <option value="mt5">MT5</option>
+        <option value="ctrader">cTrader</option>
+        <option value="tradingview">TradingView</option>
+      </select>
     </div>
     <div class="bk-filter bk-filter-toggle">
       <label><input type="checkbox" id="bk-toggle-ea"> EA / Algo allowed</label>
@@ -501,15 +508,21 @@
 
   .bk-visit-link {
     display: inline-block;
-    margin-top: 0.4rem;
+    margin-top: 0.5rem;
     font-size: 0.85em;
-    color: var(--bk-accent);
+    font-weight: 700;
+    color: #fff;
+    background: var(--bk-accent);
+    padding: 0.5rem 1.1rem;
+    border-radius: var(--radius);
     text-decoration: none;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
   }
 
   .bk-visit-link:hover {
-    color: var(--bk-accent-hover);
-    text-decoration: underline;
+    background: var(--bk-accent-hover);
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--bk-accent) 40%, transparent);
+    text-decoration: none;
   }
 
   .bk-table-wrap {
@@ -609,12 +622,16 @@
     border: none;
     color: #fff;
     border-radius: var(--radius);
-    padding: 0.4rem 1rem;
+    padding: 0.65rem 1.6rem;
+    font-size: 1em;
+    font-weight: 700;
     cursor: pointer;
+    box-shadow: 0 2px 10px color-mix(in srgb, var(--bk-accent) 45%, transparent);
   }
 
   .bk-compare-go:hover {
     background: var(--bk-accent-hover);
+    box-shadow: 0 3px 14px color-mix(in srgb, var(--bk-accent) 55%, transparent);
   }
 
   .bk-compare-modal {
@@ -786,7 +803,7 @@
   var state = {
     sort: 'rating',
     execution: 'any',
-    mt5: false,
+    platform: 'any',
     ea: false,
     news: false,
     weekend: false,
@@ -811,7 +828,7 @@
     lastUpdated: document.getElementById('bk-last-updated'),
     sort: document.getElementById('bk-sort'),
     execution: document.getElementById('bk-execution'),
-    toggleMt5: document.getElementById('bk-toggle-mt5'),
+    platform: document.getElementById('bk-platform'),
     toggleEa: document.getElementById('bk-toggle-ea'),
     toggleNews: document.getElementById('bk-toggle-news'),
     toggleWeekend: document.getElementById('bk-toggle-weekend'),
@@ -852,9 +869,9 @@
     var totalCost = costOf(broker);
     var costScore = clamp01((9 - totalCost) / 9 * 10);
     var depositScore = clamp01((300 - broker.minDeposit) / 300 * 10);
-    var platformCount = (broker.mt4 ? 1 : 0) + (broker.mt5 ? 1 : 0);
+    var platformCount = (broker.mt4 ? 1 : 0) + (broker.mt5 ? 1 : 0) + (broker.ctrader ? 1 : 0) + (broker.tradingview ? 1 : 0);
     var instrumentCount = (broker.instruments || []).length;
-    var breadthScore = clamp01((platformCount / 2 * 5) + (instrumentCount / 5 * 5));
+    var breadthScore = clamp01((platformCount / 4 * 5) + (instrumentCount / 5 * 5));
     var permissiveScore = clamp01(
       (broker.eaAllowed ? 2.5 : 0) +
       (broker.scalping ? 2.5 : 0) +
@@ -892,7 +909,7 @@
     state.preset = name;
     state.sort = 'rating';
     state.execution = 'any';
-    state.mt5 = false;
+    state.platform = 'any';
     state.ea = false;
     state.news = false;
     state.weekend = false;
@@ -912,7 +929,7 @@
   function syncControlsFromState() {
     el.sort.value = state.sort;
     el.execution.value = state.execution;
-    el.toggleMt5.checked = state.mt5;
+    el.platform.value = state.platform;
     el.toggleEa.checked = state.ea;
     el.toggleNews.checked = state.news;
     el.toggleWeekend.checked = state.weekend;
@@ -937,7 +954,7 @@
   function filteredBrokers() {
     return allBrokers.filter(function (broker) {
       if (state.execution !== 'any' && broker.executionType.indexOf(state.execution) === -1) return false;
-      if (state.mt5 && !broker.mt5) return false;
+      if (state.platform !== 'any' && !broker[state.platform]) return false;
       if (state.ea && !broker.eaAllowed) return false;
       if (state.news && !broker.newsTrading) return false;
       if (state.weekend && !broker.weekendHolding) return false;
@@ -1081,6 +1098,8 @@
     var tags = [
       broker.eaAllowed ? '<span class="bk-tag">EA ✓</span>' : '<span class="bk-tag bk-tag-no">No EA</span>',
       broker.mt5 ? '<span class="bk-tag">MT5</span>' : '',
+      broker.ctrader ? '<span class="bk-tag">cTrader</span>' : '',
+      broker.tradingview ? '<span class="bk-tag">TradingView</span>' : '',
       broker.mt4 ? '<span class="bk-tag">MT4</span>' : '',
       broker.scalping ? '<span class="bk-tag">Scalping</span>' : '',
       broker.newsTrading ? '<span class="bk-tag">News trading</span>' : '',
@@ -1090,7 +1109,7 @@
     var note = broker.notes ? '<div class="bk-note">' + escapeHtml(broker.notes) + '</div>' : '';
     var reviewsHtml = reviewBadgeHtml(broker.externalReview) + reviewBadgeHtml(broker.secondaryReview);
     var review = reviewsHtml ? '<div class="bk-reviews">' + reviewsHtml + '</div>' : '';
-    var personalBadge = broker.personal ? '<span class="bk-personal-badge">Dan trades with this broker</span>' : '';
+    var personalBadge = broker.personal ? '<span class="bk-personal-badge">I trade with this broker</span>' : '';
 
     return (
       '<div class="bk-card' + (selected ? ' selected' : '') + '" data-id="' + broker.id + '" data-affiliate-url="' + escapeHtml(broker.affiliateUrl || '') + '">' +
@@ -1187,6 +1206,8 @@
       case 'leverage': return broker.leverage || '—';
       case 'mt4': return broker.mt4 ? 'Yes' : 'No';
       case 'mt5': return broker.mt5 ? 'Yes' : 'No';
+      case 'ctrader': return broker.ctrader ? 'Yes' : 'No';
+      case 'tradingview': return broker.tradingview ? 'Yes' : 'No';
       case 'eaAllowed': return broker.eaAllowed ? 'Yes' : 'No';
       case 'scalping': return broker.scalping ? 'Yes' : 'No';
       case 'newsTrading': return broker.newsTrading ? 'Yes' : 'No';
@@ -1206,6 +1227,8 @@
     { label: 'Leverage', kind: 'leverage' },
     { label: 'MT4', kind: 'mt4' },
     { label: 'MT5', kind: 'mt5' },
+    { label: 'cTrader', kind: 'ctrader' },
+    { label: 'TradingView', kind: 'tradingview' },
     { label: 'EA / Algo', kind: 'eaAllowed' },
     { label: 'Scalping', kind: 'scalping' },
     { label: 'News trading', kind: 'newsTrading' },
@@ -1284,7 +1307,7 @@
 
     el.sort.addEventListener('change', function () { state.sort = el.sort.value; clearActivePreset(); render(); });
     el.execution.addEventListener('change', function () { state.execution = el.execution.value; clearActivePreset(); render(); });
-    el.toggleMt5.addEventListener('change', function () { state.mt5 = el.toggleMt5.checked; clearActivePreset(); render(); });
+    el.platform.addEventListener('change', function () { state.platform = el.platform.value; clearActivePreset(); render(); });
     el.toggleEa.addEventListener('change', function () { state.ea = el.toggleEa.checked; clearActivePreset(); render(); });
     el.toggleNews.addEventListener('change', function () { state.news = el.toggleNews.checked; clearActivePreset(); render(); });
     el.toggleWeekend.addEventListener('change', function () { state.weekend = el.toggleWeekend.checked; clearActivePreset(); render(); });

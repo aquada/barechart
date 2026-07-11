@@ -34,14 +34,23 @@ collections:
   # ============================
   - name: "posts"
     label: "Blog Posts"
-    folder: "content/posts"
+    folder: "content/blog"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}" }
-      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - label: "Categories"
+        name: "categories"
+        widget: "select"
+        multiple: true
+        options: ["Interviews", "Trade Breakdowns", "Psychology"]
+        required: false
       - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
 
   # ============================
   # TRADES (use Page Bundles for images)

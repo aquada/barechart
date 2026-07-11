@@ -116,6 +116,51 @@ pre code {
 .td-win  { color: #2d6a2d; font-weight: 600; }
 .td-loss { color: #b91c1c; font-weight: 600; }
 
+/* ── Blog category filter bar ────────────────────────────────────── */
+.blog-cat-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 0 1.5rem;
+}
+
+.blog-cat-btn {
+    display: inline-block;
+    border: 1px solid var(--border);
+    background: var(--entry);
+    color: var(--primary);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85em;
+    text-decoration: none;
+}
+
+.blog-cat-btn:hover {
+    border-color: #C96442;
+    color: #C96442;
+}
+
+.blog-cat-btn.active {
+    background: #C96442;
+    border-color: #C96442;
+    color: #fff;
+}
+
+/* ── Post categories (distinct from tags) ────────────────────────── */
+.post-categories {
+    margin-bottom: 10px;
+}
+
+.post-categories a {
+    background: var(--primary);
+    color: var(--theme);
+    font-weight: 600;
+}
+
+.post-categories a:hover {
+    opacity: 0.85;
+}
+
 /* ── Site-wide contact (footer) ──────────────────────────────────── */
 .site-contact {
     max-width: var(--main-width);

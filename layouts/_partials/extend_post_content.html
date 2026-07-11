@@ -1,0 +1,8 @@
+{{- $categories := .Language.Params.Taxonomies.category | default "categories" }}
+{{- with ($.GetTerms $categories) }}
+<ul class="post-tags post-categories">
+  {{- range . }}
+  <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+  {{- end }}
+</ul>
+{{- end }}

@@ -7,6 +7,7 @@ cover:
   image: "m1.png"
   alt: "M1 trade entry — Day Open flip and ONH break"
   caption: "M1 — flip of the Day Open level, doji entry, second entry on ONH break"
+categories: ["Trade Breakdowns"]
 tags: ["GER40", "London Session", "strategy"]
 ---
 

@@ -7,6 +7,7 @@ cover:
   image: "m1-entry.jpg"
   alt: "GER40 M1 — AC setup entry and early exit"
   caption: "M1 — price rejection at Day Open with Inside Bar, BUY entry, 3.20R exit"
+categories: ["Trade Breakdowns"]
 tags: ["GER40", "London Session", "strategy", "trade management"]
 ---
 

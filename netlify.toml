@@ -15,3 +15,9 @@
   to = "https://trader.ftmo.com/?affiliates=qgNoQuXELWNhkNtWSCCM"
   status = 302
   force = true
+
+[[redirects]]
+  from = "/go/globalprime"
+  to = "https://globalprime.com/?refcode=115789"
+  status = 302
+  force = true
