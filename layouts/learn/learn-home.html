@@ -1,0 +1,40 @@
+{{- define "main" }}
+
+<article class="post-single learn-page">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">{{ .Description }}</div>
+    {{- end }}
+  </header>
+
+  {{ .Content }}
+
+  <div class="learn-sections">
+    {{- range sort .Sections "Params.section_order" }}
+    {{- $topics := .Pages.ByWeight }}
+    {{- $published := where $topics "Params.status" "published" }}
+    <div class="learn-section-card">
+      <div class="learn-section-card-head">
+        <h2>{{ partial "learn_section_icon.html" . }}<a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <span class="learn-section-count">{{ len $published }}/{{ len $topics }} published</span>
+      </div>
+      <p class="learn-section-desc">{{ .Description }}</p>
+      <ul class="learn-section-topics">
+        {{- range $topics }}
+        <li class="{{ if eq .Params.priority "wave1" }}learn-topic-wave1{{ end }}{{ if ne .Params.status "published" }} learn-topic-stub{{ end }}">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{- if ne .Params.status "published" }} <span class="learn-soon">coming soon</span>{{ end }}
+          {{- if eq .Params.priority "wave1" }} <span class="learn-wave1-tag">priority</span>{{ end }}
+        </li>
+        {{- end }}
+      </ul>
+      <a class="learn-section-viewall" href="{{ .Permalink }}">View all {{ .Title }} topics →</a>
+    </div>
+    {{- end }}
+  </div>
+
+</article>
+
+{{- end }}

@@ -1,0 +1,26 @@
+{{- define "main" }}
+
+<article class="post-single learn-section-page">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">{{ .Description }}</div>
+    {{- end }}
+  </header>
+
+  {{ .Content }}
+
+  <ol class="learn-topic-list">
+    {{- range .Pages.ByWeight }}
+    <li class="learn-topic-row{{ if eq .Params.priority "wave1" }} learn-topic-wave1{{ end }}{{ if ne .Params.status "published" }} learn-topic-stub{{ end }}">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{- if ne .Params.status "published" }} <span class="learn-soon">coming soon</span>{{ end }}
+      {{- if eq .Params.priority "wave1" }} <span class="learn-wave1-tag">priority</span>{{ end }}
+    </li>
+    {{- end }}
+  </ol>
+
+</article>
+
+{{- end }}

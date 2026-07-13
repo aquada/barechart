@@ -1,0 +1,62 @@
+{{- define "main" }}
+
+{{- $slug := .File.ContentBaseName }}
+
+<article class="post-single learn-topic-page">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">{{ .Description }}</div>
+    {{- end }}
+  </header>
+
+  {{ .Content }}
+
+  {{- if in (slice "elliott-waves" "fair-value-gaps") $slug }}
+  <p class="learn-see-also">See also: <a href="{{ "tools/" | absURL }}">Tools</a> — indicators that help with this on a live chart.</p>
+  {{- end }}
+  {{- if in (slice "prop-firm-risk-rules" "daily-loss-limits") $slug }}
+  <p class="learn-see-also">See also: <a href="{{ "prop-firms/compare/" | absURL }}">Compare prop firms</a> by drawdown and daily loss rules.</p>
+  {{- end }}
+  {{- if in (slice "demo-vs-live-trading" "brokers-and-spreads") $slug }}
+  <p class="learn-see-also">See also: <a href="{{ "brokers/compare/" | absURL }}">Compare brokers</a> by regulation, spreads, and cost.</p>
+  {{- end }}
+
+  {{- if ne .Params.status "published" }}
+  <div class="learn-takeaways-box">
+    <h3>Key takeaways</h3>
+    <p>Key takeaways will appear here once the article is published.</p>
+  </div>
+  {{- end }}
+
+  {{- $allTopics := where site.RegularPages "Type" "learn" }}
+  {{- with .Params.related }}
+  {{- $relSlugs := . }}
+  {{- $relPages := where $allTopics "File.ContentBaseName" "in" $relSlugs }}
+  {{- with $relPages }}
+  <div class="learn-related">
+    <h3>Related topics</h3>
+    <ul>
+      {{- range . }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+  {{- end }}
+
+  <nav class="learn-prevnext">
+    {{- with .NextInSection }}
+    <a class="learn-prev" href="{{ .Permalink }}">← {{ .Title }}</a>
+    {{- end }}
+    {{- with .PrevInSection }}
+    <a class="learn-next" href="{{ .Permalink }}">{{ .Title }} →</a>
+    {{- end }}
+  </nav>
+
+  <p class="learn-disclaimer">Nothing on this page is financial advice. Trade your own account, manage your own risk.</p>
+
+</article>
+
+{{- end }}
