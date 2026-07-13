@@ -1,15 +1,14 @@
-name: Prop Firms Data Refresh
+name: Brokers Data Refresh
 
-# Monthly re-verification of static/data/propfirms.json via the Claude API
+# Monthly re-verification of static/data/brokers.json via the Claude API
 # (ANTHROPIC_API_KEY secret — pay-as-you-go billing, independent of any
-# claude.ai subscription plan). Runs alongside the claude.ai "routine" version
-# of this same job. Staggered a day before brokers-refresh.yml so the two
-# jobs don't run at the same time; see scripts/refresh-propfirms.mjs for the
-# research logic.
+# claude.ai subscription plan). Staggered a day after prop-firms-refresh.yml
+# so the two jobs don't run at the same time; see scripts/refresh-brokers.mjs
+# for the research logic.
 
 on:
   schedule:
-    - cron: '0 0 1 * *' # 1st of the month, 00:00 UTC (02:00 SAST)
+    - cron: '0 0 2 * *' # 2nd of the month, 00:00 UTC (02:00 SAST)
   workflow_dispatch: {}
 
 jobs:
@@ -27,13 +26,13 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Run prop-firms refresh
+      - name: Run brokers refresh
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/refresh-propfirms.mjs
+        run: node scripts/refresh-brokers.mjs
 
       - name: Validate JSON
-        run: node -e "JSON.parse(require('fs').readFileSync('static/data/propfirms.json','utf8')); console.log('JSON OK')"
+        run: node -e "JSON.parse(require('fs').readFileSync('static/data/brokers.json','utf8')); console.log('JSON OK')"
 
       - name: Set up Hugo
         uses: peaceiris/actions-hugo@v3
@@ -42,12 +41,12 @@ jobs:
           extended: true
 
       - name: Build site (validation only)
-        run: hugo --minify --destination /tmp/pfcheck
+        run: hugo --minify --destination /tmp/brokerscheck
 
       - name: Check for changes
         id: diff
         run: |
-          if git diff --quiet -- static/data/propfirms.json; then
+          if git diff --quiet -- static/data/brokers.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -58,14 +57,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          BRANCH="prop-firms-refresh-$(date +%Y-%m)"
+          BRANCH="brokers-refresh-$(date +%Y-%m)"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          git add static/data/propfirms.json
-          git commit -m "Monthly prop-firms data refresh ($(date +%Y-%m-%d))"
+          git add static/data/brokers.json
+          git commit -m "Monthly brokers data refresh ($(date +%Y-%m-%d))"
           git push -u origin "$BRANCH"
           gh pr create \
-            --title "Prop firms data refresh — $(date +%Y-%m)" \
-            --body "Automated monthly re-verification of prop-firms data via the Claude API (\`scripts/refresh-propfirms.mjs\`, model: claude-sonnet-5). Review the diff in \`static/data/propfirms.json\` before merging — this is an unattended run with no human review yet." \
+            --title "Brokers data refresh — $(date +%Y-%m)" \
+            --body "Automated monthly re-verification of brokers data via the Claude API (\`scripts/refresh-brokers.mjs\`, model: claude-sonnet-5). Review the diff in \`static/data/brokers.json\` before merging — this is an unattended run with no human review yet." \
             --base main --head "$BRANCH"

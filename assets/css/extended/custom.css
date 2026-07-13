@@ -11,9 +11,10 @@
     --border:         #E2D9CF;
 }
 
-/* list pages (section indexes) use --code-bg as bg — keep warm */
+/* PaperMod's own theme-vars.css tints .list (section/home/taxonomy) pages
+   with --code-bg in light mode — override so every page kind matches body */
 .list {
-    background: #F3EDE5;
+    background: var(--theme);
 }
 
 /* ── Accent / links ────────────────────────────────────────────── */
