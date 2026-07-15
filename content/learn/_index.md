@@ -1,6 +1,6 @@
 ---
 title: "Learn to Trade"
-description: "A structured trading education resource — from the history of markets to advanced price action, risk management, and trading psychology. 59 topics across 7 sections."
+description: "A structured trading education resource — from the history of markets to advanced price action, risk management, and trading psychology. 61 topics across 7 sections."
 layout: "learn-home"
 hideMeta: true
 ---
