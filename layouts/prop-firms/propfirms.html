@@ -1276,7 +1276,10 @@
     var hasAffiliate = !!firm.affiliateUrl;
     var href = hasAffiliate ? firm.affiliateUrl : firm.website;
     var rel = hasAffiliate ? 'sponsored noopener' : 'noopener';
-    return '<a class="pf-visit-link" href="' + escapeHtml(href) + '" target="_blank" rel="' + rel + '">Visit firm →</a>';
+    var track = hasAffiliate
+      ? ' data-umami-event="affiliate-click" data-umami-event-tool="prop-firms" data-umami-event-firm="' + escapeHtml(firm.id) + '"'
+      : '';
+    return '<a class="pf-visit-link" href="' + escapeHtml(href) + '" target="_blank" rel="' + rel + '"' + track + '">Visit firm →</a>';
   }
 
   function formatReviewCount(n) {

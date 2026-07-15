@@ -1084,7 +1084,10 @@
     var hasAffiliate = !!broker.affiliateUrl;
     var href = hasAffiliate ? broker.affiliateUrl : broker.website;
     var rel = hasAffiliate ? 'sponsored noopener' : 'noopener';
-    return '<a class="bk-visit-link" href="' + escapeHtml(href) + '" target="_blank" rel="' + rel + '">Visit broker →</a>';
+    var track = hasAffiliate
+      ? ' data-umami-event="affiliate-click" data-umami-event-tool="brokers" data-umami-event-firm="' + escapeHtml(broker.id) + '"'
+      : '';
+    return '<a class="bk-visit-link" href="' + escapeHtml(href) + '" target="_blank" rel="' + rel + '"' + track + '">Visit broker →</a>';
   }
 
   function formatReviewCount(n) {
