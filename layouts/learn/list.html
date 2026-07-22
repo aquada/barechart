@@ -13,10 +13,8 @@
 
   <ol class="learn-topic-list">
     {{- range .Pages.ByWeight }}
-    <li class="learn-topic-row{{ if eq .Params.priority "wave1" }} learn-topic-wave1{{ end }}{{ if ne .Params.status "published" }} learn-topic-stub{{ end }}">
+    <li class="learn-topic-row{{ if ne .Params.status "published" }} learn-topic-stub{{ end }}">
       <a href="{{ .Permalink }}">{{ .Title }}</a>
-      {{- if ne .Params.status "published" }} <span class="learn-soon">coming soon</span>{{ end }}
-      {{- if eq .Params.priority "wave1" }} <span class="learn-wave1-tag">priority</span>{{ end }}
     </li>
     {{- end }}
   </ol>

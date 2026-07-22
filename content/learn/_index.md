@@ -7,7 +7,7 @@ hideMeta: true
 
 A structured path through everything from how markets came to exist to how to manage a session without letting emotion make the decisions. Whether you're starting from zero or filling in gaps, each topic stands on its own.
 
-Content is published in waves — some topics below are live, others are stubs marked "coming soon" while they're written. New topics are added regularly.
+Content is published in waves — some topics below are live, others are faded out below while they're still being written. New topics are added regularly.
 
 If you're completely new to this, start with **Foundations**.
 

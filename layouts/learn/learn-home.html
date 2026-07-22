@@ -23,10 +23,8 @@
       <p class="learn-section-desc">{{ .Description }}</p>
       <ul class="learn-section-topics">
         {{- range $topics }}
-        <li class="{{ if eq .Params.priority "wave1" }}learn-topic-wave1{{ end }}{{ if ne .Params.status "published" }} learn-topic-stub{{ end }}">
+        <li class="{{ if ne .Params.status "published" }}learn-topic-stub{{ end }}">
           <a href="{{ .Permalink }}">{{ .Title }}</a>
-          {{- if ne .Params.status "published" }} <span class="learn-soon">coming soon</span>{{ end }}
-          {{- if eq .Params.priority "wave1" }} <span class="learn-wave1-tag">priority</span>{{ end }}
         </li>
         {{- end }}
       </ul>

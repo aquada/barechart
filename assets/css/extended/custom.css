@@ -326,18 +326,7 @@ figure.illustration.float-right {
 }
 
 .learn-topic-stub {
-    color: var(--secondary);
-}
-
-.learn-soon,
-.learn-wave1-tag {
-    font-size: 0.7em;
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--secondary);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 0.05rem 0.3rem;
-    margin-left: 0.3rem;
+    opacity: 0.45;
 }
 
 .learn-topic-list {
