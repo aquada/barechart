@@ -14,9 +14,9 @@ Support and resistance are simply the levels where price has reacted before, and
 
 ---
 
-## What a level actually is
+## What a level is
 
-Resistance sits above current price, where sellers previously showed up in enough size to turn the market back down, while support sits below, where buyers did the same thing on the way back up. Neither is really a single price, but more a zone, bounded roughly by the wicks that tested it and the closes that respected it, since treating it as an exact line to the pip asks more precision of the market than it usually offers.
+Resistance sits above current price, where sellers previously showed up in enough size to turn the market back down, while support sits below, where buyers did the same thing on the way back up. Neither is really a single price, but more a zone, bounded roughly by the wicks that tested it and the closes that respected it. Treating it as an exact line to the pip asks more precision of the market than it usually offers.
 
 *Example: GER40 wicks into 18300 three separate sessions and closes back below it each time, and that's resistance, even though the exact wick high differs by a few points on each visit.*
 
@@ -26,7 +26,7 @@ Resistance sits above current price, where sellers previously showed up in enoug
 
 {{< figure src="support-resistance.png" caption="Two rejections at resistance, then a break through, then a retest that holds. The same level, now acting as support." >}}
 
-This is the part that makes the concept worth more than just "price bounced here before." Once a level actually breaks and price closes beyond it with some conviction, that old resistance often becomes the new support on the way back down to test it, and the level itself hasn't changed so much as which side now has control of it.
+This is the part that makes the concept matter more than just "price bounced here before." Once a level breaks and price closes beyond it with some conviction, that old resistance often becomes the new support on the way back down to test it, and the level itself hasn't changed so much as which side now has control of it.
 
 *Example: EURUSD grinds under 1.0850 for a week, finally closes above it on a strong session, then dips back down to 1.0850 and holds, and that dip is the retest, usually a cleaner entry than chasing the original breakout.*
 
@@ -40,14 +40,14 @@ Here's an honest complication: more touches on a level can mean two opposite thi
 
 ## Confluence
 
-A support or resistance level on its own is worth marking, but the same level lining up with a session open, an order block, or a fair value gap is worth a good deal more attention, since several separate reasons for the market to react in the same place tend to matter more than any one of them alone.
+A support or resistance level on its own deserves a mark, but the same level lining up with a session open, an order block, or a fair value gap earns a good deal more attention, because several separate reasons for the market to react in the same place tend to matter more than any one of them alone.
 
 ---
 
 ## Key takeaways
 
 - Support and resistance are zones, not exact lines. Think in terms of a range, not a single price
-- Old resistance often becomes new support (and vice versa) once a level actually breaks with conviction
+- Old resistance often becomes new support (and vice versa) once a level breaks with conviction
 - More touches on a level can mean it's well defended or running low on orders. You can't tell which from touch count alone
 - Watch how price behaves on approach, not just whether it's approaching
 - A level lining up with a session open, order block, or FVG carries more weight than the level alone

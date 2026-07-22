@@ -10,21 +10,21 @@ tags: ["foundations", "demo trading", "psychology"]
 related: ["brokers-and-spreads", "leverage"]
 ---
 
-A demo account is useful, but you need to be aware of its limitations, and knowing the differences between demo and live trading will help you judge when you're actually ready to go live.
+A demo account is useful, but you need to be aware of its limitations, and knowing the differences between demo and live trading will help you judge when you're ready to go live.
 
 ---
 
 ## What demo can teach you
 
-Demo mostly teaches you the platform mechanics, how to place an order, set a stop, and use the different order types on the interface you'll actually be trading on. It's also a reasonable place to test whether a strategy's logic holds up, since you can see whether the setup you're looking for shows up with any regularity and whether the rule set actually makes sense once it's applied to real charts rather than just in your head. Screen time is screen time, and pattern recognition built on demo charts is still real pattern recognition.
+Demo mostly teaches you the platform mechanics, how to place an order, set a stop, and use the different order types on the interface you'll be trading on. It's also a reasonable place to test whether a strategy's logic holds up, because you can see whether the setup you're looking for shows up with any regularity and whether the rule set makes sense once it's applied to real charts, not just in your head. Screen time is screen time, and pattern recognition built on demo charts is still real pattern recognition.
 
 ---
 
 ## What demo can't prepare you for
 
-The charts are identical, but the money isn't, and that's the part that catches people out. A demo loss and a live loss look exactly the same on the screen, yet they feel completely different, and that difference changes behaviour in ways that are hard to predict from the outside. Hesitating on a valid setup, moving a stop that would never have been moved on demo, or closing a winner early because the number on the screen is suddenly real aren't failures of knowledge, since the strategy hasn't changed. What's changed is that losing now actually costs something.
+The charts are identical, but the money isn't, and that's the part that catches people out. A demo loss and a live loss look exactly the same on the screen, yet they feel completely different, and that difference changes behaviour in ways that are hard to predict from the outside. Hesitating on a valid setup, moving a stop that would never have been moved on demo, or closing a winner early because the number on the screen is suddenly real aren't failures of knowledge. The strategy hasn't changed. What's changed is that losing now costs something.
 
-*Example: a trader runs a demo account for months with consistent results, switches to a small live account, and finds the exact same setups suddenly feel urgent to exit early, even though nothing about the setup changed. Only what's actually at stake did.*
+*Example: a trader runs a demo account for months with consistent results, switches to a small live account, and finds the exact same setups suddenly feel urgent to exit early, even though nothing about the setup changed. Only what was at stake did.*
 
 ---
 
@@ -38,7 +38,7 @@ It isn't only psychological. Demo accounts often fill orders instantly at the ex
 
 ## A sensible way to cross over
 
-Go live with a size small enough that the outcome of any single trade doesn't actually matter to you financially, not because the money isn't real, but so the size doesn't distort the decision-making you already trust on demo. The goal in that first stretch isn't profit, it's checking whether you can still follow your own rules once something real is on the line, and it's only worth scaling up once that's actually true.
+Go live with a size small enough that the outcome of any single trade doesn't matter to you financially, not because the money isn't real, but so the size doesn't distort the decision-making you already trust on demo. The goal in that first stretch isn't profit, it's checking whether you can still follow your own rules once something real is on the line, and scaling up only makes sense once that's true.
 
 ---
 
@@ -46,10 +46,10 @@ Go live with a size small enough that the outcome of any single trade doesn't ac
 
 - Demo is genuinely useful for platform mechanics and testing whether a strategy's logic holds up on real charts
 - Demo can't replicate the psychological weight of a real loss, which is a different problem, not a lesser version of the same one
-- Execution differs too, since live spreads, slippage, and requotes can quietly erode an edge that looked clean on demo fills
+- Execution differs too: live spreads, slippage, and requotes can quietly erode an edge that looked clean on demo fills
 - The strategy rarely changes between demo and live; what changes is whether you can still follow it under real stakes and real execution costs
 - Go live small enough that no single trade's outcome matters financially, and use that stretch to test discipline, not profit
-- Scale up once you've actually proven you follow your own rules live, not on a fixed timeline
+- Scale up once you've proven you follow your own rules live, not on a fixed timeline
 
 ---
 

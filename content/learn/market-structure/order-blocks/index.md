@@ -26,19 +26,19 @@ A bullish order block is the last down candle (or last down-closing candle) befo
 
 ## Why price returns to test it
 
-The common explanation is that the candle marks a spot where orders were left unfilled, since buyers who wanted in got skipped over as the market moved away too quickly, and price eventually drifts back to let them fill. Whether that's a precise description of what's actually happening under the hood, or just a decent enough model for something more complicated, is genuinely hard to say with certainty, but what's easier to say is that the zone tends to get revisited often enough to be worth marking.
+The common explanation is that the candle marks a spot where orders were left unfilled: buyers who wanted in got skipped over as the market moved away too quickly, and price eventually drifts back to let them fill. Whether that's a precise description of what's happening under the hood, or just a decent enough model for something more complicated, is genuinely hard to say with certainty, but what's easier to say is that the zone tends to get revisited often enough to earn a mark on the chart.
 
 ---
 
 ## Marking the zone
 
-Some people mark only the body of the candle, others the full range including the wick. I'd rather use the full range, since it's a wider net, and it means you're not missing a valid reaction just because price wicked slightly past the body before turning.
+Some people mark only the body of the candle, others the full range including the wick. I'd rather use the full range. It's a wider net, and it means you're not missing a valid reaction just because price wicked slightly past the body before turning.
 
 ---
 
 ## Order blocks and fair value gaps together
 
-An order block sitting on its own is a zone worth watching, but an order block that lines up with a [fair value gap](/learn/market-structure/fair-value-gaps/) is a zone worth trading, since the same area is being flagged by two separate pieces of evidence. This is the same confluence idea that shows up throughout this section: no single tool is the edge, the overlap between tools is.
+An order block sitting on its own is a zone to watch, but an order block that lines up with a [fair value gap](/learn/market-structure/fair-value-gaps/) is a zone to trade, because the same area is being flagged by two separate pieces of evidence. This is the same confluence idea that shows up throughout this section: no single tool is the edge, the overlap between tools is.
 
 ---
 
