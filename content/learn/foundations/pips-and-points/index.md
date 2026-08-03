@@ -10,7 +10,7 @@ tags: ["foundations", "pips", "points"]
 related: ["trading-instruments-and-cfds", "leverage"]
 ---
 
-Price movement gets measured differently depending on what you're trading, and mixing up the units is an easy way to badly misjudge how big a move, or a risk, is.
+Price movement gets measured differently depending on what's on your chart, and mixing up the units is a quick way to badly misjudge how big a move, or a risk, actually is.
 
 {{< figure src="pip-move.png" caption="A price move measured in discrete units, whether that's pips on a forex pair or points on an index." >}}
 
@@ -18,19 +18,19 @@ Price movement gets measured differently depending on what you're trading, and m
 
 ## Pips, for forex
 
-A pip is the standard unit of movement in most forex pairs, and for most pairs it's the fourth decimal place, so EURUSD moving from 1.0850 to 1.0860 is a 10 pip move. Yen pairs are the exception: they're quoted with fewer decimal places, so a pip there is the second decimal, meaning USDJPY moving from 150.00 to 150.10 is also a 10 pip move even though the numbers look different.
+A pip is the standard unit of movement in most forex pairs, and for most pairs it sits at the fourth decimal place, so EURUSD moving from 1.0850 to 1.0860 is a 10 pip move. Yen pairs are the exception: they're quoted with fewer decimal places, so a pip there is the second decimal, meaning USDJPY moving from 150.00 to 150.10 is also a 10 pip move even though the numbers look nothing alike.
 
 ---
 
 ## Points, for indices and other instruments
 
-Indices like GER40 and US500 are usually measured in points instead, which is simply one full unit of the index's own price, so GER40 moving from 18300 to 18350 is a 50 point move. Points don't follow the same fixed decimal convention pips do. They're just whatever unit the specific instrument's price is quoted in.
+Indices like GER40 and US500 are usually measured in points instead, simply one full unit of the index's own price, so GER40 moving from 18300 to 18350 is a 50 point move. Points don't follow the same fixed decimal convention pips do; they're just whatever unit the specific instrument happens to be quoted in.
 
 ---
 
 ## Why the actual money value still depends on position size
 
-A pip or a point only tells you how far price moved, not what that move was worth to you. That depends on how large a position you're holding. A 10 pip move on a tiny position might be worth a few pence, while the same 10 pip move on a much larger position could be worth hundreds of pounds, which is why position sizing and pip value calculations belong together rather than being treated as separate topics.
+A pip or a point only tells you how far price moved, not what that move was worth to you, and that depends entirely on how large a position you're holding. A 10 pip move on a tiny position might be worth a few pence, while the same 10 pip move on a much larger position could be worth hundreds of pounds, which is why position sizing and pip value calculations belong together rather than being treated as separate topics.
 
 ---
 

@@ -10,25 +10,25 @@ tags: ["foundations", "market basics"]
 related: ["who-controls-markets", "types-of-markets"]
 ---
 
-A market isn't a building or a website, even though it's often described as one. It's just a mechanism for bringing buyers and sellers together so a price can be agreed, and everything else, the exchange, the platform, the order book, is just infrastructure built to make that happen faster and more reliably.
+A market isn't a building or a website, even though it's often described as one. Strip away the exchange, the platform, the order book, and what's left is just a mechanism for bringing buyers and sellers together so a price can be agreed, with everything else built on top purely to make that happen faster and more reliably.
 
 ---
 
 ## Where price comes from
 
-Price is simply the point where a buyer and a seller agree, and it moves because that agreement point keeps shifting. If more people want to buy GER40 at a given price than want to sell at it, the price has to rise before enough sellers show up to match them, and if more people want to sell than buy, it falls until buyers are tempted back in. Nobody sets the price directly. It's the running result of that constant negotiation between everyone participating at once.
+Price is the point where a buyer and a seller agree, and it moves because that agreement point keeps shifting underneath everyone's feet. If more people want to buy GER40 at a given price than want to sell at it, the price has to rise before enough sellers show up to match them, and if more people want to sell than buy, it falls until buyers are tempted back in. Nobody sets the price directly; it's the running result of that constant negotiation between everyone participating at once.
 
 ---
 
 ## Bid, ask, and the spread
 
-At any moment a market shows two prices, the bid, what buyers are currently willing to pay, and the ask, what sellers are currently willing to accept. The gap between them is the spread, and a trade only happens when a buyer accepts the ask or a seller accepts the bid, which is why price can gap or feel sticky in quiet moments when nobody's willing to move first.
+At any moment a market shows two prices side by side, the bid, what buyers are currently willing to pay, and the ask, what sellers are currently willing to accept. The gap between them is the spread, and a trade only happens when a buyer accepts the ask or a seller accepts the bid, which is why price can gap or feel sticky in quiet moments when nobody's willing to move first.
 
 ---
 
 ## Liquidity is what makes this work smoothly
 
-A market only functions well if there are enough buyers and sellers active at once, which is what's meant by liquidity. A liquid market like EURUSD has so many participants that a normal-sized order barely moves the price. A thin, illiquid market can see the same size order move price sharply, simply because there aren't enough people on the other side to absorb it without demanding a better price first.
+A market only functions well if there are enough buyers and sellers active at once, which is what's meant by liquidity. A liquid market like EURUSD has so many participants milling around at any given moment that a normal-sized order barely nudges the price. A thin, illiquid market can see the same size order move price sharply, because there simply aren't enough people on the other side to absorb it without demanding a better price first.
 
 ---
 

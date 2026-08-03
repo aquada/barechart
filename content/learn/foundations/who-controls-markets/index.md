@@ -10,7 +10,7 @@ tags: ["foundations", "market basics"]
 related: ["what-are-markets", "types-of-markets"]
 ---
 
-Nobody controls a market in the sense of a single hand on the wheel, but a small number of participants influence it far more than everyone else combined, and knowing who they are beats assuming price just moves at random.
+Nobody controls a market the way a hand controls a wheel, but a small number of participants lean on it far harder than everyone else combined, and knowing who they are beats assuming price just wanders around at random.
 
 {{< figure src="influence.png" caption="A small number of central banks at the top, down to the many retail traders at the bottom — fewer participants with outsized influence, versus many with individually small influence." >}}
 
@@ -24,13 +24,13 @@ Central banks like the Federal Reserve, the ECB, and the Bank of England set int
 
 ## Regulators
 
-Bodies like the FCA in the UK, the SEC in the US, and ESMA in Europe don't move price directly, but they set the rules everyone else has to trade within, leverage limits, reporting requirements, what brokers are allowed to offer retail clients. A regulatory change, like ESMA's leverage caps on retail forex and CFD accounts a few years ago, can reshape how an entire market is accessed without a single trade being placed.
+Bodies like the FCA in the UK, the SEC in the US, and ESMA in Europe don't move price directly, but they set the rules everyone else has to trade within: leverage limits, reporting requirements, what brokers are allowed to offer retail clients. A regulatory change, like ESMA's leverage caps on retail forex and CFD accounts a few years ago, can reshape how an entire market is accessed without a single trade being placed.
 
 ---
 
 ## Institutions and big money
 
-Banks, hedge funds, and pension funds move genuinely large size, and because their orders are so much bigger than a retail order, they're often the actual counterparty on the other side of a retail trade without either side knowing it. A lot of retail trading folklore assumes institutions are actively hunting individual traders' stop losses, but the more accurate picture is that institutions are moving size for their own reasons, and retail stops sitting at obvious levels sometimes get caught in that flow as a side effect, not the target of it.
+Banks, hedge funds, and pension funds move genuinely large size, and because their orders dwarf a retail order, they're often the actual counterparty on the other side of a retail trade without either side knowing it. A lot of retail trading folklore imagines institutions actively hunting individual traders' stop losses, but the more accurate picture is that institutions are moving size for their own reasons, and retail stops sitting at obvious levels sometimes get caught in that flow as a side effect, not the target of it.
 
 ---
 

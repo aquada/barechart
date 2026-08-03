@@ -10,7 +10,7 @@ tags: ["foundations", "trading sessions"]
 related: ["trading-sessions", "history-of-trading"]
 ---
 
-Stock exchanges and the indices built on them still keep fixed trading hours, a direct hangover from the physical floor era covered in [History of Trading](/learn/foundations/history-of-trading/), even though almost everything is electronic now. Forex trades close to 24 hours a day instead, because currencies don't belong to any single exchange, but the open and close of the major regional sessions still matter enormously for how price behaves.
+Stock exchanges and the indices built on them still keep fixed trading hours, a direct hangover from the physical floor era covered in [History of Trading](/learn/foundations/history-of-trading/), even though almost everything is electronic now. Forex trades close to 24 hours a day instead, because no single exchange owns a currency, but the open and close of the major regional sessions still shape how price behaves.
 
 ---
 
@@ -18,19 +18,19 @@ Stock exchanges and the indices built on them still keep fixed trading hours, a 
 
 {{< figure src="gap.png" caption="Price closes one session, then opens the next well away from that level, a gap, before continuing." >}}
 
-Overnight, while an exchange is closed, news and orders still accumulate without anywhere to be executed, so the open is where all of that gets resolved at once. That's why opens so often gap away from the previous close and produce a burst of volatility as the market works out a fair price given everything that happened while it wasn't trading. It's also why so many strategies, including the ones covered elsewhere on this site, are built specifically around trading the first hour or so of a session rather than the quiet middle of the day.
+Overnight, while an exchange sits closed and dark, news and orders keep piling up with nowhere to be executed, so the open is where all of that gets resolved in one burst. That's why opens so often gap away from the previous close and produce a rush of volatility as the market works out a fair price given everything that happened while it wasn't looking. It's also why so many strategies, including the ones covered elsewhere on this site, are built specifically around trading the first hour or so of a session rather than the quiet middle of the day.
 
 ---
 
 ## The close carries its own risk
 
-Positions held into a close are exposed to whatever happens overnight before the next open, because there's no way to react to news or manage a trade while the market is shut. That's part of why day traders often close positions before the session ends rather than holding overnight, and why overnight gaps can be sharp enough to blow through a stop loss that would have worked fine during live trading hours.
+Positions held into a close are exposed to whatever happens overnight before the next open, because there's no way to react to news or manage a trade while the market is shut. That's part of why day traders often close positions before the session ends rather than holding overnight, and why overnight gaps can be sharp enough to blow through a stop loss that would have held fine during live trading hours.
 
 ---
 
 ## Forex doesn't fully escape this either
 
-Even though forex runs almost continuously, it still has a weekly close over the weekend, and the same gap risk applies there on a smaller scale, along with quieter, thinner conditions around the rollover between the New York close and the Asian session open each day.
+Even though forex runs almost continuously, it still has a weekly close over the weekend, and the same gap risk applies there on a smaller scale, alongside quieter, thinner conditions around the rollover between the New York close and the Asian session open each day.
 
 ---
 

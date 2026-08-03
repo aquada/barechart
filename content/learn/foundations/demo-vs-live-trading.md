@@ -16,7 +16,7 @@ A demo account is useful, but you need to be aware of its limitations, and knowi
 
 ## What demo can teach you
 
-Demo mostly teaches you the platform mechanics, how to place an order, set a stop, and use the different order types on the interface you'll be trading on. It's also a reasonable place to test whether a strategy's logic holds up, because you can see whether the setup you're looking for shows up with any regularity and whether the rule set makes sense once it's applied to real charts, not just in your head. Screen time is screen time, and pattern recognition built on demo charts is still real pattern recognition.
+Watch someone trade demo for a few weeks and you'll see genuine platform mechanics being learned: how to place an order, set a stop, and use the different order types on the interface you'll eventually trade on for real. It's also a reasonable place to test whether a strategy's logic holds up, because you can see whether the setup you're looking for shows up with any regularity and whether the rule set makes sense once it's applied to real charts, not just in your head. Screen time is screen time, and pattern recognition built on demo charts is still real pattern recognition.
 
 ---
 

@@ -10,13 +10,13 @@ tags: ["foundations", "history"]
 related: ["history-of-trading", "brokers-and-spreads"]
 ---
 
-[History of Trading](/learn/foundations/history-of-trading/) covers the pit era and why it eventually ran into its own limits. This is what replaced it, and the bottleneck of physical floor trading was solved gradually rather than all at once.
+[History of Trading](/learn/foundations/history-of-trading/) covers the pit era and the limits it eventually ran into. This is what replaced it, and the change happened in stages rather than overnight.
 
 ---
 
 ## The first electronic markets
 
-NASDAQ launched in 1971 as the first electronic stock market, and it didn't have a trading floor at all, just a network of dealers quoting prices on screens. Other exchanges resisted for decades, because a lot of money and status was tied up in owning a physical seat on a traditional floor, but the advantages of electronic matching, speed, lower cost, and the ability to trade from anywhere, eventually made the pit model impossible to defend commercially.
+NASDAQ launched in 1971 as the first electronic stock market, and there was no floor to picture at all, just a network of dealers quoting prices on screens hundreds of miles apart. Other exchanges resisted for decades, because a lot of money and status was tied up in owning a physical seat on a traditional floor, but the advantages of electronic matching, speed, lower cost, and the ability to trade from anywhere, eventually made the pit model impossible to defend commercially.
 
 ---
 
@@ -24,13 +24,13 @@ NASDAQ launched in 1971 as the first electronic stock market, and it didn't have
 
 For most of trading's history, access alone was the real barrier: placing an order meant going through a broker who was themselves connected to the floor, and minimum account sizes and commissions kept most individual investors out completely. Online retail platforms in the late 1990s changed that by letting individuals place orders directly from a home computer, and forex and CFD brokers built on top of that by offering leveraged access to markets that had previously been the preserve of institutions and professional traders.
 
-That shift is why a retail trader today can open a position on GER40 or EURUSD from a laptop for a few pounds of margin, something that simply had no equivalent thirty years ago.
+That shift is why a retail trader today can open a position on GER40 or EURUSD from a laptop for a few pounds of margin, something that had no equivalent thirty years ago.
 
 ---
 
 ## Speed became its own market
 
-Once trading moved onto computers, the arms race shifted from shouting louder to executing faster. High-frequency trading firms now compete on microseconds, colocating their servers physically next to an exchange's own servers to shave fractions of a second off execution time. That world runs on a completely different timescale to retail trading, but it's still part of the liquidity a retail order is trading against.
+Once trading moved onto computers, the arms race shifted from shouting louder to executing faster. High-frequency trading firms now compete on microseconds, colocating their servers physically next to an exchange's own servers to shave fractions of a second off execution time. That world runs on a completely different timescale to retail trading, but it's still part of the liquidity a retail order is quietly trading against.
 
 ---
 

@@ -24,7 +24,7 @@ Risk to reward is just the distance to your target divided by the distance to yo
 
 ## Why win rate alone is misleading
 
-A 70% win rate sounds excellent on its own, but it can still lose money if the losers are three times the size of the winners, and a 30% win rate sounds mediocre even though it can be genuinely profitable at 3R or better. Neither number means anything without the other standing next to it, so whenever a strategy gets pitched on win rate alone, that's the first thing to ask about.
+A 70% win rate sounds excellent on its own, but it can still lose money if the losers are three times the size of the winners, and a 30% win rate sounds mediocre even though it can be genuinely profitable at 3R or better. Look at either number in isolation and you're looking at half a story, so whenever a strategy gets pitched on win rate alone, that's the first thing worth asking about.
 
 *Example: ten trades, seven winners at 0.5R and three losers at 1R, comes out to 3.5R made against 3R lost, barely scraping by despite a 70% win rate. Ten trades, three winners at 3R and seven losers at 1R, comes out to 9R made against 7R lost instead, considerably better from a worse-looking win rate.*
 
@@ -38,7 +38,7 @@ The ratio gets decided the moment you set your stop and target, and then it's qu
 
 ## Setting it before you're in the trade
 
-Know your invalidation, the point where the idea is simply wrong, before you know your target. That's your stop. Then find a realistic target based on actual structure, the next level, the next zone, the next swing point, rather than just wherever gives you a nice round number. If the resulting ratio doesn't clear whatever minimum you've set for yourself, that's something you want to know before risking anything, not after.
+Know your invalidation, the point where the idea is simply wrong, before you know your target. That's your stop. Then find a realistic target based on actual structure, the next level, the next zone, the next swing point, rather than just wherever gives you a nice round number. If the resulting ratio doesn't clear whatever minimum you've set for yourself, that's the thing to catch before risking anything, not after.
 
 ---
 

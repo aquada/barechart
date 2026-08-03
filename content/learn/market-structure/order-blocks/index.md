@@ -10,7 +10,7 @@ tags: ["market structure", "order blocks", "price action"]
 related: ["supply-and-demand", "fair-value-gaps", "liquidity-and-stop-hunts"]
 ---
 
-An order block is the last candle moving against a strong move, right before that strong move happens, and the interesting part is what it implies about why price so often comes back to visit it.
+An order block is the last candle standing against a strong move, right before that move takes off, and the interesting part is what it implies about why price so often comes back to visit it.
 
 ---
 
@@ -18,7 +18,7 @@ An order block is the last candle moving against a strong move, right before tha
 
 {{< figure src="order-block.png" caption="The last down candle before an impulsive rally, marked as a zone. Price returns to test it later." >}}
 
-A bullish order block is the last down candle (or last down-closing candle) before a sharp, sustained move higher, while a bearish order block is the same idea flipped, the last up candle before a sharp move lower. "Opposing" just means moving against the direction of whatever comes right after it.
+A bullish order block is the last down candle (or last down-closing candle) before a sharp, sustained move higher, while a bearish order block is the same idea flipped, the last up candle before a sharp move lower. "Opposing" just means moving against the direction of whatever shows up right after it.
 
 *Example: three quiet, narrow-range candles, then one that closes down, then four strong candles up in a row without much pullback, and that down candle is the order block for the move that follows.*
 
@@ -26,13 +26,13 @@ A bullish order block is the last down candle (or last down-closing candle) befo
 
 ## Why price returns to test it
 
-The common explanation is that the candle marks a spot where orders were left unfilled: buyers who wanted in got skipped over as the market moved away too quickly, and price eventually drifts back to let them fill. Whether that's a precise description of what's happening under the hood, or just a decent enough model for something more complicated, is genuinely hard to say with certainty, but what's easier to say is that the zone tends to get revisited often enough to earn a mark on the chart.
+The common explanation is that the candle marks a spot where orders were left unfilled: buyers who wanted in got skipped over as the market moved away too quickly, and price eventually drifts back to let them fill. Whether that's a precise description of what's happening under the hood, or just a decent enough model for something more complicated, is genuinely hard to say with certainty. What's easier to say is that the zone tends to get revisited often enough to earn a mark on the chart.
 
 ---
 
 ## Marking the zone
 
-Some people mark only the body of the candle, others the full range including the wick. I'd rather use the full range. It's a wider net, and it means you're not missing a valid reaction just because price wicked slightly past the body before turning.
+Some people mark only the body of the candle, others the full range including the wick. I'd rather use the full range: it's a wider net, and it means you're not missing a valid reaction just because price wicked slightly past the body before turning.
 
 ---
 

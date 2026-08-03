@@ -10,7 +10,7 @@ tags: ["foundations", "brokers", "spreads"]
 related: ["what-are-markets", "demo-vs-live-trading"]
 ---
 
-A broker is the middleman between you and the market, and the spread, the difference between the price you buy at and the price you sell at, is the most common way brokers get paid for providing that access.
+A broker is the middleman standing between you and the market, and the spread, the gap between the price you buy at and the price you sell at, is the most common way that middleman gets paid for the access.
 
 ---
 
@@ -18,19 +18,19 @@ A broker is the middleman between you and the market, and the spread, the differ
 
 {{< figure src="spread.png" caption="The ask (blue) sits above the bid (orange). The gap between them is the spread." >}}
 
-Every instrument shows a bid price and an ask price at once, and the ask is always slightly higher than the bid. That gap is the spread, and it means a position is already slightly in the red the instant it's opened, before price has moved at all, because you buy at the higher ask and would have to sell back at the lower bid. A tighter spread means less of a head start price has to make up before a trade is in profit.
+Every instrument shows a bid price and an ask price side by side, and the ask always sits a little above the bid. That gap is the spread, and it means a position starts life slightly in the red, before price has moved at all, because you buy at the higher ask and would have to sell back at the lower bid. A tighter spread means less ground price has to make up before a trade is in profit.
 
 ---
 
 ## Spread models
 
-Some brokers charge a variable spread that widens and narrows with market conditions, getting noticeably wider during news events or thin liquidity when the underlying market itself is less certain of a fair price. Others charge a fixed spread plus a separate commission per trade, which can work out cheaper for active traders even though it looks like an extra cost line at first glance. Neither model is automatically better. The right one depends on how often you trade and what you're trading.
+Some brokers charge a variable spread that widens and narrows with market conditions, stretching noticeably during news events or thin liquidity when the underlying market itself is less sure of a fair price. Others charge a fixed spread plus a separate commission per trade, which can work out cheaper for active traders even though it looks like an extra cost line at first glance. Neither model wins outright; the right one depends on how often you trade and what you're trading.
 
 ---
 
 ## What to look for
 
-Regulation matters more than almost anything else, because it determines what protections exist if something goes wrong with the broker itself, not just with a trade. Beyond that, spread consistency during volatile periods, execution speed, and whether a broker allows the trading style you use, EA and algo trading in particular, are all things to check before committing real money. The [broker comparison tool](/brokers/compare/) on this site is built around exactly these factors, because spread alone rarely tells the full story.
+Regulation matters more than almost anything else, because it decides what protections exist if something goes wrong with the broker itself, not just with a trade. Beyond that, spread consistency during volatile periods, execution speed, and whether a broker allows the trading style you use, EA and algo trading in particular, are all worth checking before real money goes anywhere near the account. The [broker comparison tool](/brokers/compare/) on this site is built around exactly these factors, because the headline spread rarely tells the full story.
 
 ---
 

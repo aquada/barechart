@@ -10,13 +10,13 @@ tags: ["foundations", "market basics"]
 related: ["what-are-markets", "trading-instruments-and-cfds"]
 ---
 
-Every market runs on the same basic mechanism of buyers and sellers agreeing on price, but what's being traded, and who's trading it, differs enough between market types that it helps to know the main ones before picking where to focus.
+Every market runs on the same basic mechanism, buyers and sellers agreeing on a price, but what's actually being traded, and who's showing up to trade it, differs enough between market types that it pays to know the main ones before picking where to focus.
 
 ---
 
 ## Forex
 
-Currencies traded against each other, EURUSD, GBPUSD, USDJPY, and so on. Forex is the largest and most liquid market in the world by trading volume, it runs close to 24 hours a day across different global sessions, and price is driven heavily by interest rate differentials and central bank policy between the two currencies in a given pair.
+Currencies traded against each other: EURUSD, GBPUSD, USDJPY, and so on. Forex is the largest and most liquid market in the world by volume, it runs close to 24 hours a day across different global sessions chasing the sun around the planet, and price leans heavily on interest rate differentials and central bank policy between the two currencies in a given pair.
 
 ---
 
@@ -28,19 +28,19 @@ An index, GER40, US500, NASD, tracks a basket of company shares rather than any 
 
 ## Commodities
 
-Gold, oil, and agricultural products fall under commodities, and they're priced on genuine supply and demand for a physical good, alongside their role as a store of value in the case of gold. Commodities can be more sensitive to geopolitical events and supply shocks than other market types, because a war or a shipping disruption can genuinely change how much of something exists to sell.
+Gold, oil, and agricultural products fall under commodities, priced on genuine supply and demand for a physical good, with gold carrying the added weight of being a store of value in its own right. Commodities can be more sensitive to geopolitical events and supply shocks than other market types, because a war or a shipping disruption can genuinely change how much of something exists to sell.
 
 ---
 
 ## Stocks
 
-Individual company shares represent ownership in that specific business, so a stock's price is driven by that company's own earnings, guidance, and news, alongside the broader market sentiment reflected in the index it belongs to. Stocks tend to be more binary around scheduled events like earnings reports than instruments driven mainly by macro flow.
+Individual company shares represent ownership in that specific business, so a stock's price is driven by that company's own earnings, guidance, and news, layered on top of the broader market sentiment reflected in the index it belongs to. Stocks tend to move in a more binary way around scheduled events like earnings reports than instruments driven mainly by macro flow.
 
 ---
 
 ## Crypto
 
-Bitcoin, Ethereum, and the rest trade nearly 24/7 with no central bank or company earnings behind them, which means price is driven largely by sentiment, liquidity conditions, and adoption narratives rather than the kind of fundamentals that anchor stocks or currencies. That makes crypto capable of very large moves in both directions, and it also means the usual macro playbook applies less cleanly than it does elsewhere.
+Bitcoin, Ethereum, and the rest trade nearly 24/7 with no central bank or company earnings behind them, which leaves sentiment, liquidity conditions, and adoption narratives doing most of the driving instead of the fundamentals that anchor stocks or currencies. That makes crypto capable of very large moves in both directions, and it also means the usual macro playbook applies less cleanly than it does elsewhere.
 
 ---
 

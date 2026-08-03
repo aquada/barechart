@@ -10,7 +10,7 @@ tags: ["foundations", "CFDs"]
 related: ["types-of-markets", "leverage"]
 ---
 
-Most retail traders working with a broker like the ones covered on this site's [broker comparison tool](/brokers/compare/) aren't buying the underlying asset at all. They're trading a CFD, a contract for difference, and it helps to understand exactly what that means before treating it like ownership.
+Most retail traders working with a broker like the ones covered on this site's [broker comparison tool](/brokers/compare/) aren't buying the underlying asset at all, whatever the position on their screen seems to suggest. They're trading a CFD, a contract for difference, and it pays to know exactly what that means before treating it like ownership.
 
 ---
 
@@ -22,13 +22,13 @@ A CFD is an agreement between you and your broker to exchange the difference in 
 
 ## Why retail traders use them
 
-CFDs let you gain exposure to markets that would otherwise be expensive or impractical to access directly, because buying a genuine basket of shares to replicate an index yourself would take significant capital and ongoing management. They also make it straightforward to go short, to profit from a price falling, which is far more awkward to do with a physically owned asset. On top of that, CFDs are typically traded on margin, which is what makes leveraged position sizes possible on a retail account in the first place.
+CFDs open up markets that would otherwise be expensive or impractical to access directly, because buying a genuine basket of shares to replicate an index yourself takes real capital and ongoing management most people don't have. They also make it straightforward to go short, to profit from a price falling, which is far more awkward with a physically owned asset. On top of that, CFDs are typically traded on margin, which is what makes leveraged position sizes possible on a retail account in the first place.
 
 ---
 
 ## What you give up
 
-Because you don't own the underlying asset, you don't get shareholder rights, voting rights on a company you hold a stock CFD in, or in most cases the actual dividend, though brokers often credit an equivalent cash adjustment instead. You're also exposed to counterparty risk: a CFD position only pays out if your broker itself remains solvent and able to honour it, which is why regulation and broker choice matters as much as the trade itself.
+Because you don't own the underlying asset, you don't get shareholder rights, no voting rights on a company you hold a stock CFD in, and in most cases no actual dividend, though brokers often credit an equivalent cash adjustment instead. You're also exposed to counterparty risk: a CFD position only pays out if your broker itself remains solvent and able to honour it, which is why regulation and broker choice carries as much weight as the trade itself.
 
 ---
 

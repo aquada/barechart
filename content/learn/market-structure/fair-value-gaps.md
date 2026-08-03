@@ -16,9 +16,9 @@ Before getting into this, a note. I use Steve Norman's FVG indicator, and Steve'
 
 ## What is a fair value gap?
 
-When price moves fast, really fast, driven by momentum or a large order hitting the market, it sometimes skips through a zone without properly trading there, and buyers and sellers don't get a chance to interact at those prices before the market moves on.
+When price moves fast, really fast, driven by momentum or a large order hitting the market, it sometimes skips through a whole stretch of prices without pausing to trade there, and buyers and sellers never get the chance to meet each other at those levels before the market's already moved on.
 
-That zone is a fair value gap, and the useful thing about it is that price tends to come back and revisit it. Not always, and not on any particular schedule, but often enough that knowing where these zones are before the session starts is worth the few minutes it takes to look.
+That zone is a fair value gap, and the useful thing about it is that price tends to come back and revisit it. Not always, and not on any particular schedule, but often enough that marking these zones before the session starts earns its few minutes.
 
 ---
 
@@ -76,7 +76,7 @@ These setups are not named to make them sound more significant than they are. A 
 
 An FVG on its own is a zone to watch. An FVG that aligns with something else is a zone to trade, whether that's a supply or demand zone, a session level, a previous area of structure, or a higher timeframe target.
 
-The zone tells you where, the price action tells you when, and something else pointing at the same area tells you whether it is worth the risk.
+The zone tells you where, the price action tells you when, and something else pointing at the same area tells you whether the risk is one to take.
 
 ---
 

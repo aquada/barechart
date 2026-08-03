@@ -10,7 +10,7 @@ tags: ["foundations", "history"]
 related: ["evolution-to-digital-trading", "what-are-markets"]
 ---
 
-Trading itself is old, older than any exchange. People have swapped goods and promises of future goods for about as long as there's been anything worth swapping. What people usually mean by "the history of trading" is closer to when it became formal and organized, and that's a more recent story.
+Trading itself is older than any exchange, older than money in most tellings, wherever two people looked at what the other was holding and decided a swap made sense for both of them. What people usually mean by "the history of trading" is really the story of when that swapping got formal, and that's a more recent and better-documented one.
 
 ---
 
@@ -22,21 +22,21 @@ The Amsterdam Stock Exchange, founded in 1602 to trade shares in the Dutch East 
 
 ## The pit era
 
-For most of the next three centuries, trading happened on a physical floor, and that floor was loud. Traders and brokers stood in a designated area called a pit: the trading floors at exchanges like the Chicago Board of Trade were built as sunken, stepped areas so everyone could see and hear each other, and orders were shouted and signalled by hand across the crowd. A trade agreed on the floor was written down on a paper ticket, and that ticket then had to be physically matched, confirmed, and settled, often a day or more later.
+For most of the next three centuries, trading happened on a physical floor, and that floor was loud. Picture a sunken, stepped room built specifically so a crowd could see and hear each other, the way the Chicago Board of Trade laid out its own pits: traders and brokers packed in, orders shouted and signalled by hand across the noise, and a trade agreed there written down on a paper ticket that then had to be physically carried off, matched, confirmed, and settled, often a day or more later.
 
-Owning the right to trade on that floor meant owning a seat, an actual membership in the exchange, and because the number of seats was fixed, seat prices at exchanges like the NYSE became their own small, closely watched market.
+Owning the right to stand in that crowd meant owning a seat, an actual membership in the exchange, and because the number of seats was fixed, seat prices at exchanges like the NYSE became their own small, closely watched market.
 
 ---
 
 ## Why the language still lingers
 
-A lot of the vocabulary still used in trading today comes directly from this era. "The pit," "the floor," "open outcry," and "ringing the bell" are all leftovers from a time when trading was a physical, in-person activity rather than something that happened on a screen. Even "ticker," for a running feed of prices, comes from the actual ticking sound made by the paper-tape machines that used to print prices on exchange floors.
+A lot of the vocabulary traders still reach for today comes straight out of this era. "The pit," "the floor," "open outcry," "ringing the bell": all leftovers from a time when trading meant standing in a room with other people, not staring at a screen alone. Even "ticker," for a running feed of prices, comes from the actual ticking sound of the paper-tape machines that used to print prices on exchange floors, a sound nobody trading today has ever heard live.
 
 ---
 
 ## The shift that was coming
 
-By the late twentieth century, the limits of the pit system were becoming obvious. A trading floor can only fit so many people, and it can only process so many trades in a day, no matter how loud everyone shouts. Getting an order from a client in another city onto the floor, matched, and confirmed still took real time, and that time cost money. That bottleneck is exactly what electronic trading solved, and it's covered properly in [The Evolution to Digital Trading](/learn/foundations/evolution-to-digital-trading/).
+By the late twentieth century, the limits of the pit system were becoming obvious. A trading floor can only fit so many people, and it can only process so many trades in a day, no matter how loud everyone shouts. Getting an order from a client in another city onto that floor, matched, and confirmed still took real time, and time on a trading floor has always cost money. That bottleneck is exactly what electronic trading solved, and it's covered properly in [The Evolution to Digital Trading](/learn/foundations/evolution-to-digital-trading/).
 
 ---
 
