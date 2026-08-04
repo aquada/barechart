@@ -18,7 +18,11 @@ Every indicator is derived from price, not separate from it, and knowing what ma
 
 {{< figure src="ma-lag.png" caption="A moving average smooths price into a lagging line. Useful for context, always a step behind." >}}
 
-A moving average takes the last N closes and averages them, which smooths out the noise but means the line is always describing where price has already been rather than where it's heading. An oscillator like RSI takes recent gains and losses and turns them into a bounded number, so it can flag when a move looks stretched, but it's still built entirely from the same closes a chart already shows you. Nothing an indicator displays is new information; it's existing price data run through a formula to make one property of it easier to see at a glance.
+A **moving average** takes the last N closes and averages them, which smooths out the noise but means the line is always describing where price has already been rather than where it's heading. An oscillator like **RSI** takes recent gains and losses and turns them into a bounded number, so it can flag when a move looks stretched, but it's still built entirely from the same closes a chart already shows you. Nothing an indicator displays is new information; it's existing price data run through a formula to make one property of it easier to see at a glance.
+
+A few others follow the same pattern. **MACD** is really two moving averages set against each other, a fast one and a slow one, with the gap between them plotted as its own line, so a crossover is just one average catching up to, or falling behind, the other. **Bollinger Bands** wrap a moving average in a band that widens and narrows with recent volatility, so price pushing outside it is a comment on how calm or wild the last few candles have been, not a signal by itself. **ATR** drops direction entirely and just measures how much an instrument has been moving lately, which shows up more in stop-loss sizing than in entry signals. **Stochastic** is RSI's cousin, comparing the close to the recent high-low range instead of to recent gains and losses, but it reads the same way, stretched in one direction usually means the move's due a pause.
+
+I read price action first and lean on one indicator to back it up: **[eWavesHarmonics](/tools/)**, which handles wave counting and target price zones, and also marks fib levels, gaps, and supply and demand zones on the same chart, so I'm not juggling four separate indicators to get the same picture. It's built the same way as everything above, existing price run through a formula, it's just the particular transformation I've found useful for my own setups.
 
 ## Where they genuinely help
 
@@ -36,6 +40,8 @@ Because every indicator lags the closes it's built from, it will always confirm 
 
 - Every indicator is price run through a formula; none of them add information a chart doesn't already contain
 - Moving averages smooth price into a lagging line; oscillators like RSI turn recent gains and losses into a bounded, readable number
+- MACD, Bollinger Bands, ATR, and Stochastic all do the same trick with a different formula: two averages compared, a volatility band, pure movement, or the close against its recent range
+- I keep eWavesHarmonics on my own charts for wave counting, target zones, fib levels, gaps, and supply and demand zones, but it's still just price, transformed
 - Indicators are genuinely useful for confirmation and consistency, spotting what the eye might miss
 - They always lag, because they're built from closes that have already happened
 - Stacking multiple indicators built from the same price data isn't extra confirmation, it's repetition

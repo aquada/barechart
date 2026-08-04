@@ -16,9 +16,9 @@ Before any pattern makes sense, a single candle has to make sense, because every
 
 ## Four numbers, one shape
 
-{{< figure src="candle-anatomy.png" caption="Same four numbers, two outcomes. Blue closes above open, orange closes below it." >}}
+{{< figure src="candle-anatomy.png" caption="Same four numbers, two outcomes. Teal closes above open, red closes below it." >}}
 
-Each candle covers one fixed slice of time, a minute, an hour, a day, whatever the chart is set to, and it's built from four prices: the open and close, which set the top and bottom of the solid body, and the high and low, which set the thin wicks above and below it. If the close finishes above the open, the body is blue on this site's charts (many platforms use green); if it finishes below, it's orange (or red elsewhere). The colour is just a shortcut for which of those two numbers won.
+Each candle covers one fixed slice of time, a minute, an hour, a day, whatever the chart is set to, and it's built from four prices: the open and close, which set the top and bottom of the solid body, and the high and low, which set the thin wicks above and below it. If the close finishes above the open, the body is teal on this site's charts; if it finishes below, it's red. The colour is just a shortcut for which of those two numbers won.
 
 ## Body versus wick
 
@@ -28,14 +28,14 @@ The body tells you where the candle settled, and the wicks tell you where it wan
 
 ## Reading a run of candles
 
-One candle is a snapshot; a few in a row start telling a story. A string of blue candles with small wicks and rising closes says buyers stayed comfortably in charge the whole way. The same string with a bearish candle ploughing through it and closing near its low says something changed, and that's usually the point on the chart worth paying attention to, not the calm stretch before it.
+One candle is a snapshot; a few in a row start telling a story. A string of teal candles with small wicks and rising closes says buyers stayed comfortably in charge the whole way. The same string with a bearish candle ploughing through it and closing near its low says something changed, and that's usually the point on the chart worth paying attention to, not the calm stretch before it.
 
 ---
 
 ## Key takeaways
 
 - A candle is built from four prices: open and close (the body), high and low (the wicks)
-- Body colour just marks which of open/close was higher; this site uses blue for bullish and orange for bearish
+- Body colour just marks which of open/close was higher; this site uses teal for bullish and red for bearish
 - A long body with small wicks means one side stayed in control the whole period
 - A long wick with a small body means a level was reached and rejected, not accepted
 - Read candles in groups, not isolation, that's where patterns and shifts in control show up

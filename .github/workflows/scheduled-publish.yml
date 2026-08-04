@@ -1,0 +1,28 @@
+name: Scheduled Publish
+
+# Weekly rebuild so future-dated content (dated blog posts, and any
+# prop-firms/brokers data already reviewed and merged to main) goes live
+# without needing a manual push. Hugo excludes future-dated content by
+# default, so a post just sitting on main with a future `date` won't appear
+# until some build runs on or after that date — this is that build.
+#
+# Does NOT touch the prop-firms/brokers refresh PRs — those still open for
+# manual review (see prop-firms-refresh.yml / brokers-refresh.yml). This job
+# only rebuilds whatever is already on main.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # every Monday, 06:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build
+        run: |
+          if [ -z "${{ secrets.NETLIFY_BUILD_HOOK }}" ]; then
+            echo "::error::NETLIFY_BUILD_HOOK secret is not set. Create a build hook in Netlify (Site settings -> Build & deploy -> Build hooks) and add it as a repo secret."
+            exit 1
+          fi
+          curl -sf -X POST -d '{}' "${{ secrets.NETLIFY_BUILD_HOOK }}"
