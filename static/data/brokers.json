@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-11",
+  "lastUpdated": "2026-08-04",
   "brokers": [
     {
       "id": 1,
@@ -9,7 +9,7 @@
       "affiliateUrl": "",
       "active": true,
       "personal": true,
-      "notes": "FCA (FRN 684312) and ASIC (AFSL 414530) confirmed; also licensed via CySEC, DFSA, BaFin, CMA Kenya, and SCB Bahamas entities. No regulatory fines or sanctions found. Recurring complaint themes: withdrawal delays and spread widening during high volatility \u2014 common for the sector, not a unique red flag. A lookalike domain 'pepperstone.finance' runs its own Trustpilot page \u2014 not affiliated with the real Pepperstone, worth checking you're on the right site. Minimum deposit is officially $0.",
+      "notes": "FCA (FRN 684312) and ASIC (AFSL 414530) confirmed; also licensed via CySEC, DFSA, BaFin, CMA Kenya, and SCB Bahamas entities. No regulatory fines or sanctions found. Recurring complaint themes: withdrawal delays and spread widening during high volatility — common for the sector, not a unique red flag. A lookalike domain 'pepperstone.finance' runs its own Trustpilot page — not affiliated with the real Pepperstone, worth checking you're on the right site. Minimum deposit is officially $0.",
       "regulation": [
         "FCA",
         "ASIC",
@@ -84,7 +84,7 @@
         "reviewCount": 3200,
         "url": "https://www.trustpilot.com/review/pepperstone.com",
         "asOf": "2026-07-10",
-        "note": "Rating/count reconstructed from search snippets \u2014 Trustpilot blocked direct automated fetch (403); confirm the live count before quoting it precisely."
+        "note": "Rating/count reconstructed from search snippets — Trustpilot blocked direct automated fetch (403); confirm the live count before quoting it precisely."
       },
       "secondaryReview": {
         "source": "ForexPeaceArmy",
@@ -104,7 +104,7 @@
       "affiliateUrl": "",
       "active": true,
       "personal": false,
-      "notes": "Rebranding from icmarkets.com to ic.com (domain migration completed 2026-07-11 \u2014 use the new domain). CySEC fined the EU entity twice: \u20ac200,000 for routing EU retail clients to an offshore entity offering up to 1000:1 leverage (circumventing the EU's 30:1 retail cap), and \u20ac50,000 for best-execution/cost-disclosure failures \u2014 both reportedly under appeal. FCA temporary UK permission was cancelled Dec 2023, so IC Markets is not currently authorised to do regulated business in the UK despite historic name recognition there. ASIC and CySEC are the two solidly confirmed regulators; FSCA South Africa and SCB Bahamas status is disputed by third-party sources.",
+      "notes": "Rebranding from icmarkets.com to ic.com (domain migration completed 2026-07-11 — use the new domain). CySEC fined the EU entity twice: €200,000 for routing EU retail clients to an offshore entity offering up to 1000:1 leverage (circumventing the EU's 30:1 retail cap), and €50,000 for best-execution/cost-disclosure failures — both reportedly under appeal. FCA temporary UK permission was cancelled Dec 2023, so IC Markets is not currently authorised to do regulated business in the UK despite historic name recognition there. ASIC and CySEC are the two solidly confirmed regulators; FSCA South Africa and SCB Bahamas status is disputed by third-party sources.",
       "regulation": [
         "ASIC",
         "CySEC"
@@ -175,7 +175,7 @@
         "reviewCount": 54000,
         "url": "https://www.trustpilot.com/review/icmarkets.com",
         "asOf": "2026-07-10",
-        "note": "Via search snippets, not a live fetch (403). Domain migrating to ic.com on 2026-07-11 \u2014 re-check the URL after that date."
+        "note": "Via search snippets, not a live fetch (403). Domain migrating to ic.com on 2026-07-11 — re-check the URL after that date."
       },
       "secondaryReview": {
         "source": "ForexPeaceArmy",
@@ -183,7 +183,7 @@
         "reviewCount": null,
         "url": "https://www.forexpeacearmy.com/forex-reviews/8264/ic-markets-forex-brokers",
         "asOf": "2026-07-10",
-        "note": "FPA shows a qualitative ~80.6% positive figure, not a clean 0-5 rating \u2014 not converted to a star score to avoid a misleading number."
+        "note": "FPA shows a qualitative ~80.6% positive figure, not a clean 0-5 rating — not converted to a star score to avoid a misleading number."
       },
       "country": "Australia"
     },
@@ -195,7 +195,7 @@
       "affiliateUrl": "",
       "active": true,
       "personal": true,
-      "notes": "ASIC and CySEC licences confirmed directly on each regulator's own register. A 2014 ASIC court-enforceable undertaking over compliance-process gaps (resolved, historical) and a \u20ac100,000 CySEC settlement (Feb 2026) over a possible marketing-restriction breach. An unverified third-party source alleges an offshore SVG entity lets EEA clients bypass leverage caps and KYC timing. The site owner is an actual FP Markets account holder \u2014 cost figures reflect real personal experience, not just published rates.",
+      "notes": "ASIC and CySEC licences confirmed directly on each regulator's own register. A 2014 ASIC court-enforceable undertaking over compliance-process gaps (resolved, historical) and a €100,000 CySEC settlement (Feb 2026) over a possible marketing-restriction breach. An unverified third-party source alleges an offshore SVG entity lets EEA clients bypass leverage caps and KYC timing. The site owner is an actual FP Markets account holder — cost figures reflect real personal experience, not just published rates.",
       "regulation": [
         "ASIC",
         "CySEC"
@@ -267,7 +267,7 @@
         "reviewCount": 8000,
         "url": "https://www.trustpilot.com/review/fpmarkets.com",
         "asOf": "2026-07-10",
-        "note": "Review count is imprecise \u2014 sources ranged 6,000\u201310,000; blocked from a direct live fetch (403)."
+        "note": "Review count is imprecise — sources ranged 6,000–10,000; blocked from a direct live fetch (403)."
       },
       "country": "Australia"
     },
@@ -279,7 +279,7 @@
       "affiliateUrl": "/go/globalprime",
       "active": true,
       "personal": false,
-      "notes": "Regulated by ASIC via FMGP Trading Group Pty Ltd \u2014 the same licensed entity that also trades as Fusion Markets (same AFSL number, same ABN), not just a loosely-related sister company. No ASIC enforcement action found. News-trading and weekend-holding policy aren't explicitly stated by Global Prime; EA/algo and scalping are explicitly allowed. cTrader/TradingView availability is unclear \u2014 the official FAQ says 'coming soon,' which may be outdated.",
+      "notes": "Regulated by ASIC via FMGP Trading Group Pty Ltd — the same licensed entity that also trades as Fusion Markets (same AFSL number, same ABN), not just a loosely-related sister company. No ASIC enforcement action found. News-trading and weekend-holding policy aren't explicitly stated by Global Prime; EA/algo and scalping are explicitly allowed. cTrader/TradingView availability is unclear — the official FAQ says 'coming soon,' which may be outdated.",
       "regulation": [
         "ASIC"
       ],
@@ -369,7 +369,7 @@
       "affiliateUrl": "",
       "active": true,
       "personal": false,
-      "notes": "Regulated by ASIC via FMGP Trading Group Pty Ltd \u2014 the same licensed entity that also trades as Global Prime; both brands reportedly share the same liquidity provider. No ASIC enforcement action found. Alberta Securities Commission (Canada) lists Fusion on its Investment Caution List \u2014 a standard 'not registered in this province' notice, not a misconduct finding. A clone site impersonating the Fusion name was separately flagged by the UK FCA \u2014 unrelated to the real fusionmarkets.com.",
+      "notes": "Regulated by ASIC via FMGP Trading Group Pty Ltd — the same licensed entity that also trades as Global Prime; both brands reportedly share the same liquidity provider. No ASIC enforcement action found. Alberta Securities Commission (Canada) lists Fusion on its Investment Caution List — a standard 'not registered in this province' notice, not a misconduct finding. A clone site impersonating the Fusion name was separately flagged by the UK FCA — unrelated to the real fusionmarkets.com.",
       "regulation": [
         "ASIC"
       ],
@@ -451,7 +451,7 @@
       "affiliateUrl": "",
       "active": true,
       "personal": false,
-      "notes": "Sold its Australian (ASIC) entity to PU Prime in Dec 2024/Jan 2025 \u2014 no longer ASIC-regulated. Estonia's Finantsinspektsioon revoked the Estonian (EFSA) license in April 2026 at Admirals' own request, consolidating EU operations into the Cyprus entity \u2014 group HQ remains in Tallinn but the licensed EU entity is now Cyprus-based. Also regulated via FCA, JSC (Jordan), FSCA (South Africa), CMA (Kenya), and FSA (Seychelles). Recurring withdrawal complaints found in reviews (one citing ~$9,021 withheld) \u2014 no rebrand/exit-scam pattern, both changes are disclosed restructuring. PayPal is not supported. Despite some third-party claims, Admirals does not currently offer TradingView, cTrader, or Iress \u2014 only MT4, MT5, its own web platform, and a mobile app. One of the few brokers here where indices genuinely carry a small commission, not just a spread markup.",
+      "notes": "Sold its Australian (ASIC) entity to PU Prime in Dec 2024/Jan 2025 — no longer ASIC-regulated. Estonia's Finantsinspektsioon revoked the Estonian (EFSA) license in April 2026 at Admirals' own request, consolidating EU operations into the Cyprus entity — group HQ remains in Tallinn but the licensed EU entity is now Cyprus-based. Also regulated via FCA, JSC (Jordan), FSCA (South Africa), CMA (Kenya), and FSA (Seychelles). Recurring withdrawal complaints found in reviews (one citing ~$9,021 withheld) — no rebrand/exit-scam pattern, both changes are disclosed restructuring. PayPal is not supported. Despite some third-party claims, Admirals does not currently offer TradingView, cTrader, or Iress — only MT4, MT5, its own web platform, and a mobile app. One of the few brokers here where indices genuinely carry a small commission, not just a spread markup.",
       "regulation": [
         "FCA",
         "CySEC",
@@ -501,7 +501,7 @@
             "commission": 0.15
           },
           "forex": {
-            "spread": 0.0,
+            "spread": 0,
             "commission": 3
           },
           "gold": {
@@ -526,7 +526,7 @@
         "reviewCount": 2150,
         "url": "https://www.trustpilot.com/review/admiralmarkets.com",
         "asOf": "2026-07-10",
-        "note": "Blocked from direct live fetch (403); a separate unclaimed/unmanaged Trustpilot listing under a slightly different name also exists \u2014 don't conflate the two."
+        "note": "Blocked from direct live fetch (403); a separate unclaimed/unmanaged Trustpilot listing under a slightly different name also exists — don't conflate the two."
       },
       "country": "Estonia"
     },
@@ -538,7 +538,7 @@
       "affiliateUrl": "",
       "active": true,
       "personal": false,
-      "notes": "The FCA issued a warning (2026-04-02) that vantagemarkets.com 'is not authorised by us' and 'is not associated with the FCA authorised firm Vantage Global Prime LLP' \u2014 unresolved whether this is a clone-domain issue or a cross-border-solicitation notice, so FCA is deliberately excluded from the regulation list below pending clarity; only the ASIC/FSCA/CIMA/VFSC licenses are shown. ForexPeaceArmy reported (Dec 2024) a Vantage employee posting fake independent client endorsements \u2014 a real credibility issue, not an ordinary complaint. Rebranded from 'Vantage FX' to 'Vantage' in Nov 2021, a disclosed marketing rebrand tied to multi-asset expansion.",
+      "notes": "The FCA issued a warning (2026-04-02) that vantagemarkets.com 'is not authorised by us' and 'is not associated with the FCA authorised firm Vantage Global Prime LLP' — unresolved whether this is a clone-domain issue or a cross-border-solicitation notice, so FCA is deliberately excluded from the regulation list below pending clarity; only the ASIC/FSCA/CIMA/VFSC licenses are shown. ForexPeaceArmy reported (Dec 2024) a Vantage employee posting fake independent client endorsements — a real credibility issue, not an ordinary complaint. Rebranded from 'Vantage FX' to 'Vantage' in Nov 2021, a disclosed marketing rebrand tied to multi-asset expansion.",
       "regulation": [
         "ASIC",
         "FSCA",
@@ -590,12 +590,12 @@
             "commission": 3
           },
           "gold": {
-            "spread": 1.0,
+            "spread": 1,
             "commission": 3
           }
         }
       ],
-      "leverage": "Up to 1:30 retail (ASIC entity), 1:500 offshore (CIMA/VFSC entities) \u2014 some sources cite higher tiers, unconfirmed",
+      "leverage": "Up to 1:30 retail (ASIC entity), 1:500 offshore (CIMA/VFSC entities) — some sources cite higher tiers, unconfirmed",
       "depositMethods": [
         "card",
         "bank transfer",
@@ -610,7 +610,7 @@
         "reviewCount": 13400,
         "url": "https://www.trustpilot.com/review/vantagemarkets.com",
         "asOf": "2026-07-11",
-        "note": "Vantage's own press materials cite a lower, older count (~9,000) \u2014 use the live figure, not the press release."
+        "note": "Vantage's own press materials cite a lower, older count (~9,000) — use the live figure, not the press release."
       },
       "secondaryReview": {
         "source": "ForexPeaceArmy",
@@ -630,7 +630,7 @@
       "affiliateUrl": "",
       "active": true,
       "personal": false,
-      "notes": "Regulated by ASIC, FCA, and CySEC as primary entities, plus offshore entities in the Bahamas, Seychelles, and Mauritius. No regulatory fines or sanctions found. FCA issued a clone-firm warning against 'Eightcap VIP / eightcap.vip' impersonating the real, FCA-authorised Eightcap \u2014 a naming collision to watch for, unrelated to the genuine broker. Also offers TradeLocker alongside MT4/MT5/TradingView (no cTrader).",
+      "notes": "Regulated by ASIC, FCA, and CySEC as primary entities, plus offshore entities in the Bahamas, Seychelles, and Mauritius. No regulatory fines or sanctions found. FCA issued a clone-firm warning against 'Eightcap VIP / eightcap.vip' impersonating the real, FCA-authorised Eightcap — a naming collision to watch for, unrelated to the genuine broker. Also offers TradeLocker alongside MT4/MT5/TradingView (no cTrader).",
       "regulation": [
         "ASIC",
         "FCA",
@@ -658,11 +658,11 @@
         {
           "type": "Standard",
           "index": {
-            "spread": 4.0,
+            "spread": 4,
             "commission": 0
           },
           "forex": {
-            "spread": 1.0,
+            "spread": 1,
             "commission": 0
           },
           "gold": {
@@ -673,11 +673,11 @@
         {
           "type": "Raw",
           "index": {
-            "spread": 4.0,
+            "spread": 4,
             "commission": 0
           },
           "forex": {
-            "spread": 0.0,
+            "spread": 0,
             "commission": 3.5
           },
           "gold": {
@@ -722,7 +722,7 @@
       "affiliateUrl": "",
       "active": true,
       "personal": false,
-      "notes": "Regulated by FCA, CySEC, FSCA South Africa, FSA Seychelles, and Labuan FSA (Malaysia). No confirmed regulatory fines or sanctions in the 2024-2026 window. An older (~2020) Malaysia Securities Commission alert listing could not be found on the regulator's current live list \u2014 treat as resolved/historical. Scalping and hedging are explicitly permitted, with no time limit on how long positions can be held. Segregated funds and investor compensation confirmed (FSCS up to \u00a385,000 for UK clients, ICF up to \u20ac20,000 for EU clients).",
+      "notes": "Regulated by FCA, CySEC, FSCA South Africa, FSA Seychelles, and Labuan FSA (Malaysia). No confirmed regulatory fines or sanctions in the 2024-2026 window. An older (~2020) Malaysia Securities Commission alert listing could not be found on the regulator's current live list — treat as resolved/historical. Scalping and hedging are explicitly permitted, with no time limit on how long positions can be held. Segregated funds and investor compensation confirmed (FSCS up to £85,000 for UK clients, ICF up to €20,000 for EU clients).",
       "regulation": [
         "FCA",
         "CySEC",
@@ -791,7 +791,7 @@
       "trustScore": 7.5,
       "externalReview": {
         "source": "Trustpilot",
-        "rating": 4.0,
+        "rating": 4,
         "reviewCount": 1000,
         "url": "https://www.trustpilot.com/review/www.tickmill.com",
         "asOf": "2026-07-11",
