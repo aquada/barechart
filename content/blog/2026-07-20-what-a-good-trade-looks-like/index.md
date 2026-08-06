@@ -1,6 +1,6 @@
 ---
 title: "What a good trade looks like"
-date: 2026-08-17T08:00:00+02:00
+date: 2026-08-10T07:00:00+02:00
 draft: false
 description: "The GER40 open never behaves the same way twice, so discipline and patience mean waiting for price to make its move before taking one of your own."
 cover:
