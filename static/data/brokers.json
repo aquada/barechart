@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-04",
+  "lastUpdated": "2026-08-06",
   "brokers": [
     {
       "id": 1,
@@ -99,12 +99,12 @@
     {
       "id": 2,
       "name": "IC Markets",
-      "lastVerified": "2026-07-11",
+      "lastVerified": "2026-08-06",
       "website": "https://ic.com",
       "affiliateUrl": "",
       "active": true,
       "personal": false,
-      "notes": "Rebranding from icmarkets.com to ic.com (domain migration completed 2026-07-11 — use the new domain). CySEC fined the EU entity twice: €200,000 for routing EU retail clients to an offshore entity offering up to 1000:1 leverage (circumventing the EU's 30:1 retail cap), and €50,000 for best-execution/cost-disclosure failures — both reportedly under appeal. FCA temporary UK permission was cancelled Dec 2023, so IC Markets is not currently authorised to do regulated business in the UK despite historic name recognition there. ASIC and CySEC are the two solidly confirmed regulators; FSCA South Africa and SCB Bahamas status is disputed by third-party sources.",
+      "notes": "Rebranding from icmarkets.com to ic.com (domain migration completed 2026-07-11 — use the new domain). CySEC fined the EU entity twice: €200,000 for routing EU retail clients to an offshore entity offering up to 1000:1 leverage (circumventing the EU's 30:1 retail cap), and €50,000 for best-execution/cost-disclosure failures — both reportedly under appeal. FCA temporary UK permission was cancelled Dec 2023, so IC Markets is not currently authorised to do regulated business in the UK despite historic name recognition there. ASIC and CySEC are the two solidly confirmed regulators; FSCA South Africa and SCB Bahamas status is disputed by third-party sources. A 2025 pattern of Trustpilot and Forex Peace Army complaints describes frozen accounts and withdrawal delays — funds shown as 'approved' in the portal but not released, some cases dragging on for weeks. Not proof of misconduct on its own, but corroborated independently across multiple review sources rather than a handful of isolated posts, and consistent with the offshore-entity routing most non-Australian clients fall under.",
       "regulation": [
         "ASIC",
         "CySEC"
@@ -796,6 +796,164 @@
         "url": "https://www.trustpilot.com/review/www.tickmill.com",
         "asOf": "2026-07-11",
         "note": "Blocked from direct live fetch (403); figure corroborated by secondary sources only."
+      },
+      "country": "United Kingdom"
+    },
+    {
+      "id": 10,
+      "name": "Exness",
+      "lastVerified": "2026-08-06",
+      "website": "https://www.exness.com",
+      "affiliateUrl": "",
+      "active": true,
+      "personal": false,
+      "notes": "Regulated by CySEC (178/12), FSCA South Africa (FSP 51024), and FSA Seychelles (SD025) among others; its FCA licence (730729) is a B2B/institutional authorisation, not retail, and most retail clients — including SA and non-EU traders — are onboarded under the Seychelles or another offshore entity rather than CySEC/FSCA. Widely and repeatedly praised for fast, near-instant withdrawals, a genuine strength rather than just marketing copy. Index spread figures conflict sharply across sources: BrokerChooser measured US30 around 0.10 points during peak session overlap, while an older Finance Magnates hands-on test recorded 6-7 points on DAX/Dow — almost certainly off-peak widening, so treat any single quoted spread with caution. Exness's own 'Terminal' embeds TradingView's charting library for visuals, but that isn't genuine TradingView broker-side execution the way Pepperstone, IC Markets, and Fusion Markets offer it, so TradingView is marked unsupported here. Leverage is automatically capped (down to roughly 1:200) during high-impact news and over weekends rather than trading being restricted outright.",
+      "regulation": [
+        "FCA",
+        "CySEC",
+        "FSCA",
+        "FSA Seychelles",
+        "CBCS Curaçao",
+        "FSC Mauritius",
+        "CMA Kenya"
+      ],
+      "minDeposit": 10,
+      "executionType": "ECN/STP",
+      "mt4": true,
+      "mt5": true,
+      "ctrader": false,
+      "tradingview": false,
+      "eaAllowed": true,
+      "scalping": true,
+      "newsTrading": true,
+      "weekendHolding": true,
+      "segregatedFunds": true,
+      "instruments": [
+        "forex",
+        "indices",
+        "commodities",
+        "crypto",
+        "shares"
+      ],
+      "accounts": [
+        {
+          "type": "Standard",
+          "index": {
+            "spread": 1.5,
+            "commission": 0
+          },
+          "forex": {
+            "spread": 0.3,
+            "commission": 0
+          },
+          "gold": {
+            "spread": 0.35,
+            "commission": 0
+          }
+        },
+        {
+          "type": "Raw Spread",
+          "index": {
+            "spread": 0.1,
+            "commission": 0.31
+          },
+          "forex": {
+            "spread": 0,
+            "commission": 3.5
+          },
+          "gold": {
+            "spread": 0,
+            "commission": 3.5
+          }
+        }
+      ],
+      "leverage": "Up to 1:30 retail (CySEC/FSCA), up to 1:2000 offshore entities — automatically reduced around news events and over weekends",
+      "depositMethods": [
+        "card",
+        "bank transfer",
+        "Skrill",
+        "Neteller",
+        "crypto"
+      ],
+      "trustScore": 6,
+      "externalReview": {
+        "source": "Trustpilot",
+        "rating": 4.7,
+        "reviewCount": 26671,
+        "url": "https://www.trustpilot.com/review/exness.com",
+        "asOf": "2026-08-06",
+        "note": "Blocked from direct live fetch (403); figure from search aggregation — other sources cite anywhere from ~13,000 to ~30,000 reviews, so treat the count as approximate."
+      },
+      "country": "Cyprus"
+    },
+    {
+      "id": 11,
+      "name": "IG",
+      "lastVerified": "2026-08-06",
+      "website": "https://www.ig.com",
+      "affiliateUrl": "",
+      "active": true,
+      "personal": false,
+      "notes": "One of the longest-running names in the industry — FCA-regulated since 2001 (FRN 195355), publicly listed, operating since 1974 — but not a raw-ECN broker: IG deals as principal on a single spread-only CFD/spread-betting account rather than a commission-based raw-spread tier, so the cost figures here are flat spreads, not split across account types the way the ECN brokers on this list are. Minimum deposit (~£250/$300/€300) is notably higher than every other broker tracked here. IG closed its FSCA-regulated South African entity in mid-2025; South African clients are now onboarded via IG International Limited under the Bermuda Monetary Authority, a materially weaker protection regime than the FCA/ASIC entities most other clients use. No MT5 or cTrader — MT4 (EA-compatible) and TradingView (genuine trade execution, not just charting) are offered alongside IG's own award-winning platform.",
+      "regulation": [
+        "FCA",
+        "ASIC",
+        "DFSA",
+        "BaFin",
+        "MAS",
+        "FINMA",
+        "CFTC",
+        "BMA"
+      ],
+      "minDeposit": 250,
+      "executionType": "Market Maker",
+      "mt4": true,
+      "mt5": false,
+      "ctrader": false,
+      "tradingview": true,
+      "eaAllowed": true,
+      "scalping": true,
+      "newsTrading": true,
+      "weekendHolding": true,
+      "segregatedFunds": true,
+      "instruments": [
+        "forex",
+        "indices",
+        "commodities",
+        "crypto",
+        "shares"
+      ],
+      "accounts": [
+        {
+          "type": "CFD/Spread Bet",
+          "index": {
+            "spread": 2.4,
+            "commission": 0
+          },
+          "forex": {
+            "spread": 0.8,
+            "commission": 0
+          },
+          "gold": {
+            "spread": 0.3,
+            "commission": 0
+          }
+        }
+      ],
+      "leverage": "Up to 1:30 retail (FCA/ASIC), higher tiers available for elective professional clients (thresholds not independently confirmed)",
+      "depositMethods": [
+        "card",
+        "bank transfer",
+        "PayPal"
+      ],
+      "trustScore": 8,
+      "externalReview": {
+        "source": "Trustpilot",
+        "rating": 3.8,
+        "reviewCount": 9478,
+        "url": "https://uk.trustpilot.com/review/ig.com",
+        "asOf": "2026-08-06",
+        "note": "Blocked from direct live fetch (403); figure from search aggregation. Notably lower than the ECN brokers on this list (mid-3s vs high-4s) — roughly 56% 5-star vs 18% 1-star per aggregated snippets, a real customer-service split rather than a data error."
       },
       "country": "United Kingdom"
     }
