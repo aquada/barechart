@@ -1,14 +1,11 @@
 name: Scheduled Publish
 
-# Weekly rebuild so future-dated content (dated blog posts, and any
-# prop-firms/brokers data already reviewed and merged to main) goes live
-# without needing a manual push. Hugo excludes future-dated content by
-# default, so a post just sitting on main with a future `date` won't appear
-# until some build runs on or after that date — this is that build.
-#
-# Does NOT touch the prop-firms/brokers refresh PRs — those still open for
-# manual review (see prop-firms-refresh.yml / brokers-refresh.yml). This job
-# only rebuilds whatever is already on main.
+# Weekly rebuild so future-dated content (dated blog posts) goes live even on
+# a week with no other push. Hugo excludes future-dated content by default,
+# so a post sitting on main with a future `date` won't appear until some
+# build runs on or after that date — this is that build. Netlify also
+# deploys on every push to main directly, so this job only matters when a
+# post's date crosses into the past with no push happening that day.
 
 on:
   schedule:

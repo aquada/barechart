@@ -6,7 +6,7 @@ Source for [barechart.com](https://barechart.com) — a Hugo static site coverin
 
 - **Hugo** (extended, v0.162.1 — see `netlify.toml`) with the [PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme as a git submodule under `themes/PaperMod`.
 - **Netlify** for hosting/deploys. `netlify.toml` runs `hugo --gc --minify` and publishes `public/` (gitignored, not committed).
-- No JS build step and no `package.json` — everything is plain Hugo templates/content, and the automation scripts under `scripts/` use only Node's built-in `fetch`.
+- No JS build step and no `package.json` — everything is plain Hugo templates/content.
 
 ## Local development
 
@@ -29,16 +29,11 @@ hugo server -D --baseURL http://localhost:1313/
 - `content/tools/` — affiliate write-ups for third-party trading tools.
 - `content/shop/`, `content/services/` — commercial pages.
 
-## Automated data refresh
+## Data refresh and content research
 
-`static/data/propfirms.json` and `static/data/brokers.json` are re-verified monthly against live sources via the Claude API:
+`static/data/propfirms.json` and `static/data/brokers.json` need periodic re-verification against live sources, and the weekly blog cadence includes research-driven posts (market reviews, tool comparisons). This is done live in a Claude Code session rather than via a scheduled headless API job — there's no `ANTHROPIC_API_KEY`-driven automation in this repo. (An earlier version of this repo had one; it was removed 2026-08-10 since it required separate pay-as-you-go Anthropic Console billing on top of a Claude subscription plan.)
 
-- `.github/workflows/prop-firms-refresh.yml` — 1st of the month, 00:00 UTC
-- `.github/workflows/brokers-refresh.yml` — 2nd of the month, 00:00 UTC (staggered so the two don't run concurrently)
-
-Both call `scripts/refresh-propfirms.mjs` / `scripts/refresh-brokers.mjs`, which need an `ANTHROPIC_API_KEY` repo secret. Each run opens a PR against the relevant JSON file rather than committing straight to `main` — **the diff should be reviewed before merging**, since this is financial/affiliate content.
-
-`.github/workflows/scheduled-publish.yml` runs weekly (Monday 06:00 UTC) and triggers a Netlify rebuild via a `NETLIFY_BUILD_HOOK` repo secret, so future-dated blog posts and anything merged from the refresh PRs above go live without a manual `git push`.
+`.github/workflows/scheduled-publish.yml` runs weekly (Monday 06:00 UTC) and triggers a Netlify rebuild via a `NETLIFY_BUILD_HOOK` repo secret, so future-dated blog posts go live even on a week with no other push. In practice, pushing to `main` also deploys immediately via Netlify's own GitHub integration — this job only matters for a post whose `date` crosses into the past with no push happening that day.
 
 ## Deployment
 
