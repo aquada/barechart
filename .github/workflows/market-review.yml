@@ -1,0 +1,55 @@
+name: Weekly Market Review
+
+# Auto-publishes a Monday "week ahead" market review post — DAX/Dow/Nasdaq in
+# focus, shorter summaries for S&P 500/UK100/Gold/EURUSD. Unlike the
+# prop-firms/brokers refresh jobs, this commits and pushes straight to main
+# with no PR/human review step — an explicit, discussed choice (Dan confirmed
+# 2026-08-06 after being told this is the one automation on the site that
+# publishes an unreviewed market call under BareChart's name every week). The
+# guardrail he did ask for: if scripts/generate-market-review.mjs can't get
+# clean, current data for the three in-focus instruments, it exits non-zero
+# and this job fails loudly rather than publishing a guess — check the
+# Actions tab if a Monday post doesn't appear.
+
+on:
+  schedule:
+    - cron: '0 5 * * 1' # every Monday, 05:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate market review
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-market-review.mjs
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.162.1'
+          extended: true
+
+      - name: Build site (validation only)
+        run: hugo --minify --destination /tmp/marketreviewcheck
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/blog/
+          if git diff --cached --quiet; then
+            echo "No new content to publish."
+            exit 0
+          fi
+          git commit -m "Weekly market review ($(date -u +%Y-%m-%d))"
+          git push origin HEAD:main
