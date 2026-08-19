@@ -18,7 +18,7 @@ Open two charts side by side, one bare, one carrying a stack of moving averages,
 
 Trading price action means reading the candles, swings, and levels directly, without translating any of it through a calculated indicator first. A price action trader looks at a chart and sees a swing high failing to break, a range compressing before a move, a rejection wick at a level that's held twice before, and treats those raw shapes as the signal itself. Nothing on the chart is derived, it's what happened, in the order it happened.
 
-*Example: a trader watching GER40 sees three lower highs into a resistance zone and treats that shrinking momentum as the setup, no RSI or MACD required to reach the same conclusion.*
+*Example: a trader watching GER40 sees three straight rallies stall out at the same resistance zone, each one weaker and quicker to fade than the last, and treats that shrinking momentum as the setup, no RSI or MACD required to reach the same conclusion.*
 
 ---
 
