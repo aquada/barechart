@@ -30,7 +30,7 @@ Higher and lower timeframes will disagree constantly, and that's expected rather
 
 ## A practical habit
 
-Before looking for an entry, it helps to be able to state the higher-timeframe bias in one sentence, uptrend, downtrend, or range, and which zone you're waiting for price to reach. Everything on the lower timeframe after that is about timing the entry within that already-decided plan, not re-deciding the plan candle by candle. If the lower timeframe keeps producing signals that contradict the stated bias, that's usually a sign to step back up a timeframe and check whether the bias itself has actually changed, rather than a reason to keep lowering the timeframe until something agrees with you.
+Before looking for an entry, it helps to be able to state the higher-timeframe bias in one sentence, uptrend, downtrend, or range, and which zone you're waiting for price to reach. Everything on the lower timeframe after that is about timing the entry within that already-decided plan, not re-deciding the plan candle by candle. If the lower timeframe keeps producing signals that contradict the stated bias, that's usually a sign to step back up a timeframe and check whether the bias itself has changed, not a reason to keep lowering the timeframe until something agrees with you.
 
 ---
 
@@ -39,7 +39,7 @@ Before looking for an entry, it helps to be able to state the higher-timeframe b
 - Use a higher timeframe to set bias and direction, and a lower timeframe to time the entry within that bias
 - A common split is roughly three tiers, higher for bias, middle for zones, lower for entry, though exact multiples matter less than the hierarchy
 - Disagreement between timeframes is normal, the goal is knowing which one you're trusting for which decision
-- State the higher-timeframe bias and target zone before looking for an entry, rather than deciding it candle by candle
+- State the higher-timeframe bias and target zone before looking for an entry, instead of deciding it candle by candle
 - Repeated contradicting signals on a lower timeframe are a reason to check the higher-timeframe bias, not to keep dropping down until one agrees
 
 ---

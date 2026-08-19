@@ -16,7 +16,7 @@ Leverage lets you control a much larger position than the cash you've actually p
 
 ## How it works
 
-{{< figure src="leverage.png" caption="The margin you put up (orange) is a small fraction of the full position size you control (blue outline)." >}}
+{{< figure src="leverage.png" caption="The margin you put up (red) is a small fraction of the full position size you control (teal outline)." >}}
 
 At 1:100 leverage, £100 of margin controls a £10,000 position, so a 1% move in your favour on the full position size hands back a 100% return on the margin you committed. The reverse holds just as tightly: a 1% move against you wipes out that same £100 completely, which is the whole point to understand here, leverage doesn't change the underlying market at all, it only changes how much of your own capital is standing in front of a given move.
 

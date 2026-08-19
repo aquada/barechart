@@ -24,7 +24,7 @@ A few others follow the same pattern. **MACD** is really two moving averages set
 
 I read price action first and lean on one indicator to back it up: **[eWavesHarmonics](/tools/)**, which handles wave counting and target price zones, and also marks fib levels, gaps, and supply and demand zones on the same chart, so I'm not juggling four separate indicators to get the same picture. It's built the same way as everything above, existing price run through a formula, it's just the particular transformation I've found useful for my own setups.
 
-## Where they genuinely help
+## Where they help
 
 Indicators are good at making a pattern easier to see than the raw candles alone would, and at giving a consistent, repeatable rule instead of an eyeballed judgement call. A moving average crossing from below to above price can flag a shift in short-term momentum faster than staring at candle colours would, and RSI holding above 70 for an extended stretch is a decent shorthand for "this move has been one-sided for a while." Used this way, an indicator adds a layer of confirmation on top of what the chart is already showing.
 
@@ -32,7 +32,7 @@ Indicators are good at making a pattern easier to see than the raw candles alone
 
 Because every indicator lags the closes it's built from, it will always confirm a move after it's underway rather than before, and trading purely off an indicator crossing a threshold means reacting to old information dressed up as a signal. Stacking several indicators built from the same price data doesn't add independent confirmation either, it just repeats the same signal in different clothing. The more useful habit is reading price action first and letting an indicator support that read, rather than the other way around.
 
-*Example: a moving average crossover flags a new uptrend just as price is already three candles into a pullback, because the average needed those candles to catch up. Anyone reading price action directly would have seen the pullback starting well before the crossover confirmed it.*
+*Example: a moving average crossover flags a new uptrend just as price is already three candles into the new move, because the average needed those candles to catch up. Anyone reading price action directly would have seen the shift starting well before the crossover confirmed it.*
 
 ---
 
@@ -42,7 +42,7 @@ Because every indicator lags the closes it's built from, it will always confirm 
 - Moving averages smooth price into a lagging line; oscillators like RSI turn recent gains and losses into a bounded, readable number
 - MACD, Bollinger Bands, ATR, and Stochastic all do the same trick with a different formula: two averages compared, a volatility band, pure movement, or the close against its recent range
 - I keep eWavesHarmonics on my own charts for wave counting, target zones, fib levels, gaps, and supply and demand zones, but it's still just price, transformed
-- Indicators are genuinely useful for confirmation and consistency, spotting what the eye might miss
+- Indicators are useful for confirmation and consistency, spotting what the eye might miss
 - They always lag, because they're built from closes that have already happened
 - Stacking multiple indicators built from the same price data isn't extra confirmation, it's repetition
 - Read price action first and use an indicator to support that read, not replace it

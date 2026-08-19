@@ -36,7 +36,7 @@ A genuine breakout holds. Price clears the level, closes beyond it, and follows 
 
 ## What this changes about your own stops
 
-Placing a stop exactly at the obvious level, the same swing high or low everyone else can see, puts it right inside the zone most likely to get run before the real move happens. Giving it a bit of room beyond the level, enough to sit outside the immediate liquidity pool, reduces the odds of getting caught in a hunt that reverses in your favour a few candles later. Some traders go further and use the hunt-and-reverse pattern itself as an entry signal, waiting for the wick-and-rejection at an obvious level rather than trying to avoid it entirely.
+Placing a stop right at the obvious level, the same swing high or low everyone else can see, puts it right inside the zone most likely to get run before the real move happens. Giving it a bit of room beyond the level, enough to sit outside the immediate liquidity pool, reduces the odds of getting caught in a hunt that reverses in your favour a few candles later. Some traders go further and use the hunt-and-reverse pattern itself as an entry signal, waiting for the wick-and-rejection at an obvious level instead of just avoiding it.
 
 ---
 

@@ -12,7 +12,7 @@ related: ["what-are-markets", "types-of-markets"]
 
 Nobody controls a market the way a hand controls a wheel, but a small number of participants lean on it far harder than everyone else combined, and knowing who they are beats assuming price just wanders around at random.
 
-{{< figure src="influence.png" caption="A small number of central banks at the top, down to the many retail traders at the bottom — fewer participants with outsized influence, versus many with individually small influence." >}}
+{{< figure src="influence.png" caption="A small number of central banks at the top, down to the many retail traders at the bottom, fewer participants with outsized influence, versus many with individually small influence." >}}
 
 ---
 

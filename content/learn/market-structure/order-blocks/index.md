@@ -26,7 +26,7 @@ A bullish order block is the last down candle (or last down-closing candle) befo
 
 ## Why price returns to test it
 
-The common explanation is that the candle marks a spot where orders were left unfilled: buyers who wanted in got skipped over as the market moved away too quickly, and price eventually drifts back to let them fill. Whether that's a precise description of what's happening under the hood, or just a decent enough model for something more complicated, is genuinely hard to say with certainty. What's easier to say is that the zone tends to get revisited often enough to earn a mark on the chart.
+The common explanation is that the candle marks a spot where orders were left unfilled: buyers who wanted in got skipped over as the market moved away too quickly, and price eventually drifts back to let them fill. Whether that's a precise description of what's happening under the hood, or just a decent enough model for something more complicated, is hard to say with certainty. What's easier to say is that the zone tends to get revisited often enough to earn a mark on the chart.
 
 ---
 

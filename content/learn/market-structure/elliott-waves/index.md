@@ -32,7 +32,7 @@ Elliott practitioners lean heavily on Fibonacci ratios to judge whether a wave c
 
 ## The overfitting problem
 
-In real time, on the right-hand edge of the chart, there is very rarely one obvious wave count. Two experienced Elliott traders can look at the same chart and land on different labels, both defensible, and the count that eventually turns out to be "correct" is often only obvious after the fact. It's easy to fall into forcing a chart to match a preferred narrative rather than letting the chart tell you what it's actually doing, relabelling waves after the event to make a broken count look right in hindsight.
+In real time, on the right-hand edge of the chart, there is very rarely one obvious wave count. Two experienced Elliott traders can look at the same chart and land on different labels, both defensible, and the count that eventually turns out to be "correct" is often only obvious after the fact. It's easy to fall into forcing a chart to match a preferred narrative instead of letting the chart tell you what it's doing, relabelling waves after the event to make a broken count look right in hindsight.
 
 The more useful way to hold this theory is as a rough map of where price might sit within a bigger structure, not a standalone entry signal. Used alongside the more concrete tools already covered in this section, structure, zones, fair value gaps, it can add context for how far a move might still have to run. Used on its own as the whole basis for a trade, it's asking more certainty of the count than the count can honestly give.
 
@@ -43,7 +43,7 @@ The more useful way to hold this theory is as a rough map of where price might s
 - The core rhythm is five waves with the trend (1-2-3-4-5), then three waves against it (A-B-C)
 - Wave 2 can't retrace past the start of wave 1, wave 3 is never the shortest impulse wave, and wave 4 shouldn't overlap wave 1
 - Fibonacci ratios (around 50-61.8% for wave 2, 1.618x for wave 3 extensions) are common tendencies, not guarantees
-- Real-time wave counts are often genuinely ambiguous, and relabelling after the fact to fit a preferred story is the main trap
+- Real-time wave counts are often ambiguous, and relabelling after the fact to fit a preferred story is the main trap
 - Best used as context for a bigger structure, not as a signal to trade on by itself
 
 ---

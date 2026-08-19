@@ -22,13 +22,13 @@ Currencies traded against each other: EURUSD, GBPUSD, USDJPY, and so on. Forex i
 
 ## Indices
 
-An index, GER40, US500, NASD, tracks a basket of company shares rather than any single one, so it moves on broad economic sentiment rather than any individual company's news. Indices tend to have clear, well-defined session opens tied to their underlying stock exchange's trading hours, which is why the open of a session so often produces the sharpest moves of the day.
+An index, GER40, US500, NAS100, tracks a basket of company shares rather than any single one, so it moves on broad economic sentiment rather than any individual company's news. Indices tend to have clear, well-defined session opens tied to their underlying stock exchange's trading hours, which is why the open of a session so often produces the sharpest moves of the day.
 
 ---
 
 ## Commodities
 
-Gold, oil, and agricultural products fall under commodities, priced on genuine supply and demand for a physical good, with gold carrying the added weight of being a store of value in its own right. Commodities can be more sensitive to geopolitical events and supply shocks than other market types, because a war or a shipping disruption can genuinely change how much of something exists to sell.
+Gold, oil, and agricultural products fall under commodities, priced on genuine supply and demand for a physical good, with gold carrying the added weight of being a store of value in its own right. Commodities can be more sensitive to geopolitical events and supply shocks than other market types, because a war or a shipping disruption can quickly change how much of something exists to sell.
 
 ---
 

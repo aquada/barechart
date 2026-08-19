@@ -20,7 +20,7 @@ A market rarely goes straight from one trend into the next. Most of the time it 
 
 Accumulation is a range that forms after a decline, price going sideways rather than continuing to fall, while larger participants build a position without pushing the price away from itself in the process. Markup is what follows once that buying pressure finally tips the balance, the range resolves upward, and the trend everyone associates with a "market going up" begins.
 
-Distribution is the same idea inverted, sitting at the top of a rally instead of the bottom, a range where the position built during the uptrend gets offloaded gradually rather than dumped all at once. Markdown is the decline that follows once selling finally overwhelms what demand is left. Then the cycle repeats, markdown eventually slowing back into another accumulation range.
+Distribution is the same idea inverted, sitting at the top of a rally instead of the bottom, a range where the position built during the uptrend gets offloaded gradually, not dumped all at once. Markdown is the decline that follows once selling finally overwhelms what demand is left. Then the cycle repeats, markdown eventually slowing back into another accumulation range.
 
 ---
 
@@ -42,9 +42,9 @@ Even with that limitation, thinking in terms of accumulation and distribution ch
 
 - Wyckoff's cycle: accumulation, markup, distribution, markdown, then back to accumulation
 - Accumulation is a base built after a decline; distribution is the mirror image built after a rally
-- Neither phase can be confirmed with certainty until the range actually resolves and holds on the retest
+- Neither phase can be confirmed with certainty until the range resolves and holds on the retest
 - A break out of a well-formed range tends to carry more weight than a sharp move with no base behind it
-- Watch ranges as preparation, not dead time, but confirm the phase with the breakout rather than the shape
+- Watch ranges as preparation, not dead time, but confirm the phase with the breakout, not the shape
 
 ---
 

@@ -68,7 +68,7 @@ The previous candle touches the level, then the next candle completely engulfs i
 **Candle gap at the level**
 Occasionally price gaps open exactly at the zone top, midpoint, or bottom, which is two forms of imbalance aligning at the same area, and when it occurs it adds weight to the zone.
 
-These setups are not named to make them sound more significant than they are. A pin bar at an FVG level in empty air is not a compelling trade, but the same setup at an FVG that also sits at a previous support level, a session open, or a higher timeframe target is a different proposition entirely.
+These setups are not named to make them sound more significant than they are. A pin bar at an FVG level in empty air is not a compelling trade, but the same setup at an FVG that also sits at a previous support level, a session open, or a higher timeframe target is a different proposition.
 
 ---
 

@@ -16,7 +16,7 @@ A broker is the middleman standing between you and the market, and the spread, t
 
 ## What a spread is
 
-{{< figure src="spread.png" caption="The ask (blue) sits above the bid (orange). The gap between them is the spread." >}}
+{{< figure src="spread.png" caption="The ask (teal) sits above the bid (red). The gap between them is the spread." >}}
 
 Every instrument shows a bid price and an ask price side by side, and the ask always sits a little above the bid. That gap is the spread, and it means a position starts life slightly in the red, before price has moved at all, because you buy at the higher ask and would have to sell back at the lower bid. A tighter spread means less ground price has to make up before a trade is in profit.
 

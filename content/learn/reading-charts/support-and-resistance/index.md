@@ -34,7 +34,7 @@ Watch a level long enough and you'll see this happen: once it breaks and price c
 
 ## Levels get used up, or they don't
 
-More touches on a level can mean two opposite things, and that's the part worth sitting with for a moment. It can mean the level is well defended, tested and holding each time, or it can mean the level is running out of orders to absorb and the next test is the one that finally breaks it. Counting touches alone won't tell you which. What matters more is how price behaves on the approach, whether it's slowing down and showing rejection or arriving with momentum and barely pausing. The same "look for a setup" logic from [Candlestick Patterns](/learn/reading-charts/candlestick-patterns/) and [Fair Value Gaps](/learn/market-structure/fair-value-gaps/) applies here too.
+More touches on a level can mean two opposite things, and that's the part to think through carefully. It can mean the level is well defended, tested and holding each time, or it can mean the level is running out of orders to absorb and the next test is the one that finally breaks it. Counting touches alone won't tell you which. What matters more is how price behaves on the approach, whether it's slowing down and showing rejection or arriving with momentum and barely pausing. The same "look for a setup" logic from [Candlestick Patterns](/learn/reading-charts/candlestick-patterns/) and [Fair Value Gaps](/learn/market-structure/fair-value-gaps/) applies here too.
 
 ---
 

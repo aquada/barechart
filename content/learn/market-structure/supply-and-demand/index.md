@@ -10,7 +10,7 @@ tags: ["market structure", "supply and demand", "zones", "price action"]
 related: ["order-blocks", "supply-demand-flips", "what-is-market-structure"]
 ---
 
-Before price can make an impulsive move in one direction, it usually spends time resting somewhere first, a stretch of chop where buyers and sellers are roughly matched, and that resting spot is what a supply or demand zone actually marks. It's a close cousin of the [order block](/learn/market-structure/order-blocks/), covering the same underlying idea, but drawn around the whole base rather than a single candle.
+Before price can make an impulsive move in one direction, it usually spends time resting somewhere first, a stretch of chop where buyers and sellers are roughly matched, and that resting spot is what a supply or demand zone marks. It's a close cousin of the [order block](/learn/market-structure/order-blocks/), covering the same underlying idea, but drawn around the whole base rather than a single candle.
 
 ---
 
@@ -20,7 +20,7 @@ Before price can make an impulsive move in one direction, it usually spends time
 
 A demand zone is a base that price rallies away from, and the read is that buyers were accumulating there faster than sellers could absorb it, until the imbalance tipped and the market moved. A supply zone is the mirror image, a base that price falls away from, sellers building up until they overwhelmed the buyers holding the level.
 
-The strength of the move away from the zone matters more than how the zone itself looks. A slow grind up out of a base isn't nearly as telling as a sharp, wide-ranging rally that leaves the base behind in a handful of candles, since that speed is the evidence an imbalance was actually there.
+The strength of the move away from the zone matters more than how the zone itself looks. A slow grind up out of a base isn't nearly as telling as a sharp, wide-ranging rally that leaves the base behind in a handful of candles, since that speed is the evidence an imbalance was there.
 
 ---
 
@@ -32,7 +32,7 @@ An order block is the last single candle against the move, a narrow, precise def
 
 ## Fresh zones over tested ones
 
-A zone that hasn't been revisited since it formed is considered fresh, and it tends to react more reliably than one price has already returned to once or twice. The common explanation is that the first visit uses up whatever unfilled orders were left behind, so each additional test has less behind it, and while that's a model rather than a proven mechanism, it holds up often enough in practice to treat a fresh zone with more weight than a tested one.
+A zone that hasn't been revisited since it formed is considered fresh, and it tends to react more reliably than one price has already returned to once or twice. The common explanation is that the first visit uses up whatever unfilled orders were left behind, so each additional test has less behind it, and while that's a model, not a proven mechanism, it holds up often enough in practice to treat a fresh zone with more weight than a tested one.
 
 ---
 
@@ -46,7 +46,7 @@ A zone sitting in open space, with nothing else around it, is a level to watch r
 
 - A demand zone is the base price rallies away from; a supply zone is the base it falls away from
 - The strength of the move away from the base is the real evidence, not the shape of the base itself
-- Zones are broader than order blocks, covering the whole consolidation rather than one candle
+- Zones are broader than order blocks, covering the whole consolidation instead of one candle
 - Fresh, untested zones tend to react more reliably than zones price has already revisited
 - A zone alone is a level to watch; a zone with confluence is a level to trade
 
