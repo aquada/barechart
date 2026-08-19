@@ -3,6 +3,10 @@ title: "Week ahead: DAX, Dow, and Nasdaq stall as bond yields spike"
 date: 2026-08-19T10:00:00+02:00
 draft: false
 description: "DAX, Dow, and Nasdaq are all pulling back from record highs as a surge in long-dated bond yields and rising oil prices hit stocks together, with today's FOMC minutes and a wave of retail earnings the week's real tests."
+cover:
+  image: "pullback-from-highs.png"
+  alt: "Bar chart showing DAX, Dow, and Nasdaq percentage pullback from this week's highs to Tuesday's close: Nasdaq -1.9%, DAX -0.9%, Dow -0.7%"
+  caption: "Nasdaq's chip-led slide has cost it more than double the DAX or Dow's pullback from Thursday and Friday's records"
 categories: ["Market Review"]
 tags: ["DAX", "Dow", "Nasdaq", "week ahead"]
 ---
